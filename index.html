@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sigurður G. Hjálmarsson</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-sec: #f5f5f3;
+      --text: #1a1a18;
+      --text-sec: #5a5a56;
+      --text-ter: #9a9a94;
+      --border: rgba(0,0,0,0.12);
+      --border-med: rgba(0,0,0,0.22);
+      --blue: #185FA5;
+      --blue-light: #E6F1FB;
+      --blue-text: #0C447C;
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1a;
+        --bg-sec: #252523;
+        --text: #f0ede8;
+        --text-sec: #a8a8a0;
+        --text-ter: #66665e;
+        --border: rgba(255,255,255,0.1);
+        --border-med: rgba(255,255,255,0.2);
+        --blue: #378ADD;
+        --blue-light: #042C53;
+        --blue-text: #85B7EB;
+      }
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .portfolio {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Language toggle */
+    .lang-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 2rem;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border-med);
+      border-radius: var(--radius);
+      padding: 6px 18px;
+      font-size: 12px;
+      font-family: inherit;
+      color: var(--text-sec);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover {
+      background: var(--bg-sec);
+      color: var(--text);
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--blue-light);
+      flex-shrink: 0;
+      letter-spacing: 0.03em;
+    }
+    /* If you have a photo, replace the avatar div with:
+       <img src="photo.jpg" class="avatar" style="object-fit:cover;" alt="Sigurður G. Hjálmarsson"> */
+    .header-info h1 {
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .header-info .role {
+      font-size: 14px;
+      color: var(--text-sec);
+      margin-top: 4px;
+      font-style: italic;
+    }
+    .contacts {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .contacts a {
+      font-size: 13px;
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .contacts a:hover { text-decoration: underline; }
+
+    /* About */
+    .about {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-sec);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Two-column grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+    }
+
+    @media (max-width: 620px) {
+      .grid { grid-template-columns: 1fr; gap: 0; }
+      header { flex-direction: column; align-items: flex-start; }
+      .portfolio { padding: 2rem 1.2rem; }
+    }
+
+    /* Sections */
+    section { margin-bottom: 2rem; }
+
+    h2 {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-ter);
+      margin-bottom: 1rem;
+      font-family: 'Georgia', serif;
+    }
+
+    /* Education */
+    .edu-item { margin-bottom: 1.1rem; }
+    .edu-item strong { font-size: 13px; font-weight: 600; font-family: sans-serif; }
+    .edu-degree { font-size: 12px; color: var(--text-sec); margin-top: 1px; font-style: italic; }
+    .edu-year { font-size: 11px; color: var(--text-ter); margin-top: 1px; }
+
+    /* Skills */
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-tag {
+      background: var(--bg-sec);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 3px 10px;
+      font-size: 12px;
+      color: var(--text);
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Strengths */
+    .list-plain { list-style: none; }
+    .list-plain li {
+      font-size: 13px;
+      color: var(--text-sec);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .list-plain li:last-child { border-bottom: none; }
+
+    /* Small text */
+    .small-text { font-size: 13px; color: var(--text-sec); line-height: 1.7; }
+
+    /* Jobs */
+    .job { margin-bottom: 1.6rem; }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .job-company { font-weight: 600; font-size: 14px; font-family: sans-serif; }
+    .job-period { font-size: 11px; color: var(--text-ter); }
+    .job-role { font-size: 13px; color: var(--text-sec); margin: 2px 0 5px; font-style: italic; }
+    .job ul { padding-left: 1.2rem; margin-top: 4px; }
+    .job li { font-size: 13px; color: var(--text-sec); line-height: 1.6; }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-ter);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+<div class="portfolio">
+
+  <div class="lang-bar">
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">Íslenska</button>
+  </div>
+
+  <header>
+    <div class="avatar">SGH</div>
+    <div class="header-info">
+      <h1>Sigurður G. Hjálmarsson</h1>
+      <div class="role" id="h-role">Senior Service Delivery Engineer</div>
+      <div class="contacts">
+        <a href="tel:+3546987372">+354 698 7372</a>
+        <a href="mailto:siggigr@gmail.com">siggigr@gmail.com</a>
+      </div>
+    </div>
+  </header>
+
+  <p class="about" id="about"></p>
+
+  <div class="grid">
+    <div class="left-col">
+
+      <section>
+        <h2 id="lbl-edu"></h2>
+        <div class="edu-item">
+          <strong>Reykjavík University</strong>
+          <div class="edu-degree" id="edu-ru"></div>
+          <div class="edu-year">2005–2009</div>
+        </div>
+        <div class="edu-item">
+          <strong>Icelandic Flight School</strong>
+          <div class="edu-degree" id="edu-fs1"></div>
+          <div class="edu-year">1998</div>
+        </div>
+        <div class="edu-item">
+          <strong>Icelandic Flight School</strong>
+          <div class="edu-degree" id="edu-fs2"></div>
+          <div class="edu-year">1997</div>
+        </div>
+        <div class="edu-item">
+          <strong>Framhaldsskólinn í Vestmannaeyjum</strong>
+          <div class="edu-degree" id="edu-fv"></div>
+          <div class="edu-year">1991–1995</div>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="lbl-skills"></h2>
+        <div class="skills-grid">
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">SQL Developer</span>
+          <span class="skill-tag">IntelliJ IDEA</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">Copilot</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Windows</span>
+          <span class="skill-tag">Microsoft 365</span>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="lbl-lang"></h2>
+        <p class="small-text" id="languages"></p>
+      </section>
+
+      <section>
+        <h2 id="lbl-strengths"></h2>
+        <ul class="list-plain" id="strengths-list"></ul>
+      </section>
+
+      <section>
+        <h2 id="lbl-interests"></h2>
+        <p class="small-text" id="interests"></p>
+      </section>
+
+    </div>
+
+    <div class="right-col">
+      <section>
+        <h2 id="lbl-exp"></h2>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">Sabre Corporation</span>
+            <span class="job-period">2016–present</span>
+          </div>
+          <div class="job-role" id="sabre-r1"></div>
+          <div class="job-role" id="sabre-r2"></div>
+          <ul id="sabre-ul"></ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">Tern Systems</span>
+            <span class="job-period">2007–2016</span>
+          </div>
+          <div class="job-role" id="tern-role"></div>
+          <ul id="tern-ul"></ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">Nanoq & Útilíf</span>
+            <span class="job-period">2001–2007</span>
+          </div>
+          <div class="job-role" id="nanoq-role"></div>
+          <ul id="nanoq-ul"></ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">Landsflug / Flugfélag Vestmannaeyja</span>
+            <span class="job-period">2001–2005</span>
+          </div>
+          <div class="job-role" id="pilot-roles"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer id="footer-text"></footer>
+
+</div>
+
+<script>
+  const content = {
+    en: {
+      btnLabel: "Íslenska",
+      lang: "en",
+      role: "Senior Service Delivery Engineer",
+      about: "Experienced and motivated software developer with over 20 years in the software industry, combining 14 years in testing with 6 years in development. This background enables me to deliver high-quality, reliable solutions with a structured approach and a focus on modern technologies.",
+      edu: "Education",
+      eduRU: "B.Sc. in Computer Science",
+      eduFS1: "ATPL First Class",
+      eduFS2: "Commercial Pilot License with Instrument Rating",
+      eduFV: "Secondary School Diploma, natural science program",
+      skills: "Technical skills",
+      lang_lbl: "Languages",
+      languages: "Icelandic (native) · English (fluent)",
+      strengths: "Core strengths",
+      strengthsList: [
+        "Strong communication and teamwork skills",
+        "Attention to detail in development and testing",
+        "Persistence in problem-solving",
+        "Reliable and accountable",
+        "Service-minded attitude"
+      ],
+      interests: "Interests",
+      interestsText: "Computing, literature, aviation & aircraft, outdoor activities.",
+      exp: "Experience",
+      sabreR1: "Senior Service Delivery Engineer (2020 – present)",
+      sabreR2: "Senior Software Engineer in Test (2016 – 2020)",
+      sabreItems: [
+        "Development and maintenance of solutions for airlines",
+        "Java development for automated testing"
+      ],
+      ternRole: "Test Engineer",
+      ternItems: [
+        "Designed and implemented testing for various systems",
+        "Led and managed testing activities"
+      ],
+      nanoqRole: "Sales Associate, Outdoor Department",
+      nanoqItems: ["Assistant Store Manager (Autumn 2004)"],
+      pilotRoles: "Captain (2001–2002) · First Officer (2005)",
+      footer: "Sigurður G. Hjálmarsson · Reykjavík, Iceland"
+    },
+    is: {
+      btnLabel: "English",
+      lang: "is",
+      role: "Sérfræðingur í þjónustuafhendingu",
+      about: "Reyndur og metnaðarfullur forritari með yfir 20 ára reynslu í hugbúnaðargeiranum. Ég sameina 14 ára sérþekkingu í prófunum og 6 ára reynslu í þróun, sem gerir mér kleift að skila vönduðum og áreiðanlegum lausnum með faglegum vinnubrögðum og áherslu á nýjustu tækni.",
+      edu: "Menntun",
+      eduRU: "B.Sc. í tölvunarfræði",
+      eduFS1: "ATPL fyrsta flokks",
+      eduFS2: "Flugmannsréttindi með blindflugsáritun",
+      eduFV: "Stúdentspróf af náttúrufræðibraut",
+      skills: "Tæknikunnátta",
+      lang_lbl: "Tungumál",
+      languages: "Íslenska (móðurmál) · Enska (reiprennandi)",
+      strengths: "Styrkileikar",
+      strengthsList: [
+        "Góð samskiptahæfni og teymisvinna",
+        "Vandvirkni í þróun og prófun",
+        "Þrautseigja við úrlausn vandamála",
+        "Áreiðanleiki og ábyrgð í verkefnum",
+        "Þjónustulundaður"
+      ],
+      interests: "Áhugamál",
+      interestsText: "Tölvur, bókmenntir, flug & flugvélar, útivist.",
+      exp: "Starfsferill",
+      sabreR1: "Sérfræðingur í þjónustuafhendingu (2020 – núverandi)",
+      sabreR2: "Sérfræðingur í hugbúnaðarprófunum (2016 – 2020)",
+      sabreItems: [
+        "Þróun og rekstur á lausnum fyrir flugfélög",
+        "Java forritun í sjálfvirkum prófunum"
+      ],
+      ternRole: "Prófunarverkfræðingur",
+      ternItems: [
+        "Búa til og setja upp prófanir á margvíslegt kerfi",
+        "Yfirumsjón og ábyrgð prófana"
+      ],
+      nanoqRole: "Sölumaður útivistardeild",
+      nanoqItems: ["Aðstoðarverslunarstjóri, haust 2004"],
+      pilotRoles: "Skipstjóri (2001–2002) · Fyrsti flugmaður (2005)",
+      footer: "Sigurður G. Hjálmarsson · Reykjavík, Ísland"
+    }
+  };
+
+  let lang = "en";
+
+  function setLang(l) {
+    const c = content[l];
+    document.documentElement.lang = l;
+    document.getElementById("langToggle").textContent = c.btnLabel;
+    document.getElementById("h-role").textContent = c.role;
+    document.getElementById("about").textContent = c.about;
+    document.getElementById("lbl-edu").textContent = c.edu;
+    document.getElementById("edu-ru").textContent = c.eduRU;
+    document.getElementById("edu-fs1").textContent = c.eduFS1;
+    document.getElementById("edu-fs2").textContent = c.eduFS2;
+    document.getElementById("edu-fv").textContent = c.eduFV;
+    document.getElementById("lbl-skills").textContent = c.skills;
+    document.getElementById("lbl-lang").textContent = c.lang_lbl;
+    document.getElementById("languages").textContent = c.languages;
+    document.getElementById("lbl-strengths").textContent = c.strengths;
+    document.getElementById("strengths-list").innerHTML = c.strengthsList.map(s => `<li>${s}</li>`).join("");
+    document.getElementById("lbl-interests").textContent = c.interests;
+    document.getElementById("interests").textContent = c.interestsText;
+    document.getElementById("lbl-exp").textContent = c.exp;
+    document.getElementById("sabre-r1").textContent = c.sabreR1;
+    document.getElementById("sabre-r2").textContent = c.sabreR2;
+    document.getElementById("sabre-ul").innerHTML = c.sabreItems.map(s => `<li>${s}</li>`).join("");
+    document.getElementById("tern-role").textContent = c.ternRole;
+    document.getElementById("tern-ul").innerHTML = c.ternItems.map(s => `<li>${s}</li>`).join("");
+    document.getElementById("nanoq-role").textContent = c.nanoqRole;
+    document.getElementById("nanoq-ul").innerHTML = c.nanoqItems.map(s => `<li>${s}</li>`).join("");
+    document.getElementById("pilot-roles").textContent = c.pilotRoles;
+    document.getElementById("footer-text").textContent = c.footer;
+  }
+
+  function toggleLang() {
+    lang = lang === "en" ? "is" : "en";
+    setLang(lang);
+  }
+
+  setLang("en");
+</script>
+</body>
+</html>
