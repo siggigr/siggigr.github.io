@@ -4,214 +4,185 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sigurður G. Hjálmarsson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --bg: #ffffff;
-      --bg-sec: #f5f5f3;
-      --text: #1a1a18;
-      --text-sec: #5a5a56;
-      --text-ter: #9a9a94;
-      --border: rgba(0,0,0,0.12);
-      --border-med: rgba(0,0,0,0.22);
-      --blue: #185FA5;
-      --blue-light: #E6F1FB;
-      --blue-text: #0C447C;
-      --radius: 8px;
-      --radius-lg: 12px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #1c1c1a;
-        --bg-sec: #252523;
-        --text: #f0ede8;
-        --text-sec: #a8a8a0;
-        --text-ter: #66665e;
-        --border: rgba(255,255,255,0.1);
-        --border-med: rgba(255,255,255,0.2);
-        --blue: #378ADD;
-        --blue-light: #042C53;
-        --blue-text: #85B7EB;
-      }
-    }
-
     body {
-      font-family: 'Georgia', serif;
-      background: var(--bg);
-      color: var(--text);
+      background: #0f0f0f;
+      color: #e8e4de;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       line-height: 1.6;
       font-size: 15px;
     }
 
-    .portfolio {
+    .wrap {
       max-width: 900px;
       margin: 0 auto;
       padding: 3rem 2rem;
     }
 
-    /* Language toggle */
-    .nav {
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
-    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links { display: flex; gap: 2rem; }
     .nav-links a {
       font-size: 13px;
-      color: var(--blue);
+      color: #444;
       text-decoration: none;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
     }
-    .nav-links a:hover { text-decoration: underline; }
-    .nav-links a.active {
-      color: var(--text);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .lang-bar {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 2rem;
-    }
+    .nav-links a.active { color: #e8e4de; }
+    .nav-links a:hover { color: #e8e4de; }
+
     .lang-btn {
       background: transparent;
-      border: 1px solid var(--border-med);
-      border-radius: var(--radius);
-      padding: 6px 18px;
+      border: 1px solid #222;
+      border-radius: 6px;
+      padding: 5px 14px;
       font-size: 12px;
-      font-family: inherit;
-      color: var(--text-sec);
+      font-family: 'DM Mono', monospace;
+      color: #555;
       cursor: pointer;
       letter-spacing: 0.06em;
       transition: all 0.2s;
     }
-    .lang-btn:hover {
-      background: var(--bg-sec);
-      color: var(--text);
-    }
+    .lang-btn:hover { border-color: #444; color: #e8e4de; }
 
-    /* Header */
     header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      justify-content: space-between;
       gap: 2rem;
       padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2rem;
+      border-bottom: 1px solid #1e1e1e;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
     }
-    .avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: var(--blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--blue-light);
-      flex-shrink: 0;
-      letter-spacing: 0.03em;
+    .header-left h1 {
+      font-size: 36px;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: #e8e4de;
     }
-    /* If you have a photo, replace the avatar div with:
-       <img src="photo.jpg" class="avatar" style="object-fit:cover;" alt="Sigurður G. Hjálmarsson"> */
-    .header-info h1 {
-      font-size: 28px;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-    }
-    .header-info .role {
-      font-size: 14px;
-      color: var(--text-sec);
-      margin-top: 4px;
-      font-style: italic;
+    .header-left .role {
+      font-size: 13px;
+      color: #444;
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+      font-family: 'DM Mono', monospace;
     }
     .contacts {
       display: flex;
       gap: 1.5rem;
-      margin-top: 10px;
+      margin-top: 16px;
       flex-wrap: wrap;
     }
     .contacts a {
-      font-size: 13px;
-      color: var(--blue);
+      font-size: 12px;
+      color: #4a9eff;
       text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      transition: color 0.2s;
     }
-    .contacts a:hover { text-decoration: underline; }
+    .contacts a:hover { color: #7ab8ff; }
 
-    /* About */
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #161616;
+      border: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 400;
+      color: #444;
+      flex-shrink: 0;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.05em;
+    }
+
     .about {
       font-size: 15px;
-      line-height: 1.8;
-      color: var(--text-sec);
+      line-height: 1.85;
+      color: #666;
       margin-bottom: 2.5rem;
       padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #1e1e1e;
+      max-width: 640px;
+      font-weight: 300;
     }
 
-    /* Two-column grid */
     .grid {
       display: grid;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 200px 1fr;
       gap: 3rem;
     }
 
     @media (max-width: 620px) {
-      .grid { grid-template-columns: 1fr; gap: 0; }
-      header { flex-direction: column; align-items: flex-start; }
-      .portfolio { padding: 2rem 1.2rem; }
+      .grid { grid-template-columns: 1fr; }
+      header { flex-direction: column-reverse; }
+      .wrap { padding: 2rem 1.2rem; }
+      .header-left h1 { font-size: 28px; }
     }
 
-    /* Sections */
     section { margin-bottom: 2rem; }
 
     h2 {
       font-size: 10px;
       font-weight: 400;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-ter);
+      color: #2e2e2e;
       margin-bottom: 1rem;
-      font-family: 'Georgia', serif;
+      font-family: 'DM Mono', monospace;
     }
 
-    /* Education */
-    .edu-item { margin-bottom: 1.1rem; }
-    .edu-item strong { font-size: 13px; font-weight: 600; font-family: sans-serif; }
-    .edu-degree { font-size: 12px; color: var(--text-sec); margin-top: 1px; font-style: italic; }
-    .edu-year { font-size: 11px; color: var(--text-ter); margin-top: 1px; }
+    .edu-item { margin-bottom: 1rem; }
+    .edu-item strong { font-size: 13px; font-weight: 400; color: #888; }
+    .edu-degree { font-size: 12px; color: #555; margin-top: 2px; font-style: italic; }
+    .edu-year { font-size: 11px; color: #333; margin-top: 1px; font-family: 'DM Mono', monospace; }
 
-    /* Skills */
-    .skills-grid { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 6px; }
     .skill-tag {
-      background: var(--bg-sec);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      background: #141414;
+      border: 1px solid #1e1e1e;
+      border-radius: 4px;
       padding: 3px 10px;
-      font-size: 12px;
-      color: var(--text);
-      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #555;
+      font-family: 'DM Mono', monospace;
     }
 
-    /* Strengths */
     .list-plain { list-style: none; }
     .list-plain li {
       font-size: 13px;
-      color: var(--text-sec);
+      color: #555;
       padding: 5px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #1a1a1a;
       line-height: 1.5;
+      font-weight: 300;
     }
     .list-plain li:last-child { border-bottom: none; }
 
-    /* Small text */
-    .small-text { font-size: 13px; color: var(--text-sec); line-height: 1.7; }
+    .small-text { font-size: 13px; color: #555; line-height: 1.7; font-weight: 300; }
 
-    /* Jobs */
-    .job { margin-bottom: 1.6rem; }
+    .job {
+      margin-bottom: 1.6rem;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .job-header {
       display: flex;
       justify-content: space-between;
@@ -219,52 +190,51 @@
       flex-wrap: wrap;
       gap: 4px;
     }
-    .job-company { font-weight: 600; font-size: 14px; font-family: sans-serif; }
-    .job-period { font-size: 11px; color: var(--text-ter); }
-    .job-role { font-size: 13px; color: var(--text-sec); margin: 2px 0 5px; font-style: italic; }
-    .job ul { padding-left: 1.2rem; margin-top: 4px; }
-    .job li { font-size: 13px; color: var(--text-sec); line-height: 1.6; }
+    .job-company { font-weight: 400; font-size: 14px; color: #bbb; }
+    .job-period { font-size: 11px; color: #333; font-family: 'DM Mono', monospace; }
+    .job-role { font-size: 12px; color: #555; margin: 3px 0 6px; font-style: italic; }
+    .job ul { padding-left: 1rem; margin-top: 4px; }
+    .job li { font-size: 13px; color: #555; line-height: 1.7; font-weight: 300; }
 
-    /* Footer */
     footer {
       margin-top: 3rem;
       padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #1a1a1a;
       text-align: center;
       font-size: 11px;
-      color: var(--text-ter);
-      letter-spacing: 0.05em;
+      color: #2a2a2a;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.06em;
     }
   </style>
 </head>
 <body>
-<div class="portfolio">
+<div class="wrap">
 
-  <div class="nav">
+  <nav>
     <div class="nav-links">
       <a href="index.html" class="active" id="nav-portfolio">Portfolio</a>
       <a href="intro.html" id="nav-intro">Introduction</a>
     </div>
     <button class="lang-btn" id="langToggle" onclick="toggleLang()">Íslenska</button>
-  </div>
+  </nav>
 
   <header>
-    <div class="avatar">SGH</div>
-    <div class="header-info">
-      <h1>Sigurður G. Hjálmarsson</h1>
-      <div class="role" id="h-role">Senior Service Delivery Engineer</div>
+    <div class="header-left">
+      <h1>Sigurður G.<br>Hjálmarsson</h1>
+      <div class="role" id="h-role"></div>
       <div class="contacts">
         <a href="tel:+3546987372">+354 698 7372</a>
         <a href="mailto:siggigr@gmail.com">siggigr@gmail.com</a>
       </div>
     </div>
+    <div class="avatar">SGH</div>
   </header>
 
   <p class="about" id="about"></p>
 
   <div class="grid">
     <div class="left-col">
-
       <section>
         <h2 id="lbl-edu"></h2>
         <div class="edu-item">
@@ -300,7 +270,7 @@
           <span class="skill-tag">Copilot</span>
           <span class="skill-tag">Linux</span>
           <span class="skill-tag">Windows</span>
-          <span class="skill-tag">Microsoft 365</span>
+          <span class="skill-tag">MS 365</span>
         </div>
       </section>
 
@@ -318,45 +288,40 @@
         <h2 id="lbl-interests"></h2>
         <p class="small-text" id="interests"></p>
       </section>
-
     </div>
 
     <div class="right-col">
       <section>
         <h2 id="lbl-exp"></h2>
-
         <div class="job">
           <div class="job-header">
             <span class="job-company">Sabre Corporation</span>
-            <span class="job-period">2016–present</span>
+            <span class="job-period">2016 – present</span>
           </div>
           <div class="job-role" id="sabre-r1"></div>
           <div class="job-role" id="sabre-r2"></div>
           <ul id="sabre-ul"></ul>
         </div>
-
         <div class="job">
           <div class="job-header">
             <span class="job-company">Tern Systems</span>
-            <span class="job-period">2007–2016</span>
+            <span class="job-period">2007 – 2016</span>
           </div>
           <div class="job-role" id="tern-role"></div>
           <ul id="tern-ul"></ul>
         </div>
-
         <div class="job">
           <div class="job-header">
             <span class="job-company">Nanoq & Útilíf</span>
-            <span class="job-period">2001–2007</span>
+            <span class="job-period">2001 – 2007</span>
           </div>
           <div class="job-role" id="nanoq-role"></div>
           <ul id="nanoq-ul"></ul>
         </div>
-
         <div class="job">
           <div class="job-header">
             <span class="job-company">Landsflug / Flugfélag Vestmannaeyja</span>
-            <span class="job-period">2001–2005</span>
+            <span class="job-period">2001 – 2005</span>
           </div>
           <div class="job-role" id="pilot-roles"></div>
         </div>
@@ -365,58 +330,43 @@
   </div>
 
   <footer id="footer-text"></footer>
-
 </div>
 
 <script>
   const content = {
     en: {
-      btnLabel: "Íslenska",
+      btn: "Íslenska",
       navPortfolio: "Portfolio",
       navIntro: "Introduction",
-      lang: "en",
       role: "Senior Service Delivery Engineer",
-      about: "Experienced and motivated software developer with over 20 years in the software industry, combining 14 years in testing with 6 years in development. This background enables me to deliver high-quality, reliable solutions with a structured approach and a focus on modern technologies.",
+      about: "Experienced and motivated software developer with over 20 years in the software industry, combining 14 years in testing with 6 years in development. Delivering high-quality, reliable solutions with a structured approach and a focus on modern technologies.",
       edu: "Education",
       eduRU: "B.Sc. in Computer Science",
       eduFS1: "ATPL First Class",
-      eduFS2: "Commercial Pilot License with Instrument Rating",
-      eduFV: "Secondary School Diploma, natural science program",
+      eduFS2: "Commercial Pilot License, Instrument Rating",
+      eduFV: "Secondary School Diploma, natural sciences",
       skills: "Technical skills",
       lang_lbl: "Languages",
       languages: "Icelandic (native) · English (fluent)",
       strengths: "Core strengths",
-      strengthsList: [
-        "Strong communication and teamwork skills",
-        "Attention to detail in development and testing",
-        "Persistence in problem-solving",
-        "Reliable and accountable",
-        "Service-minded attitude"
-      ],
+      strengthsList: ["Strong communication and teamwork","Attention to detail in development and testing","Persistence in problem-solving","Reliable and accountable","Service-minded attitude"],
       interests: "Interests",
       interestsText: "Computing, literature, aviation & aircraft, outdoor activities.",
       exp: "Experience",
       sabreR1: "Senior Service Delivery Engineer (2020 – present)",
       sabreR2: "Senior Software Engineer in Test (2016 – 2020)",
-      sabreItems: [
-        "Development and maintenance of solutions for airlines",
-        "Java development for automated testing"
-      ],
+      sabreItems: ["Development and maintenance of solutions for airlines","Java development for automated testing"],
       ternRole: "Test Engineer",
-      ternItems: [
-        "Designed and implemented testing for various systems",
-        "Led and managed testing activities"
-      ],
+      ternItems: ["Designed and implemented testing for various systems","Led and managed testing activities"],
       nanoqRole: "Sales Associate, Outdoor Department",
-      nanoqItems: ["Assistant Store Manager (Autumn 2004)"],
+      nanoqItems: ["Assistant Store Manager, Autumn 2004"],
       pilotRoles: "Captain (2001–2002) · First Officer (2005)",
       footer: "Sigurður G. Hjálmarsson · Reykjavík, Iceland"
     },
     is: {
-      btnLabel: "English",
+      btn: "English",
       navPortfolio: "Ferilskrá",
       navIntro: "Kynning",
-      lang: "is",
       role: "Sérfræðingur í þjónustuafhendingu",
       about: "Reyndur og metnaðarfullur forritari með yfir 20 ára reynslu í hugbúnaðargeiranum. Ég sameina 14 ára sérþekkingu í prófunum og 6 ára reynslu í þróun, sem gerir mér kleift að skila vönduðum og áreiðanlegum lausnum með faglegum vinnubrögðum og áherslu á nýjustu tækni.",
       edu: "Menntun",
@@ -428,27 +378,15 @@
       lang_lbl: "Tungumál",
       languages: "Íslenska (móðurmál) · Enska (reiprennandi)",
       strengths: "Styrkileikar",
-      strengthsList: [
-        "Góð samskiptahæfni og teymisvinna",
-        "Vandvirkni í þróun og prófun",
-        "Þrautseigja við úrlausn vandamála",
-        "Áreiðanleiki og ábyrgð í verkefnum",
-        "Þjónustulundaður"
-      ],
+      strengthsList: ["Góð samskiptahæfni og teymisvinna","Vandvirkni í þróun og prófun","Þrautseigja við úrlausn vandamála","Áreiðanleiki og ábyrgð í verkefnum","Þjónustulundaður"],
       interests: "Áhugamál",
       interestsText: "Tölvur, bókmenntir, flug & flugvélar, útivist.",
       exp: "Starfsferill",
       sabreR1: "Sérfræðingur í þjónustuafhendingu (2020 – núverandi)",
       sabreR2: "Sérfræðingur í hugbúnaðarprófunum (2016 – 2020)",
-      sabreItems: [
-        "Þróun og rekstur á lausnum fyrir flugfélög",
-        "Java forritun í sjálfvirkum prófunum"
-      ],
+      sabreItems: ["Þróun og rekstur á lausnum fyrir flugfélög","Java forritun í sjálfvirkum prófunum"],
       ternRole: "Prófunarverkfræðingur",
-      ternItems: [
-        "Búa til og setja upp prófanir á margvíslegt kerfi",
-        "Yfirumsjón og ábyrgð prófana"
-      ],
+      ternItems: ["Búa til og setja upp prófanir á margvíslegt kerfi","Yfirumsjón og ábyrgð prófana"],
       nanoqRole: "Sölumaður útivistardeild",
       nanoqItems: ["Aðstoðarverslunarstjóri, haust 2004"],
       pilotRoles: "Skipstjóri (2001–2002) · Fyrsti flugmaður (2005)",
@@ -461,7 +399,7 @@
   function setLang(l) {
     const c = content[l];
     document.documentElement.lang = l;
-    document.getElementById("langToggle").textContent = c.btnLabel;
+    document.getElementById("langToggle").textContent = c.btn;
     document.getElementById("nav-portfolio").textContent = c.navPortfolio;
     document.getElementById("nav-intro").textContent = c.navIntro;
     document.getElementById("h-role").textContent = c.role;
