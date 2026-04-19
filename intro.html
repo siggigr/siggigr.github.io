@@ -4,123 +4,145 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introduction — Sigurður G. Hjálmarsson</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #ffffff;
+      --bg-sec: #f5f5f3;
+      --text: #1a1a18;
+      --text-sec: #5a5a56;
+      --text-ter: #9a9a94;
+      --border: rgba(0,0,0,0.12);
+      --border-med: rgba(0,0,0,0.22);
+      --blue: #185FA5;
+      --blue-light: #E6F1FB;
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1a;
+        --bg-sec: #252523;
+        --text: #f0ede8;
+        --text-sec: #a8a8a0;
+        --text-ter: #66665e;
+        --border: rgba(255,255,255,0.1);
+        --border-med: rgba(255,255,255,0.2);
+        --blue: #378ADD;
+        --blue-light: #042C53;
+      }
+    }
+
     body {
-      background: #0f0f0f;
-      color: #e8e4de;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
       font-size: 15px;
     }
 
-    .wrap {
+    .page {
       max-width: 900px;
       margin: 0 auto;
       padding: 3rem 2rem;
     }
 
-    nav {
+    /* Nav */
+    .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a {
+    .nav a {
       font-size: 13px;
-      color: #444;
+      color: var(--blue);
       text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
+      letter-spacing: 0.02em;
     }
-    .nav-links a.active { color: #e8e4de; }
-    .nav-links a:hover { color: #e8e4de; }
+    .nav a:hover { text-decoration: underline; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a.active {
+      color: var(--text);
+      font-weight: normal;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
+    /* Lang toggle */
     .lang-btn {
       background: transparent;
-      border: 1px solid #222;
-      border-radius: 6px;
-      padding: 5px 14px;
+      border: 1px solid var(--border-med);
+      border-radius: var(--radius);
+      padding: 5px 16px;
       font-size: 12px;
-      font-family: 'DM Mono', monospace;
-      color: #555;
+      font-family: inherit;
+      color: var(--text-sec);
       cursor: pointer;
       letter-spacing: 0.06em;
       transition: all 0.2s;
     }
-    .lang-btn:hover { border-color: #444; color: #e8e4de; }
+    .lang-btn:hover { background: var(--bg-sec); color: var(--text); }
 
+    /* Header */
     .page-header {
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid #1e1e1e;
-      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
     }
     .page-header h1 {
-      font-size: 36px;
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      color: #e8e4de;
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
     }
     .page-header .subtitle {
-      font-size: 12px;
-      color: #333;
-      margin-top: 10px;
-      font-family: 'DM Mono', monospace;
-      letter-spacing: 0.04em;
+      font-size: 13px;
+      color: var(--text-ter);
+      margin-top: 4px;
+      font-style: italic;
     }
 
+    /* Letter */
     .letter {
-      max-width: 640px;
+      max-width: 680px;
     }
     .letter p {
       font-size: 16px;
-      line-height: 1.9;
-      color: #666;
-      margin-bottom: 1.8rem;
-      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-sec);
+      margin-bottom: 1.5rem;
     }
     .letter p:last-child { margin-bottom: 0; }
     .letter a {
-      color: #4a9eff;
+      color: var(--blue);
       text-decoration: none;
-      transition: color 0.2s;
     }
-    .letter a:hover { color: #7ab8ff; }
+    .letter a:hover { text-decoration: underline; }
 
+    /* Footer */
     footer {
-      margin-top: 4rem;
+      margin-top: 3rem;
       padding-top: 1.5rem;
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid var(--border);
       text-align: center;
       font-size: 11px;
-      color: #2a2a2a;
-      font-family: 'DM Mono', monospace;
-      letter-spacing: 0.06em;
-    }
-
-    @media (max-width: 620px) {
-      .wrap { padding: 2rem 1.2rem; }
-      .page-header h1 { font-size: 28px; }
+      color: var(--text-ter);
+      letter-spacing: 0.05em;
     }
   </style>
 </head>
 <body>
-<div class="wrap">
+<div class="page">
 
-  <nav>
+  <div class="nav">
     <div class="nav-links">
-      <a href="index.html" id="nav-portfolio">Portfolio</a>
-      <a href="intro.html" class="active" id="nav-intro">Introduction</a>
+      <a href="index.html" id="nav-portfolio"></a>
+      <a href="intro.html" class="active" id="nav-intro"></a>
     </div>
     <button class="lang-btn" id="langToggle" onclick="toggleLang()">Íslenska</button>
-  </nav>
+  </div>
 
   <div class="page-header">
     <h1 id="page-title"></h1>
@@ -130,17 +152,16 @@
   <div class="letter" id="letter-body"></div>
 
   <footer id="footer-text"></footer>
+
 </div>
 
 <script>
-  const LINKEDIN = "https://www.linkedin.com/in/sigurdur-g-hjalmarsson-6b837478/";
-
   const content = {
     en: {
       btn: "Íslenska",
       navPortfolio: "Portfolio",
       navIntro: "Introduction",
-      pageTitleHTML: "Professional<br>introduction",
+      pageTitle: "Professional introduction",
       pageSubtitle: "A short note about who I am and how I work",
       footer: "Sigurður G. Hjálmarsson · Reykjavík, Iceland",
       paragraphs: [
@@ -149,14 +170,14 @@
         "Navigating the scale and stability challenges of the airline industry has shaped my approach to software engineering. I care deeply about building systems that do what they are supposed to do — consistently and efficiently.",
         "In my development workflow, I rely on tools like GitHub, IntelliJ IDEA, and SQL Developer. I am also a practical engineer — I have integrated GitHub Copilot into my daily routine to help streamline writing and testing code, which allows me to spend less time on boilerplate and more time solving complex architectural and operational problems.",
         "Whether taking ownership of legacy systems or collaborating with a team to build something entirely new, I enjoy the real-world challenges of backend engineering and service delivery in high-stakes production environments.",
-        `Feel free to reach out at <a href="mailto:siggigr@gmail.com">siggigr@gmail.com</a> or connect with me on <a href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a>.`
+        "Browse my portfolio to see what I have been working on, or reach out at <a href=\"mailto:siggigr@gmail.com\">siggigr@gmail.com</a> if you would like to connect."
       ]
     },
     is: {
       btn: "English",
       navPortfolio: "Ferilskrá",
       navIntro: "Kynning",
-      pageTitleHTML: "Fagleg<br>kynning",
+      pageTitle: "Fagleg kynning",
       pageSubtitle: "Stutt kynning á mér og vinnubrögðum mínum",
       footer: "Sigurður G. Hjálmarsson · Reykjavík, Ísland",
       paragraphs: [
@@ -165,7 +186,7 @@
         "Að takast á við umfangs- og stöðugleikaáskoranir fluggeirans hefur mótað nálgun mína á hugbúnaðarverkfræði. Mér þykir mjög vænt um að byggja kerfi sem gera það sem þau eiga að gera — stöðugt og skilvirkt.",
         "Í þróunarferli mínu nota ég verkfæri eins og GitHub, IntelliJ IDEA og SQL Developer. Ég er einnig hagnýtur verkfræðingur — ég hef samþætt GitHub Copilot í daglega rútínu mína til að straumlínulaga skrift og prófun kóða, sem gerir mér kleift að eyða minni tíma í einslegar grunnvirkni og meiri tíma í að leysa flókin skipulagslegar og rekstrarlegar vandamál.",
         "Hvort sem um er að ræða yfirtöku á eldri kerfum eða samstarf með teymi um að byggja eitthvað alveg nýtt, þá njót ég hagnýtra áskorana bakendaverkfræði og þjónustuafhendingar í mikilvægum framleiðsluumhverfum.",
-        `Hafðu endilega samband á <a href="mailto:siggigr@gmail.com">siggigr@gmail.com</a> eða tengstu við mig á <a href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a>.`
+        "Skoðaðu ferilskrána mína til að sjá hvað ég hef verið að vinna að, eða hafðu samband á <a href=\"mailto:siggigr@gmail.com\">siggigr@gmail.com</a> ef þú vilt tengjast."
       ]
     }
   };
@@ -178,10 +199,11 @@
     document.getElementById("langToggle").textContent = c.btn;
     document.getElementById("nav-portfolio").textContent = c.navPortfolio;
     document.getElementById("nav-intro").textContent = c.navIntro;
-    document.getElementById("page-title").innerHTML = c.pageTitleHTML;
+    document.getElementById("page-title").textContent = c.pageTitle;
     document.getElementById("page-subtitle").textContent = c.pageSubtitle;
     document.getElementById("footer-text").textContent = c.footer;
-    document.getElementById("letter-body").innerHTML = c.paragraphs.map(p => `<p>${p}</p>`).join("");
+    document.getElementById("letter-body").innerHTML =
+      c.paragraphs.map(p => `<p>${p}</p>`).join("");
   }
 
   function toggleLang() {
