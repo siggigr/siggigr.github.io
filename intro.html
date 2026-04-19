@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction — Sigurður G. Hjálmarsson</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-sec: #f5f5f3;
+      --text: #1a1a18;
+      --text-sec: #5a5a56;
+      --text-ter: #9a9a94;
+      --border: rgba(0,0,0,0.12);
+      --border-med: rgba(0,0,0,0.22);
+      --blue: #185FA5;
+      --blue-light: #E6F1FB;
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1a;
+        --bg-sec: #252523;
+        --text: #f0ede8;
+        --text-sec: #a8a8a0;
+        --text-ter: #66665e;
+        --border: rgba(255,255,255,0.1);
+        --border-med: rgba(255,255,255,0.2);
+        --blue: #378ADD;
+        --blue-light: #042C53;
+      }
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Nav */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+    .nav a {
+      font-size: 13px;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav a:hover { text-decoration: underline; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a.active {
+      color: var(--text);
+      font-weight: normal;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Lang toggle */
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border-med);
+      border-radius: var(--radius);
+      padding: 5px 16px;
+      font-size: 12px;
+      font-family: inherit;
+      color: var(--text-sec);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { background: var(--bg-sec); color: var(--text); }
+
+    /* Header */
+    .page-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .page-header h1 {
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .page-header .subtitle {
+      font-size: 13px;
+      color: var(--text-ter);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Letter */
+    .letter {
+      max-width: 680px;
+    }
+    .letter p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-sec);
+      margin-bottom: 1.5rem;
+    }
+    .letter p:last-child { margin-bottom: 0; }
+    .letter a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .letter a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-ter);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="nav">
+    <div class="nav-links">
+      <a href="index.html" id="nav-portfolio"></a>
+      <a href="intro.html" class="active" id="nav-intro"></a>
+    </div>
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">Íslenska</button>
+  </div>
+
+  <div class="page-header">
+    <h1 id="page-title"></h1>
+    <div class="subtitle" id="page-subtitle"></div>
+  </div>
+
+  <div class="letter" id="letter-body"></div>
+
+  <footer id="footer-text"></footer>
+
+</div>
+
+<script>
+  const content = {
+    en: {
+      btn: "Íslenska",
+      navPortfolio: "Portfolio",
+      navIntro: "Introduction",
+      pageTitle: "Professional introduction",
+      pageSubtitle: "A short note about who I am and how I work",
+      footer: "Sigurður G. Hjálmarsson · Reykjavík, Iceland",
+      paragraphs: [
+        "I am a Senior Service Delivery Engineer with a strong focus on developing, deploying, and supporting reliable backend systems.",
+        "Currently, I work at Sabre Corporation. My day-to-day centres around the IX Apps platform, where I build and maintain automated backend services using Java and SQL. The applications I work on integrate in real-time with multiple complex airline systems to handle pricing, operations, and the passenger experience. Because this software directly impacts daily airline operations, my work requires strict attention to system reliability, operability, and high availability.",
+        "Navigating the scale and stability challenges of the airline industry has shaped my approach to software engineering. I care deeply about building systems that do what they are supposed to do — consistently and efficiently.",
+        "In my development workflow, I rely on tools like GitHub, IntelliJ IDEA, and SQL Developer. I am also a practical engineer — I have integrated GitHub Copilot into my daily routine to help streamline writing and testing code, which allows me to spend less time on boilerplate and more time solving complex architectural and operational problems.",
+        "Whether taking ownership of legacy systems or collaborating with a team to build something entirely new, I enjoy the real-world challenges of backend engineering and service delivery in high-stakes production environments.",
+        "Browse my portfolio to see what I have been working on, or reach out at <a href=\"mailto:siggigr@gmail.com\">siggigr@gmail.com</a> if you would like to connect."
+      ]
+    },
+    is: {
+      btn: "English",
+      navPortfolio: "Ferilskrá",
+      navIntro: "Kynning",
+      pageTitle: "Fagleg kynning",
+      pageSubtitle: "Stutt kynning á mér og vinnubrögðum mínum",
+      footer: "Sigurður G. Hjálmarsson · Reykjavík, Ísland",
+      paragraphs: [
+        "Ég er sérfræðingur í þjónustuafhendingu með sterka áherslu á þróun, uppsetningu og rekstur áreiðanlegra bakendakerfa.",
+        "Í dag starfa ég hjá Sabre Corporation. Daglegt starf mitt snýst um IX Apps verkvangin, þar sem ég þróa og viðhef sjálfvirkar bakendaþjónustur með Java og SQL. Forritin sem ég vinn með tengjast í rauntíma við mörg flókin flugfélögakerfi til að annast verðlagningu, rekstur og farþegaupplifun. Þar sem þessi hugbúnaður hefur bein áhrif á dagleg flugsamgöngur krefst starfið strangs fókus á kerfisstöðugleika, rekstrarhæfni og mikla tiltækni.",
+        "Að takast á við umfangs- og stöðugleikaáskoranir fluggeirans hefur mótað nálgun mína á hugbúnaðarverkfræði. Mér þykir mjög vænt um að byggja kerfi sem gera það sem þau eiga að gera — stöðugt og skilvirkt.",
+        "Í þróunarferli mínu nota ég verkfæri eins og GitHub, IntelliJ IDEA og SQL Developer. Ég er einnig hagnýtur verkfræðingur — ég hef samþætt GitHub Copilot í daglega rútínu mína til að straumlínulaga skrift og prófun kóða, sem gerir mér kleift að eyða minni tíma í einslegar grunnvirkni og meiri tíma í að leysa flókin skipulagslegar og rekstrarlegar vandamál.",
+        "Hvort sem um er að ræða yfirtöku á eldri kerfum eða samstarf með teymi um að byggja eitthvað alveg nýtt, þá njót ég hagnýtra áskorana bakendaverkfræði og þjónustuafhendingar í mikilvægum framleiðsluumhverfum.",
+        "Skoðaðu ferilskrána mína til að sjá hvað ég hef verið að vinna að, eða hafðu samband á <a href=\"mailto:siggigr@gmail.com\">siggigr@gmail.com</a> ef þú vilt tengjast."
+      ]
+    }
+  };
+
+  let lang = "en";
+
+  function setLang(l) {
+    const c = content[l];
+    document.documentElement.lang = l;
+    document.getElementById("langToggle").textContent = c.btn;
+    document.getElementById("nav-portfolio").textContent = c.navPortfolio;
+    document.getElementById("nav-intro").textContent = c.navIntro;
+    document.getElementById("page-title").textContent = c.pageTitle;
+    document.getElementById("page-subtitle").textContent = c.pageSubtitle;
+    document.getElementById("footer-text").textContent = c.footer;
+    document.getElementById("letter-body").innerHTML =
+      c.paragraphs.map(p => `<p>${p}</p>`).join("");
+  }
+
+  function toggleLang() {
+    lang = lang === "en" ? "is" : "en";
+    setLang(lang);
+  }
+
+  setLang("en");
+</script>
+</body>
+</html>

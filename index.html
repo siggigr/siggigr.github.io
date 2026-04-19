@@ -52,6 +52,25 @@
     }
 
     /* Language toggle */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+    .nav-links a.active {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
     .lang-bar {
       display: flex;
       justify-content: flex-end;
@@ -221,7 +240,11 @@
 <body>
 <div class="portfolio">
 
-  <div class="lang-bar">
+  <div class="nav">
+    <div class="nav-links">
+      <a href="index.html" class="active" id="nav-portfolio">Portfolio</a>
+      <a href="intro.html" id="nav-intro">Introduction</a>
+    </div>
     <button class="lang-btn" id="langToggle" onclick="toggleLang()">Íslenska</button>
   </div>
 
@@ -349,6 +372,8 @@
   const content = {
     en: {
       btnLabel: "Íslenska",
+      navPortfolio: "Portfolio",
+      navIntro: "Introduction",
       lang: "en",
       role: "Senior Service Delivery Engineer",
       about: "Experienced and motivated software developer with over 20 years in the software industry, combining 14 years in testing with 6 years in development. This background enables me to deliver high-quality, reliable solutions with a structured approach and a focus on modern technologies.",
@@ -369,7 +394,7 @@
         "Service-minded attitude"
       ],
       interests: "Interests",
-      interestsText: "Computing, literature, aviation & aircrafts, outdoor activities.",
+      interestsText: "Computing, literature, aviation & aircraft, outdoor activities.",
       exp: "Experience",
       sabreR1: "Senior Service Delivery Engineer (2020 – present)",
       sabreR2: "Senior Software Engineer in Test (2016 – 2020)",
@@ -389,8 +414,10 @@
     },
     is: {
       btnLabel: "English",
+      navPortfolio: "Ferilskrá",
+      navIntro: "Kynning",
       lang: "is",
-      role: "Senior Service Delivery Engineer",
+      role: "Sérfræðingur í þjónustuafhendingu",
       about: "Reyndur og metnaðarfullur forritari með yfir 20 ára reynslu í hugbúnaðargeiranum. Ég sameina 14 ára sérþekkingu í prófunum og 6 ára reynslu í þróun, sem gerir mér kleift að skila vönduðum og áreiðanlegum lausnum með faglegum vinnubrögðum og áherslu á nýjustu tækni.",
       edu: "Menntun",
       eduRU: "B.Sc. í tölvunarfræði",
@@ -411,7 +438,7 @@
       interests: "Áhugamál",
       interestsText: "Tölvur, bókmenntir, flug & flugvélar, útivist.",
       exp: "Starfsferill",
-      sabreR1: "Senior Service Delivery Engineer (2020 – núverandi)",
+      sabreR1: "Sérfræðingur í þjónustuafhendingu (2020 – núverandi)",
       sabreR2: "Sérfræðingur í hugbúnaðarprófunum (2016 – 2020)",
       sabreItems: [
         "Þróun og rekstur á lausnum fyrir flugfélög",
@@ -435,6 +462,8 @@
     const c = content[l];
     document.documentElement.lang = l;
     document.getElementById("langToggle").textContent = c.btnLabel;
+    document.getElementById("nav-portfolio").textContent = c.navPortfolio;
+    document.getElementById("nav-intro").textContent = c.navIntro;
     document.getElementById("h-role").textContent = c.role;
     document.getElementById("about").textContent = c.about;
     document.getElementById("lbl-edu").textContent = c.edu;
