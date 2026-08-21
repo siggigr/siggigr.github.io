@@ -1,6 +1,4 @@
-import { AuthProvider } from "./hooks/useAuth";
 import Nav from "./components/Nav";
-import AdminBar from "./components/AdminBar";
 import Footer from "./components/Footer";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
@@ -12,7 +10,7 @@ import Apps from "./sections/Apps";
 
 export default function App() {
   return (
-    <AuthProvider>
+    <>
       <Nav />
       <main className="page">
         <Hero />
@@ -24,7 +22,6 @@ export default function App() {
         <Apps />
       </main>
       <Footer />
-      <AdminBar />
-    </AuthProvider>
+    </>
   );
 }

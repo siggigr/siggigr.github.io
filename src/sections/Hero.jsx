@@ -1,4 +1,4 @@
-import EditableText from "../components/EditableText";
+import { hero } from "../content/site";
 import portrait from "../assets/siggi-portrait.webp";
 
 /**
@@ -13,21 +13,11 @@ export default function Hero() {
     <header className="hero" id="top">
       <div className="hero-grid">
         <div className="hero-text">
-          <p className="hero-coords">64°07′N 21°55′W — Kópavogur</p>
-          <EditableText
-            path="siteContent/hero"
-            field="headline"
-            fallback="Halló, ég heiti Siggi."
-            className="hero-headline"
-            render={(value) => <h1>{value}</h1>}
-          />
-          <EditableText
-            path="siteContent/hero"
-            field="subline"
-            fallback="Software professional in Kópavogur: quality engineering, business analysis, and a lifelong weakness for aircraft and good books."
-            multiline
-            className="hero-subline"
-          />
+          <p className="hero-coords">{hero.coords}</p>
+          <h1>{hero.headline}</h1>
+          <div className="hero-subline">
+            <p>{hero.subline}</p>
+          </div>
         </div>
         <div className="hero-photo-card">
           <img
