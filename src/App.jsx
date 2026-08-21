@@ -11,8 +11,9 @@ import Apps from "./sections/Apps";
 export default function App() {
   return (
     <>
+      <a className="skip-link" href="#main">Skip to content</a>
       <Nav />
-      <main className="page">
+      <main id="main" className="page">
         <Hero />
         <About />
         <Professional />

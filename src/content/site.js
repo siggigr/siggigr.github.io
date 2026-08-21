@@ -8,6 +8,7 @@
 export const hero = {
   coords: "64°07′N 21°55′W — Kópavogur",
   headline: "Halló, ég heiti Siggi.",
+  headlineLang: "is", // language of the headline text (set to "en" if you change it)
   subline:
     "Software professional in Kópavogur: quality engineering, business analysis, and a lifelong weakness for aircraft and good books.",
 };
@@ -21,3 +22,13 @@ export const professional = [
   "Twenty years in software: fourteen in testing and quality assurance, six in development, with experience spanning safety-critical air traffic control systems and airline technology.",
   "Replace these paragraphs in src/content/site.js with your own professional summary.",
 ];
+
+/**
+ * Contact links shown in the footer. Fill in the real values —
+ * any entry left as an empty string is simply not rendered.
+ */
+export const contact = {
+  email: "siggigr@gmail.com",            // e.g. "siggi@example.is" (renders as mailto link)
+  linkedin: "",         // full URL, e.g. "https://www.linkedin.com/in/..."
+  github: "",           // full URL, e.g. "https://github.com/siggigr"
+};

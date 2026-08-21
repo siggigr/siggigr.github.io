@@ -2,11 +2,11 @@ import { hero } from "../content/site";
 import portrait from "../assets/siggi-portrait.webp";
 
 /**
- * Portrait presentation variants — pick one by editing the className
- * on the hero-photo-card div below:
- *   "hero-photo-card"        white card with teal offset shadow (default)
- *   "hero-photo-card tinted" soft teal card
- *   "hero-photo-card free"   no card: the figure stands directly on the page
+ * Portrait presentation variants — edit the className below:
+ *   "hero-photo-card free"   figure emerges from the dark page (default)
+ *   "hero-photo-card"        dark card with teal offset shadow
+ *   "hero-photo-card tinted" teal-tinted card
+ * Monochrome portrait: change the import to ../assets/siggi-portrait-bw.webp
  */
 export default function Hero() {
   return (
@@ -14,17 +14,19 @@ export default function Hero() {
       <div className="hero-grid">
         <div className="hero-text">
           <p className="hero-coords">{hero.coords}</p>
-          <h1>{hero.headline}</h1>
+          <h1 lang={hero.headlineLang}>{hero.headline}</h1>
           <div className="hero-subline">
             <p>{hero.subline}</p>
           </div>
         </div>
-        <div className="hero-photo-card">
+        <div className="hero-photo-card free">
           <img
             src={portrait}
+            fetchpriority="high"
+            decoding="async"
             alt="Sigurður G. Hjálmarsson"
-            width="642"
-            height="957"
+            width="870"
+            height="702"
           />
         </div>
       </div>
