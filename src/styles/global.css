@@ -168,7 +168,55 @@ img {
 /* Hero                                                                */
 /* ------------------------------------------------------------------ */
 .hero {
-  padding-top: 6.5rem;
+  padding-top: 5rem;
+}
+
+/* Two-column hero: text beside a portrait card, figure standing on
+   the horizon line below. */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: 3rem;
+  align-items: end;
+}
+
+.hero-photo-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+  box-shadow: 10px 10px 0 var(--accent-soft);
+  margin-right: 10px;
+}
+
+.hero-photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Variant: soft teal card behind the figure */
+.hero-photo-card.tinted {
+  background: var(--accent-soft);
+}
+
+/* Variant: no card at all — the figure stands on the page itself */
+.hero-photo-card.free {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-right: 0;
+}
+
+@media (max-width: 700px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-photo-card {
+    max-width: 250px;
+  }
 }
 
 .hero-coords {
