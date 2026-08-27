@@ -1,19 +1,23 @@
 import Section from "../components/Section";
+import { interestsIntro } from "../content/site";
 import { interests } from "../content/interests";
 
 export default function Interests() {
   return (
     <Section id="interests" eyebrow="Áhugamál" title="Interests">
-      {interests.length === 0 && (
-        <p className="empty-note">Hobbies and enthusiasms, to be catalogued.</p>
-      )}
+      <div className="prose">
+        {interestsIntro.map((paragraph, i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
+      </div>
+
       {interests.map((section) => (
         <div key={section.title} className="interest-block">
           <div className="interest-head">
             <h3>{section.title}</h3>
           </div>
           {section.blurb && <p className="interest-blurb">{section.blurb}</p>}
-          {(section.items || []).length > 0 && (
+          {(section.items || []).length > 0 ? (
             <ul className="interest-items">
               {section.items.map((item) => (
                 <li key={item.title}>
@@ -24,6 +28,8 @@ export default function Interests() {
                 </li>
               ))}
             </ul>
+          ) : (
+            <p className="empty-note">List coming soon.</p>
           )}
         </div>
       ))}

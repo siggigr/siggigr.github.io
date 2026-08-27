@@ -200,13 +200,14 @@ img {
 /* ------------------------------------------------------------------ */
 .hero {
   padding-top: 5rem;
+  position: relative;
 }
 
 /* Two-column hero: text beside a portrait card, figure standing on
    the horizon line below. */
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
+  grid-template-columns: minmax(0, 1fr) 240px;
   gap: 3rem;
   align-items: end;
 }
@@ -239,20 +240,26 @@ img {
   margin-right: 0;
   border-radius: 0;
   overflow: visible;
-  position: relative;
+  position: absolute;
+  top: 5rem;
+  bottom: 1px;
+  right: 0;
+  width: 240px;
 }
 
 .hero-photo-card.free::before {
   content: "";
   position: absolute;
-  inset: 12% 4% 0;
+  inset: 6% 22% 30% 0;
   background: radial-gradient(closest-side, var(--accent-soft), transparent 72%);
   z-index: -1;
 }
 
 .hero-photo-card.free img {
-  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 99%);
-  mask-image: linear-gradient(to bottom, black 80%, transparent 99%);
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom left;
 }
 
 @media (max-width: 700px) {
@@ -263,6 +270,18 @@ img {
 
   .hero-photo-card {
     max-width: 250px;
+  }
+
+  .hero-photo-card.free {
+    position: static;
+    width: auto;
+    max-width: 190px;
+    margin: 0 auto;
+  }
+
+  .hero-photo-card.free img {
+    height: auto;
+    object-fit: unset;
   }
 }
 
@@ -418,13 +437,17 @@ img {
 }
 
 .footer-links a {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
   color: var(--muted);
-  display: inline-block;
-  padding: 0.5em 0.1em;
-  margin: -0.5em -0.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7em;
+  margin: -0.7em -0.2em;
+  border-radius: 7px;
+}
+
+.footer-links a svg {
+  display: block;
 }
 
 .footer-links a:hover {

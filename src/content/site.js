@@ -24,11 +24,20 @@ export const professional = [
 ];
 
 /**
+ * Opening text for the Interests section, shown above the subsections
+ * defined in interests.js.
+ */
+export const interestsIntro = [
+  "I get through a lot of audiobooks—mostly science fiction and fantasy. In my free time, I enjoy video games and tinkering with personal programming projects at home. When time allows, I also love to cook.",
+  "Staying consistent at the gym is a continuous work in progress, though my spouse and I recently tackled that by building a home gym. We share our home with four pets, including our Labrador, Krummi. He's my main companion when I head outdoors, and given his endless energy, we've spent countless hours walking him over the years. Krummi and I also share a love for food—though while I prefer to enjoy good food, he simply enjoys all food.",
+];
+
+/**
  * Contact links shown in the footer. Fill in the real values —
  * any entry left as an empty string is simply not rendered.
  */
 export const contact = {
-  email: "siggigr@gmail.com",            // e.g. "siggi@example.is" (renders as mailto link)
+  email: "siggigr@gmail.com", // renders as mailto link
   linkedin: "",         // full URL, e.g. "https://www.linkedin.com/in/..."
   github: "",           // full URL, e.g. "https://github.com/siggigr"
 };

@@ -2,11 +2,9 @@ import { hero } from "../content/site";
 import portrait from "../assets/siggi-portrait.webp";
 
 /**
- * Portrait presentation variants — edit the className below:
- *   "hero-photo-card free"   figure emerges from the dark page (default)
- *   "hero-photo-card"        dark card with teal offset shadow
- *   "hero-photo-card tinted" teal-tinted card
- * Monochrome portrait: change the import to ../assets/siggi-portrait-bw.webp
+ * The full-body portrait is absolutely positioned within the hero:
+ * head level with the coordinates line, feet on the horizon line.
+ * Sizing lives in .hero-photo-card.free in global.css.
  */
 export default function Hero() {
   return (
@@ -25,8 +23,8 @@ export default function Hero() {
             fetchpriority="high"
             decoding="async"
             alt="Sigurður G. Hjálmarsson"
-            width="870"
-            height="702"
+            width="532"
+            height="1571"
           />
         </div>
       </div>
