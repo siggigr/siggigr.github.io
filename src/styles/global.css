@@ -11,6 +11,7 @@
   --accent: #146c77;
   --accent-soft: #e3eff0;
   --line: #e3e6e4;
+  --ease-out-snap: cubic-bezier(0.16, 1, 0.3, 1);
 
   --font-display: "Instrument Serif", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
@@ -328,6 +329,10 @@ img {
   gap: 1.1rem;
 }
 
+.card-grid-spaced {
+  margin-top: 1.75rem;
+}
+
 .card {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -370,34 +375,103 @@ img {
 }
 
 /* ------------------------------------------------------------------ */
-/* Interests                                                           */
+/* Interests — accordion of subsections behind tactile toggle buttons */
 /* ------------------------------------------------------------------ */
-.interest-block {
-  border-top: 1px solid var(--line);
-  padding: 1.5rem 0;
-}
-
-.interest-block:first-of-type {
-  border-top: none;
-  padding-top: 0;
-}
-
-.interest-head {
+.interest-toggles {
+  margin-top: 1.75rem;
   display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.interest-block {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+/* The tactile button itself: same physics as the standalone demo
+   (transform + opacity only, snappy ease-out), recolored to the
+   site's own teal accent instead of the demo's gold. */
+.interest-toggle {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: baseline;
   gap: 1rem;
-  flex-wrap: wrap;
+  padding: 0.9rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transform: translateZ(0) scale(1);
+  transition: transform 250ms var(--ease-out-snap, cubic-bezier(0.16, 1, 0.3, 1)),
+    background-color 250ms var(--ease-out-snap, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.interest-toggle:hover {
+  background: var(--accent-soft);
+  transform: translateZ(0) scale(1.008);
+}
+
+.interest-toggle:active {
+  transform: translateZ(0) scale(0.99);
+  transition-duration: 120ms;
+}
+
+.interest-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.interest-toggle-icon {
+  flex: none;
+  color: var(--accent);
+  transition: transform 250ms var(--ease-out-snap, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.interest-toggle[aria-expanded="true"] .interest-toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Collapse/expand via grid-template-rows (0fr <-> 1fr): the row
+   height animates smoothly without a fixed max-height guess, and
+   the inner content only needs overflow hidden on the track. */
+.interest-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms var(--ease-out-snap, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.interest-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.interest-panel-inner {
+  overflow: hidden;
+  padding: 0 1.25rem;
+}
+
+.interest-panel[data-open="true"] .interest-panel-inner {
+  padding: 0 1.25rem 1.1rem;
 }
 
 .interest-blurb {
   color: var(--muted);
   max-width: 38rem;
+  margin-top: 0;
 }
 
 .interest-items {
   list-style: none;
-  margin: 0.5rem 0 1rem;
+  margin: 0;
   padding: 0;
 }
 
@@ -406,12 +480,24 @@ img {
   border-bottom: 1px dotted var(--line);
 }
 
+.interest-items li:last-child {
+  border-bottom: none;
+}
+
 .item-title {
   font-weight: 500;
 }
 
 .item-note {
   color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interest-toggle,
+  .interest-toggle-icon,
+  .interest-panel {
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -453,6 +539,177 @@ img {
 .footer-links a:hover {
   color: var(--accent);
   text-decoration: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* CV page                                                             */
+/* ------------------------------------------------------------------ */
+.cv-page {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.cv-header {
+  margin-bottom: 3rem;
+}
+
+.cv-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin: 0.3em 0 0.2em;
+}
+
+.cv-tagline {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 38rem;
+}
+
+.cv-contact a {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.cv-section {
+  margin-top: 2.75rem;
+}
+
+.cv-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.1rem;
+}
+
+.cv-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2.5rem;
+}
+
+.cv-exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.cv-exp-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.35em;
+}
+
+.cv-exp-role {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.95rem;
+  padding: 0.15em 0;
+}
+
+.cv-exp-title {
+  font-weight: 500;
+}
+
+.cv-exp-period {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.cv-bullets {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.cv-bullets li {
+  padding: 0.15em 0;
+}
+
+.cv-chip-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.cv-chip {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 0.3em 0.9em;
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.cv-print-btn {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 0.4em 1em;
+  cursor: pointer;
+}
+
+.cv-print-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.cv-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+@media (max-width: 620px) {
+  .cv-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-exp-role {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+}
+
+/* Print: strip chrome, force plain light output regardless of theme,
+   and give the CV normal document margins instead of the site's
+   centered column. */
+@media print {
+  .nav,
+  .footer,
+  .skip-link,
+  .cv-print-btn {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .cv-page {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cv-chip {
+    border-color: #999;
+    background: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 /* ------------------------------------------------------------------ */

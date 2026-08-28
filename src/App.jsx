@@ -16,9 +16,9 @@ export default function App() {
       <main id="main" className="page">
         <Hero />
         <About />
+        <Family />
         <Professional />
         <Interests />
-        <Family />
         <Pets />
         <Apps />
       </main>

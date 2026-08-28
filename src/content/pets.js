@@ -14,25 +14,25 @@ export const pets = [
   {
     name: "Krummi",
     description:
-      "Our Labrador, and the senior statesman of the house at over ten years old. He used to go on long walks constantly; these days they're shorter, but no less enjoyed.",
+      "Krummi is truly one of the most beautiful souls I've ever met. He is a friend to everyone and easily one of the smartest dogs around. Krummi's world revolves mostly around his people and food—and if you happen to have a treat for him, you'll instantly become his new best friend.",
     photo: krummi,
   },
   {
     name: "Simbi",
     description:
-      "The oldest of our three cats, born the same year as Krummi. Determined, and fiercely protective of his territory.",
+      "Simbi is fiercely protective of his territory and knows exactly what he wants. But even though he acts like the resident tough guy, he's an absolute sweetheart at heart who can never get enough belly rubs.",
     photo: simbi,
   },
   {
     name: "Moli",
     description:
-      "One half of our cat twins, about a year and a half old. A lovely, easygoing character — a real gold nugget, or gullmoli in Icelandic, which is exactly where his name comes from.",
+      "Moli (our little gold nugget) is an active, clever cat with an exceptionally fun personality. Just like his brother Merlín, he is a great communicator and always lets you know what's on his mind.",
     photo: moli,
   },
   {
     name: "Merlín",
     description:
-      "Moli's littermate. So cute and magical that there was really only one name for him — after the wizard of Arthurian legend.",
+      "Merlín is named after the legendary wizard of King Arthur because he has a way of completely enchanting anyone he meets. Just like his brother Moli, he's a master at expressing himself, and he is endlessly affectionate.",
     photo: merlin,
   },
 ];

@@ -30,11 +30,4 @@ export const interests = [
       { title: "Red Dead Redemption 2", note: "" },
     ],
   },
-  {
-    title: "Cooking",
-    blurb: "",
-    items: [
-      // { title: "Icelandic lamb soup", note: "a winter favourite" },
-    ],
-  },
 ];
