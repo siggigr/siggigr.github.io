@@ -10,6 +10,7 @@ export const interests = [
     title: "Favourite books",
     blurb: "Not ranked — just a shelf of favourites, and there are many more.",
     items: [
+      { title: "The Primal Hunter series", note: "Zogarth" },
       { title: "Dungeon Crawler Carl series", note: "Matt Dinniman" },
       { title: "A Soldier's Life series", note: "AlwaysRollsAOne" },
       { title: "Path of the Berserker series", note: "Rick Scott" },
@@ -18,7 +19,7 @@ export const interests = [
       { title: "The Terminal List series", note: "Jack Carr" },
       { title: "The Martian", note: "Andy Weir" },
       { title: "Project Hail Mary", note: "Andy Weir" },
-      { title: "Star Wars: Thrawn trilogy", note: "Timothy Zahn" },
+      { title: "the Stormlight Archive series", note: "Brandon Sanderson" },
     ],
   },
   {

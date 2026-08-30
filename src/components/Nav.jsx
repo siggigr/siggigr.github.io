@@ -1,7 +1,10 @@
+const cvHref = `${import.meta.env.BASE_URL}cv.html`;
+
 const LINKS = [
   { href: "#about", label: "About" },
   { href: "#family", label: "Family" },
   { href: "#professional", label: "Work" },
+  { href: cvHref, label: "CV" },
   { href: "#interests", label: "Interests" },
   { href: "#pets", label: "Pets" },
   { href: "#apps", label: "Apps" },

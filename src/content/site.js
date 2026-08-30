@@ -10,7 +10,7 @@ export const hero = {
   headline: "Halló, ég heiti Siggi.",
   headlineLang: "is", // language of the headline text (set to "en" if you change it)
   subline:
-    "Software professional in Kópavogur with a background in quality engineering and software development—plus a lifelong weakness for aircraft and good books.",
+    "Software professional in Kópavogur with a background in quality engineering and software development—plus a lifelong weakness for aviation and good books.",
 };
 
 export const about = [
@@ -56,6 +56,7 @@ export const petsIntro = [
  */
 export const contact = {
   email: "siggigr@gmail.com", // renders as mailto link
+  phone: "+354 698 7372",     // shown on the CV page only, not the homepage footer
   linkedin: "",         // full URL, e.g. "https://www.linkedin.com/in/..."
   github: "",           // full URL, e.g. "https://github.com/siggigr"
 };

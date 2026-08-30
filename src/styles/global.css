@@ -179,6 +179,7 @@ img {
 
 .nav-links {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 0.25rem 1.1rem;
 }
@@ -542,106 +543,203 @@ img {
 }
 
 /* ------------------------------------------------------------------ */
-/* CV page                                                             */
+/* CV page — resume-style two-column layout, in the site's own tokens */
 /* ------------------------------------------------------------------ */
+.cv-nav {
+  justify-content: flex-end;
+}
+
 .cv-page {
   padding-top: 3rem;
   padding-bottom: 4rem;
 }
 
 .cv-header {
-  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.75rem;
+}
+
+.cv-avatar {
+  flex: none;
+  width: 130px;
+  height: 130px;
+  margin-right: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+}
+
+.cv-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .cv-name {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 3rem);
-  margin: 0.3em 0 0.2em;
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+  margin: 0;
 }
 
-.cv-tagline {
+.cv-role {
   color: var(--muted);
-  font-size: 1.05rem;
-  max-width: 38rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-top: 0.2em;
 }
 
-.cv-contact a {
+.cv-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  margin-top: 0.6rem;
+}
+
+.cv-contacts a {
+  font-size: 0.85rem;
+}
+
+.cv-about {
+  color: var(--muted);
+  max-width: 42rem;
+  line-height: 1.75;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2rem;
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0 3rem;
+}
+
+.cv-col-left section,
+.cv-col-right section {
+  margin-bottom: 2rem;
+}
+
+.cv-label {
   font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3c434c;
+  margin: 0 0 1rem;
+}
+
+/* Left column */
+.cv-edu-item {
+  margin-bottom: 1rem;
   font-size: 0.9rem;
 }
 
-.cv-section {
-  margin-top: 2.75rem;
-}
-
-.cv-section h2 {
-  font-size: 1.4rem;
-  margin-bottom: 1.1rem;
-}
-
-.cv-two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 2.5rem;
-}
-
-.cv-exp-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-}
-
-.cv-exp-item h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.35em;
-}
-
-.cv-exp-role {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.95rem;
-  padding: 0.15em 0;
-}
-
-.cv-exp-title {
+.cv-edu-item strong {
+  font-family: var(--font-body);
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
-.cv-exp-period {
+.cv-edu-degree {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.85rem;
+  margin-top: 1px;
+}
+
+.cv-edu-year {
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 0.85rem;
-  white-space: nowrap;
-}
-
-.cv-bullets {
-  margin: 0.5rem 0 0;
-  padding-left: 1.2rem;
-  color: var(--muted);
-}
-
-.cv-bullets li {
-  padding: 0.15em 0;
+  font-size: 0.75rem;
+  margin-top: 2px;
 }
 
 .cv-chip-list {
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0;
+  gap: 0.4rem;
 }
 
 .cv-chip {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   border: 1px solid var(--line);
-  border-radius: 99px;
-  padding: 0.3em 0.9em;
-  color: var(--ink);
+  border-radius: 6px;
+  padding: 0.2em 0.6em;
   background: var(--surface);
+}
+
+.cv-small {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.cv-plain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cv-plain-list li {
+  font-size: 0.88rem;
+  color: var(--muted);
+  padding: 0.4em 0;
+  border-bottom: 1px dotted var(--line);
+}
+
+.cv-plain-list li:last-child {
+  border-bottom: none;
+}
+
+/* Right column: experience */
+.cv-job {
+  margin-bottom: 1.5rem;
+}
+
+.cv-job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cv-job-company {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.cv-job-period {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.cv-job-role {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.15em 0;
+}
+
+.cv-job ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.15rem;
+  padding-right: 3.25rem;
+}
+
+.cv-job li {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
 .cv-print-btn {
@@ -669,19 +767,21 @@ img {
 }
 
 @media (max-width: 620px) {
-  .cv-two-col {
+  .cv-grid {
     grid-template-columns: 1fr;
   }
 
-  .cv-exp-role {
+  .cv-header {
     flex-direction: column;
-    gap: 0.15rem;
+    align-items: flex-start;
+  }
+
+  .cv-avatar {
+    margin-right: 0;
   }
 }
 
-/* Print: strip chrome, force plain light output regardless of theme,
-   and give the CV normal document margins instead of the site's
-   centered column. */
+/* Print: strip chrome, force plain light output regardless of theme */
 @media print {
   .nav,
   .footer,
@@ -690,20 +790,143 @@ img {
     display: none !important;
   }
 
+  html,
   body {
     background: #fff;
     color: #000;
+    font-size: 10.5pt;
   }
 
   .cv-page {
     max-width: none;
     margin: 0;
-    padding: 0;
+    padding: 0 !important;
+  }
+
+  .cv-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .cv-avatar {
+    width: 78px;
+    height: 78px;
+    margin-right: 0;
+  }
+
+  .cv-name {
+    font-size: 19pt;
+  }
+
+  .cv-role {
+    font-size: 10pt;
+  }
+
+  .cv-contacts {
+    margin-top: 0.35rem;
+    gap: 1rem;
+  }
+
+  .cv-contacts a {
+    font-size: 9pt;
+    margin-right: 0.6rem; /* fallback for print engines without flex-gap support */
+  }
+
+  .cv-about {
+    font-size: 9.5pt;
+    line-height: 1.5;
+    padding-bottom: 1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  /* Floats paginate far more predictably in print than CSS grid,
+     which some print/PDF engines lay out as whole-column blocks
+     rather than slicing both columns at the same page break. */
+  .cv-grid {
+    display: block;
+  }
+
+  .cv-col-left {
+    float: left;
+    width: 30%;
+  }
+
+  .cv-col-right {
+    float: right;
+    width: 66%;
+  }
+
+  .cv-col-left section,
+  .cv-col-right section {
+    margin-bottom: 1.1rem;
+  }
+
+  .cv-label {
+    font-size: 8pt;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .cv-edu-item {
+    font-size: 9pt;
+    margin-bottom: 0.65rem;
+  }
+
+  .cv-edu-degree {
+    font-size: 8.5pt;
+  }
+
+  .cv-edu-year {
+    font-size: 8pt;
   }
 
   .cv-chip {
+    font-size: 8pt;
+    padding: 0.15em 0.5em;
     border-color: #999;
     background: none;
+  }
+
+  .cv-small {
+    font-size: 9pt;
+    line-height: 1.45;
+  }
+
+  .cv-plain-list li {
+    font-size: 9pt;
+    padding: 0.25em 0;
+  }
+
+  .cv-job {
+    margin-bottom: 0.9rem;
+    break-inside: avoid;
+  }
+
+  .cv-job-company {
+    font-size: 10pt;
+  }
+
+  .cv-job-period {
+    font-size: 8pt;
+  }
+
+  .cv-job-role {
+    font-size: 9pt;
+    margin: 0.15em 0;
+  }
+
+  .cv-job ul {
+    margin-top: 0.3rem;
+  }
+
+  .cv-job li {
+    font-size: 9pt;
+    line-height: 1.45;
   }
 
   a {

@@ -1,4 +1,6 @@
-import { hero, contact } from "./content/site";
+import { professional, contact } from "./content/site";
+import cvAvatar from "./assets/cv-avatar.webp";
+import Footer from "./components/Footer";
 import {
   experience,
   education,
@@ -19,9 +21,6 @@ export default function CVPage() {
       </a>
 
       <nav className="nav cv-nav" aria-label="Main">
-        <a className="nav-brand" href={homeHref}>
-          SGH
-        </a>
         <div className="nav-links">
           <a href={homeHref}>← Back to site</a>
           <button
@@ -36,126 +35,118 @@ export default function CVPage() {
 
       <main id="cv-main" className="page cv-page">
         <header className="cv-header">
-          <p className="hero-coords">{hero.coords}</p>
-          <h1 className="cv-name">Sigurður G. Hjálmarsson</h1>
-          <p className="cv-tagline">{hero.subline}</p>
-          {contact.email && (
-            <p className="cv-contact">
-              <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            </p>
-          )}
+          <div className="cv-header-info">
+            <h1 className="cv-name">Sigurður G. Hjálmarsson</h1>
+            <p className="cv-role">Senior Service Delivery Engineer</p>
+            <div className="cv-contacts">
+              {contact.phone && (
+                <a href={`tel:${contact.phone.replace(/\s+/g, "")}`}>
+                  {contact.phone}
+                </a>
+              )}
+              {contact.email && (
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              )}
+              {contact.linkedin && (
+                <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              )}
+              {contact.github && (
+                <a href={contact.github} target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+              )}
+            </div>
+          </div>
+          <div className="cv-avatar" aria-hidden="true">
+            <img src={cvAvatar} alt="" />
+          </div>
         </header>
 
-        <section className="cv-section">
-          <span className="eyebrow" lang="is">
-            Starfsferill
-          </span>
-          <h2>Professional Experience</h2>
-          <div className="cv-exp-list">
-            {experience.map((job) => (
-              <article key={job.company} className="cv-exp-item">
-                <h3>{job.company}</h3>
-                {job.roles.map((role) => (
-                  <div className="cv-exp-role" key={role.title}>
-                    <span className="cv-exp-title">{role.title}</span>
-                    <span className="cv-exp-period">{role.period}</span>
-                  </div>
-                ))}
-                {job.bullets.length > 0 && (
-                  <ul className="cv-bullets">
-                    {job.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                )}
-              </article>
-            ))}
-          </div>
-        </section>
+        <p className="cv-about">{professional[0]}</p>
 
-        <section className="cv-section">
-          <span className="eyebrow" lang="is">
-            Menntun
-          </span>
-          <h2>Education</h2>
-          <div className="cv-exp-list">
-            {education.map((item) => (
-              <article key={`${item.school}-${item.period}`} className="cv-exp-item">
-                <div className="cv-exp-role">
-                  <span className="cv-exp-title">
-                    {item.school} — {item.detail}
-                  </span>
-                  <span className="cv-exp-period">{item.period}</span>
+        <div className="cv-grid">
+          <aside className="cv-col-left">
+            <section>
+              <h2 className="cv-label">Education</h2>
+              {education.map((item) => (
+                <div className="cv-edu-item" key={`${item.school}-${item.period}`}>
+                  <strong>{item.school}</strong>
+                  <div className="cv-edu-degree">{item.detail}</div>
+                  <div className="cv-edu-year">{item.period}</div>
                 </div>
-              </article>
-            ))}
+              ))}
+            </section>
+
+            <section>
+              <h2 className="cv-label">Languages</h2>
+              <p className="cv-small">
+                {languages.map((l) => `${l.name} (${l.level})`).join(" · ")}
+              </p>
+            </section>
+
+            <section>
+              <h2 className="cv-label">Core Strengths</h2>
+              <ul className="cv-plain-list">
+                {coreStrengths.map((s) => (
+                  <li key={s}>{s}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="cv-label">Interests</h2>
+              <p className="cv-small">{cvInterests}</p>
+            </section>
+
+            <section>
+              <h2 className="cv-label">References</h2>
+              <p className="cv-small">{referencesNote}</p>
+            </section>
+          </aside>
+
+          <div className="cv-col-right">
+            <section>
+              <h2 className="cv-label">Experience</h2>
+              {experience.map((job) => (
+                <article key={job.company} className="cv-job">
+                  <div className="cv-job-header">
+                    <span className="cv-job-company">{job.company}</span>
+                    <span className="cv-job-period">{job.period}</span>
+                  </div>
+                  {job.roles.map((role) => (
+                    <div className="cv-job-role" key={role.title}>
+                      {role.title} ({role.period})
+                    </div>
+                  ))}
+                  {job.bullets.length > 0 && (
+                    <ul>
+                      {job.bullets.map((b) => (
+                        <li key={b}>{b}</li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              ))}
+            </section>
+
+            <section>
+              <h2 className="cv-label">Technical Skills</h2>
+              <div className="cv-chip-list">
+                {technicalSkills.map((skill) => (
+                  <span key={skill} className="cv-chip">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </section>
           </div>
-        </section>
-
-        <div className="cv-two-col">
-          <section className="cv-section">
-            <span className="eyebrow" lang="is">
-              Hæfni
-            </span>
-            <h2>Technical Skills</h2>
-            <ul className="cv-chip-list">
-              {technicalSkills.map((skill) => (
-                <li key={skill} className="cv-chip">
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="cv-section">
-            <span className="eyebrow" lang="is">
-              Styrkleikar
-            </span>
-            <h2>Core Strengths</h2>
-            <ul className="cv-bullets">
-              {coreStrengths.map((s) => (
-                <li key={s}>{s}</li>
-              ))}
-            </ul>
-          </section>
         </div>
-
-        <div className="cv-two-col">
-          <section className="cv-section">
-            <span className="eyebrow" lang="is">
-              Tungumál
-            </span>
-            <h2>Languages</h2>
-            <ul className="cv-bullets">
-              {languages.map((l) => (
-                <li key={l.name}>
-                  {l.name} — {l.level}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="cv-section">
-            <span className="eyebrow" lang="is">
-              Áhugamál
-            </span>
-            <h2>Interests</h2>
-            <p className="prose">{cvInterests}</p>
-          </section>
-        </div>
-
-        <section className="cv-section">
-          <span className="eyebrow" lang="is">
-            Meðmæli
-          </span>
-          <h2>References</h2>
-          <p className="prose">{referencesNote}</p>
-        </section>
       </main>
 
-      <footer className="footer cv-footer">
-        <span>© {new Date().getFullYear()} Sigurður G. Hjálmarsson</span>
-      </footer>
+      <Footer />
     </>
   );
 }
+

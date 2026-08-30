@@ -7,8 +7,9 @@
 export const experience = [
   {
     company: "Sabre Corporation",
+    period: "2016 – 2026",
     roles: [
-      { title: "Senior Service Delivery Engineer", period: "2020 – Present" },
+      { title: "Senior Service Delivery Engineer", period: "2020 – 2026" },
       { title: "Senior Software Engineer in Test", period: "2016 – 2020" },
     ],
     bullets: [
@@ -18,6 +19,7 @@ export const experience = [
   },
   {
     company: "Tern Systems",
+    period: "2007 – 2016",
     roles: [{ title: "Test Engineer", period: "2007 – 2016" }],
     bullets: [
       "Designed and implemented testing for various systems",
@@ -26,14 +28,16 @@ export const experience = [
   },
   {
     company: "Nanoq & Útilíf",
+    period: "2001 – 2007",
     roles: [{ title: "Sales Associate, Outdoor Department", period: "2001 – 2007" }],
     bullets: ["Assistant Store Manager (Autumn 2004)"],
   },
   {
     company: "Landsflug / Flugfélag Vestmannaeyja",
+    period: "2001 – 2005",
     roles: [
-      { title: "First Officer", period: "2005" },
       { title: "Captain", period: "2001 – 2002" },
+      { title: "First Officer", period: "2005" },
     ],
     bullets: [],
   },
