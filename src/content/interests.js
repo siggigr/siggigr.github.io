@@ -19,7 +19,7 @@ export const interests = [
       { title: "The Terminal List series", note: "Jack Carr" },
       { title: "The Martian", note: "Andy Weir" },
       { title: "Project Hail Mary", note: "Andy Weir" },
-      { title: "the Stormlight Archive series", note: "Brandon Sanderson" },
+      { title: "The Stormlight Archive series", note: "Brandon Sanderson" },
     ],
   },
   {
