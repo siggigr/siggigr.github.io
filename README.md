@@ -1,22 +1,42 @@
-# siggi-site
+# siggigr.github.io
 
-Personal website of Sigurður G. Hjálmarsson. A fully static React + Vite
-site: all content lives in simple data files in the repository, and every
-push to `main` deploys automatically to GitHub Pages. No backend, no
-database, no accounts — nothing to secure and nothing to pay for.
+Personal website and CV of Sigurður G. Hjálmarsson. A fully static
+React + Vite site: all content lives in simple data files in the
+repository, and every push to `main` deploys automatically to GitHub
+Pages. No backend, no database, no accounts — nothing to secure and
+nothing to pay for.
+
+Live at **https://siggigr.github.io/**.
+
+## Pages
+
+- **`index.html`** — the main site: Hero, About, Family, Professional
+  life, Interests, Pets, Apps.
+- **`cv.html`** — a standalone, print-ready CV/resume, linked from the
+  Professional section and the main nav. Includes a "Print / Save as
+  PDF" button with its own dense print stylesheet tuned to fit one page.
 
 ## How to change the site
 
-| To change…            | Edit…                                        |
-| --------------------- | -------------------------------------------- |
-| Hero / About / Work text | `src/content/site.js`                     |
-| Family members        | `src/content/family.js`                      |
-| Pets (and photos)     | `src/content/pets.js` + `src/assets/pets/`   |
-| Interests and items   | `src/content/interests.js`                   |
-| App cards             | `src/content/apps.js`                        |
-| Design and layout     | `src/styles/global.css`, section components  |
+| To change…                        | Edit…                                      |
+| ---------------------------------- | ------------------------------------------- |
+| Hero / About / Work text           | `src/content/site.js`                       |
+| Family intro text                  | `src/content/site.js` (`familyIntro`)       |
+| Family member cards (optional)     | `src/content/family.js`                     |
+| Pets intro text                    | `src/content/site.js` (`petsIntro`)         |
+| Pets (and photos)                  | `src/content/pets.js` + `src/assets/pets/`  |
+| Interests intro text               | `src/content/site.js` (`interestsIntro`)    |
+| Interest subsections (books, etc.) | `src/content/interests.js`                  |
+| App cards                          | `src/content/apps.js`                       |
+| Footer contact links               | `src/content/site.js` (`contact`)           |
+| CV content (experience, education, skills, etc.) | `src/content/cv.js`   |
+| Design and layout                  | `src/styles/global.css`, section components |
 
 Each content file documents its own format with a commented example.
+The main page's text sections (Hero, About, Family, Professional,
+Interests, Pets) all live together in `src/content/site.js` as arrays
+of paragraph strings — one array export per section's intro text.
+
 The workflow for any change:
 
 ```bash
@@ -55,21 +75,43 @@ export const pets = [
 
 Photos are cropped to a 4:3 card automatically; any reasonable image works.
 
+### Editing the CV
+
+`src/content/cv.js` holds `experience`, `education`, `technicalSkills`,
+`coreStrengths`, `languages`, `cvInterests`, and `referencesNote`.
+References intentionally omit direct contact details on this public
+page ("Available upon request").
+
+The CV's print stylesheet (`@media print` in `global.css`) is tuned
+to fit one A4 page at the current content length. Adding a
+significant amount of new text (another job, a long bullet list) can
+push it to two pages — check with the browser's print preview
+(Ctrl/Cmd+P) after any substantial CV edit.
+
 ## Project structure
 
 ```
-siggi-site/
-├── index.html                  Entry HTML, fonts, meta description
-├── vite.config.js              Build config (note the `base` path)
+siggigr.github.io/
+├── index.html                  Main site entry HTML, fonts, meta description
+├── cv.html                     CV page entry HTML
+├── vite.config.js              Build config (two-page build: index + cv)
 ├── .github/workflows/deploy.yml  Auto-deploy to GitHub Pages
+├── PRODUCT.md                  Product context (audience, goals, brand)
+│                                — read by the Impeccable design skill
 └── src/
-    ├── App.jsx                 Page composition
+    ├── App.jsx                 Main page composition
+    ├── CVPage.jsx               CV page composition
+    ├── main.jsx / cv-main.jsx  React entry points for each page
     ├── content/                ← the "database": all editable content
-    ├── assets/                 Portrait, pet photos
-    ├── components/             Nav, Section, Footer
+    │   ├── site.js             Hero/About/Family/Professional/
+    │   │                       Interests/Pets text + footer contact
+    │   ├── family.js, pets.js, interests.js, apps.js, cv.js
+    ├── assets/                 Portrait, pet photos, CV avatar
+    ├── components/             Nav, Section, Footer (shared by both pages)
     ├── sections/               Hero, About, Professional, Interests,
     │                           Family, Pets, Apps
-    └── styles/global.css       Design tokens and all styling
+    └── styles/global.css       Design tokens and all styling,
+                                 including the CV's print stylesheet
 ```
 
 ## One-time setup
@@ -80,22 +122,23 @@ siggi-site/
    Source: GitHub Actions**.
 4. Push to `main` (or run the workflow manually from the Actions tab).
 
-The site appears at `https://<username>.github.io/siggi-site/`.
 Deployment status is visible in the **Actions** tab.
 
 ## Custom domain (optional)
 
 Settings → Pages → Custom domain, then set the DNS records GitHub shows
 you at your registrar (e.g. ISNIC for a `.is` domain). GitHub Pages
-provides HTTPS automatically. When a custom domain is active, change
-`base` in `vite.config.js` to `"/"` and push.
+provides HTTPS automatically. `base` in `vite.config.js` is already
+`"/"`, so no code change is needed either way.
 
 ## Notes
 
-- The `base: "/siggi-site/"` setting in `vite.config.js` matches the
-  repository name. If the repo is renamed, update it to match, or the
-  deployed site will load a blank page with 404s for its assets.
-- This project previously used Firebase (auth, database, storage). If
-  the Firebase project still exists, it can be deleted in the Firebase
-  console — or at minimum downgraded from the Blaze plan — so the
-  billing account has nothing attached to it.
+- This repository is named `siggigr.github.io` — GitHub serves a repo
+  with exactly this name at the domain root instead of a subpath.
+  `base: "/"` in `vite.config.js` matches this; if the repo is ever
+  renamed away from `<username>.github.io`, `base` needs to change
+  back to `"/<repo-name>/"` to match, or the deployed site will 404 on
+  all its assets.
+- `.claude/skills/impeccable` and `PRODUCT.md` support the Impeccable
+  design skill (audit/polish/critique passes) when working on this
+  project with Claude Code. Not required reading to just edit content.
