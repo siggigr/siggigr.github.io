@@ -330,6 +330,11 @@ img {
   gap: 1.1rem;
 }
 
+.card-grid .card:only-child {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
 .card-grid-spaced {
   margin-top: 1.75rem;
 }
@@ -764,6 +769,22 @@ img {
   margin-top: 0.5rem;
   font-weight: 500;
   color: var(--accent);
+}
+
+.app-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  padding: 0.45em 1em;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.app-link:hover {
+  border-color: var(--accent);
+  text-decoration: none;
 }
 
 @media (max-width: 620px) {
