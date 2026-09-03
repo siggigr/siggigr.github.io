@@ -103,6 +103,7 @@ export default function CVPage() {
             <section>
               <h2 className="cv-label">References</h2>
               <p className="cv-small">{referencesNote}</p>
+    
             </section>
           </aside>
 
@@ -113,33 +114,39 @@ export default function CVPage() {
                 <article key={job.company} className="cv-job">
                   <div className="cv-job-header">
                     <span className="cv-job-company">{job.company}</span>
-                    <span className="cv-job-period">{job.period}</span>
                   </div>
                   {job.roles.map((role) => (
-                    <div className="cv-job-role" key={role.title}>
-                      {role.title} ({role.period})
+                    <div className="cv-job-role-block" key={role.title}>
+                      <div className="cv-job-role">
+                        {role.title} <span className="cv-role-sep">|</span> {role.period}
+                      </div>
+                      {role.bullets.length > 0 && (
+                        <ul>
+                          {role.bullets.map((b) => (
+                            <li key={b}>{b}</li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   ))}
-                  {job.bullets.length > 0 && (
-                    <ul>
-                      {job.bullets.map((b) => (
-                        <li key={b}>{b}</li>
-                      ))}
-                    </ul>
-                  )}
                 </article>
               ))}
             </section>
 
             <section>
               <h2 className="cv-label">Technical Skills</h2>
-              <div className="cv-chip-list">
-                {technicalSkills.map((skill) => (
-                  <span key={skill} className="cv-chip">
-                    {skill}
-                  </span>
-                ))}
-              </div>
+                            {technicalSkills.map((group) => (
+                <div key={group.label} className="cv-skill-group">
+                  <span className="cv-skill-label">{group.label}</span>
+                  <div className="cv-chip-list">
+                    {group.items.map((skill) => (
+                      <span key={skill} className="cv-chip">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </section>
           </div>
         </div>

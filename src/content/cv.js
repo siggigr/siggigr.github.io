@@ -2,49 +2,61 @@
  * CV content, shown on the cv.html page. Edit this file to change
  * what the CV says, then commit and push — the site redeploys
  * automatically, same as any other content file.
+ *
+ * Each job has one or more `roles`, and bullets belong to the role
+ * they were done in — not to the company as a whole.
  */
 
 export const experience = [
   {
     company: "Sabre Corporation",
-    period: "2016 – 2026",
     roles: [
-      { title: "Senior Service Delivery Engineer", period: "2020 – 2026" },
-      { title: "Senior Software Engineer in Test", period: "2016 – 2020" },
-    ],
-    bullets: [
-      "Development and operation of Java/SQL solutions for airlines",
-      "Project planning from PRDs and solution design with the team",
-      "Incident resolution, fixes and re-deployments for customers",
-      "Customer support, on-call duty, releases and CVT testing",
-      "Java development for automated testing (2016 – 2020)",
+      {
+        title: "Senior Service Delivery Engineer",
+        period: "2020 – 2026",
+        bullets: [
+          "Development and operation of Java/SQL solutions for airlines",
+          "Project planning from PRDs and solution design with the team",
+          "Incident resolution, fixes and re-deployments for customers",
+          "Customer support, on-call duty, releases and CVT testing",
+        ],
+      },
+      {
+        title: "Senior Software Engineer in Test",
+        period: "2016 – 2020",
+        bullets: ["Java development for automated testing"],
+      },
     ],
   },
   {
     company: "Tern Systems",
-    period: "2006 – 2016",
-    roles: [{ title: "Test Engineer", period: "2006 – 2016 (part-time 2006)" }],
-    bullets: [
-      "Manual acceptance testing (FAT/SAT) of safety-critical air traffic control systems",
-      "Responsible for testing, incl. on-site SAT with customers abroad",
+    roles: [
+      {
+        title: "Test Engineer",
+        period: "2006 – 2016 (part-time 2006)",
+        bullets: [
+          "Manual acceptance testing (FAT/SAT) of safety-critical air traffic control systems",
+          "Responsible for testing, incl. on-site SAT with customers abroad",
+        ],
+      },
     ],
   },
   {
     company: "Nanoq & Útilíf",
-    period: "2001 – 2007",
     roles: [
-      { title: "Sales Associate, Outdoor Department", period: "2001 – 2007" },
+      {
+        title: "Sales Associate, Outdoor Department",
+        period: "2001 – 2007",
+        bullets: ["Assistant Store Manager, autumn 2004"],
+      },
     ],
-    bullets: ["Assistant Store Manager, autumn 2004"],
   },
   {
     company: "Landsflug / Flugfélag Vestmannaeyja",
-    period: "2001 – 2005",
     roles: [
-      { title: "First Officer", period: "2005" },
-      { title: "Captain", period: "2001 – 2002" },
+      { title: "First Officer", period: "2005", bullets: [] },
+      { title: "Captain", period: "2001 – 2002", bullets: [] },
     ],
-    bullets: [],
   },
 ];
 
@@ -55,12 +67,12 @@ export const education = [
     period: "2005 – 2009",
   },
   {
-    school: "Icelandic Flight School",
+    school: "Icelandic Flight Academy",
     detail: "ATPL first class",
     period: "1998",
   },
   {
-    school: "Icelandic Flight School",
+    school: "Icelandic Flight Academy",
     detail: "Commercial Pilot License with Instrument Rating",
     period: "1997",
   },
@@ -71,18 +83,27 @@ export const education = [
   },
 ];
 
+/**
+ * Technical skills, grouped as on the Word CV. Each group renders as
+ * an italic label followed by its own row of chips.
+ */
 export const technicalSkills = [
-  "Java",
-  "SQL / Oracle SQL Developer",
-  "ActiveMQ",
-  "IntelliJ IDEA",
-  "GitHub",
-  "GitHub Copilot",
-  "Jira",
-  "Rally",
-  "Google Cloud",
-  "Linux & Windows",
-  "Microsoft 365",
+  {
+    label: "Programming",
+    items: ["Java", "SQL / Oracle SQL Developer", "ActiveMQ"],
+  },
+  {
+    label: "Tools",
+    items: ["IntelliJ IDEA", "GitHub", "GitHub Copilot", "Jira", "Rally"],
+  },
+  {
+    label: "Platforms",
+    items: ["Google Cloud", "Linux & Windows", "Microsoft 365"],
+  },
+  {
+    label: "Personal project",
+    items: ["Nextpost — Android app (Kotlin, Compose, Firebase)"],
+  },
 ];
 
 export const coreStrengths = [
