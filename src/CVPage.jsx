@@ -37,7 +37,7 @@ export default function CVPage() {
         <header className="cv-header">
           <div className="cv-header-info">
             <h1 className="cv-name">Sigurður G. Hjálmarsson</h1>
-            <p className="cv-role">Senior Service Delivery Engineer</p>
+            <p className="cv-role">Senior Software Engineer | Backend Development &amp; QA | 20 Years in Airline Technology (Java, SQL)</p>
             <div className="cv-contacts">
               {contact.phone && (
                 <a href={`tel:${contact.phone.replace(/\s+/g, "")}`}>
