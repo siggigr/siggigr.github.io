@@ -60,7 +60,7 @@ export const experience = [
       {
         title: "Captain, Flugfélag Vestmannaeyja",
         period: "2001 – 2002",
-        bullets: ["Partenavia P68C"],
+        bullets: ["Partenavia P68C, charter flights"],
       },
       {
         title: "First Officer, Landsflug",
