@@ -60,7 +60,7 @@ export const experience = [
       {
         title: "Captain, Flugfélag Vestmannaeyja",
         period: "2001 – 2002",
-        bullets: ["Partenavia P68C, charter flights"],
+        bullets: ["Partenavia P68C"],
       },
       {
         title: "First Officer, Landsflug",
@@ -101,15 +101,22 @@ export const education = [
 export const technicalSkills = [
   {
     label: "Programming",
-    items: ["Java", "SQL / Oracle SQL Developer", "ActiveMQ"],
+    items: ["Java", "SQL"],
   },
   {
     label: "Tools",
-    items: ["IntelliJ IDEA", "GitHub", "GitHub Copilot", "Jira", "Rally"],
+    items: [
+      "IntelliJ IDEA",
+      "Oracle SQL Developer",
+      "GitHub",
+      "GitHub Copilot",
+      "Jira",
+      "Rally",
+    ],
   },
   {
     label: "Platforms",
-    items: ["Google Cloud", "Linux & Windows", "Microsoft 365"],
+    items: ["Google Cloud", "ActiveMQ", "Linux & Windows"],
   },
   {
     label: "Personal project",
