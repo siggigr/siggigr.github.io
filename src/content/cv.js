@@ -15,16 +15,19 @@ export const experience = [
         title: "Senior Service Delivery Engineer",
         period: "2020 – 2026",
         bullets: [
-          "Development and operation of Java/SQL solutions for airlines",
-          "Project planning from PRDs and solution design with the team",
-          "Incident resolution, fixes and re-deployments for customers",
+          "Development and support of analysers built on Sabre's Intelligent Exchange (IX) platform, in Java and Oracle SQL",
+          "Project planning from customer requests and PRDs, and solution design with the team",
+          "Investigation of customer-reported issues, with fixes and re-deployments",
           "Customer support, on-call duty, releases and CVT testing",
         ],
       },
       {
         title: "Senior Software Engineer in Test",
         period: "2016 – 2020",
-        bullets: ["Java development for automated testing"],
+        bullets: [
+          "Java development of automated tests for the IX platform, using Test Kit, an internal platform supplying bookings (PNRs), flights and test data",
+          "Manual test cases and smoke testing for new and changed functionality",
+        ],
       },
     ],
   },
@@ -52,10 +55,18 @@ export const experience = [
     ],
   },
   {
-    company: "Landsflug / Flugfélag Vestmannaeyja",
+    company: "Flugfélag Vestmannaeyja / Landsflug",
     roles: [
-      { title: "First Officer", period: "2005", bullets: [] },
-      { title: "Captain", period: "2001 – 2002", bullets: [] },
+      {
+        title: "Captain, Flugfélag Vestmannaeyja",
+        period: "2001 – 2002",
+        bullets: ["Partenavia P68C"],
+      },
+      {
+        title: "First Officer, Landsflug",
+        period: "2005",
+        bullets: ["Piper Chieftain, air ambulance flights"],
+      },
     ],
   },
 ];

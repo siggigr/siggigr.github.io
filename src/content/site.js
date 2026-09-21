@@ -19,7 +19,7 @@ export const about = [
 ];
 
 export const professional = [
-  "With over 20 years in the software industry, I've built my career around a blend of hands-on engineering and a deep commitment to quality. My journey spans 14 years in software testing followed by 6 years in backend development—most recently as a Senior Service Delivery Engineer at Sabre, where I developed real-time, resilient Java/SQL services for international airline environments. Following the recent closure of Sabre's Iceland office, I'm now actively exploring new opportunities where I can put that experience to work.",
+  "With over 20 years in the software industry, I've built my career around a blend of hands-on engineering and a deep commitment to quality. My journey spans 14 years in software testing followed by 6 years in backend development—most recently as a Senior Service Delivery Engineer at Sabre, where I developed and supported analysers built on Sabre's Intelligent Exchange platform, in Java and Oracle SQL, for international airline environments. Following the recent closure of Sabre's Iceland office, I'm now actively exploring new opportunities where I can put that experience to work.",
   "I take pride in taking end-to-end ownership of systems, whether that means engineering backend workflows, automating tests, or troubleshooting complex production setups. Over the years, I've learned that the best software comes from combining a structured quality mindset with modern tooling—including AI-assisted development tools like GitHub Copilot. Beyond code, I bring persistence, reliability, and a collaborative spirit to every team I join.",
 ];
 
