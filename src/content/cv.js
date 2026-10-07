@@ -17,8 +17,9 @@ export const experience = [
         bullets: [
           "Development and support of analysers built on Sabre's Intelligent Exchange (IX) platform, in Java and Oracle SQL",
           "Project planning from customer requests and PRDs, and solution design with the team",
-          "Investigation of customer-reported issues, with fixes and re-deployments",
-          "Customer support, on-call duty, releases and CVT testing support",
+          "Investigation of customer-reported issues, with fixes and redeployments",
+          "Customer support: deployment guidance for analysers, action plugins and domains on GCP, and IX platform advice",
+          "On-call duty, releases and CVT testing support",
         ],
       },
       {
