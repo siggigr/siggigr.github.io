@@ -7,21 +7,26 @@ const LINKS = [
   { id: "about", label: "About", icon: "user" },
   { id: "family", label: "Family", icon: "home" },
   { id: "professional", label: "Work", icon: "briefcase" },
+  { id: "cv", label: "CV", icon: "resume", href: cvHref },
   { id: "interests", label: "Interests", icon: "book" },
   { id: "pets", label: "Pets", icon: "paw" },
   { id: "apps", label: "Apps", icon: "grid" },
 ];
 
 /**
- * Narrow icon rail: brand mark at the top, one icon per section,
- * CV link at the bottom. Highlights the section currently in view.
+ * Narrow icon rail: brand mark at the top, one icon per section plus
+ * the CV page, and a CV shortcut at the bottom. Highlights the section
+ * currently in view (the CV link goes to a separate page, so it never
+ * lights up).
  * On small screens it becomes a horizontal bar (see dark.css).
  */
 export default function Rail() {
   const [active, setActive] = useState("about");
 
   useEffect(() => {
-    const sections = LINKS.map((l) => document.getElementById(l.id)).filter(Boolean);
+    const sections = LINKS.filter((l) => !l.href)
+      .map((l) => document.getElementById(l.id))
+      .filter(Boolean);
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -44,7 +49,7 @@ export default function Rail() {
         {LINKS.map((link) => (
           <li key={link.id}>
             <a
-              href={`#${link.id}`}
+              href={link.href || `#${link.id}`}
               className={active === link.id ? "is-active" : undefined}
               aria-current={active === link.id ? "true" : undefined}
               title={link.label}

@@ -47,6 +47,16 @@ const PATHS = {
       <rect x="14" y="14" width="6" height="6" rx="1" />
     </>
   ),
+  resume: (
+    <>
+      <path d="M6 2.5h9l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 20V4a1.5 1.5 0 0 1 1-1.5z" />
+      <path d="M15 2.5v4h4" />
+      <circle cx="9.5" cy="8" r="2" />
+      <path d="M6.5 13.2a3 3 0 0 1 6 0" />
+      <path d="M8 16.5h8" />
+      <path d="M8 19h8" />
+    </>
+  ),
   download: (
     <>
       <path d="M12 4v11" />
