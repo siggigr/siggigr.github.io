@@ -16,7 +16,7 @@ export default function App() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
-      <div className="shell">
+      <div className="shell" id="top">
         <Rail />
         <ProfileCard />
         <main id="main" className="panel">

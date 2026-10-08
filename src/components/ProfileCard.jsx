@@ -14,7 +14,7 @@ export default function ProfileCard() {
   ].filter(Boolean);
 
   return (
-    <aside className="profile-card" id="top">
+    <aside className="profile-card">
       <div className="profile-photo">
         <img
           src={portrait}
