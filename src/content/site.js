@@ -50,7 +50,7 @@ export const services = [
   {
     icon: "layers",
     title: "Learning new stacks",
-    text: "Comfortable picking up new languages and tools: built Nextpost solo, an Android app in Kotlin and Jetpack Compose, from spec to shipped app, and works with AI-assisted tools like GitHub Copilot.",
+    text: "Comfortable picking up new languages and tools. Built Nextpost, an Android app in Kotlin and Jetpack Compose, solo from spec to shipped app. Uses AI-assisted tools like GitHub Copilot in everyday development.",
   },
 ];
 
