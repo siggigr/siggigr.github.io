@@ -13,6 +13,42 @@ export const hero = {
     "Software professional in Kópavogur with a background in quality engineering and software development—plus a lifelong weakness for aviation and good books.",
 };
 
+/**
+ * Profile card and intro meta line (dark profile layout).
+ */
+export const profile = {
+  name: "Sigurður G. Hjálmarsson",
+  role: "Senior Software Engineer",
+  meta: ["Kópavogur", "20+ years in software", "Open to work"],
+};
+
+/**
+ * "What I do" grid under the intro. icon is one of the names in
+ * components/Icon.jsx (code, check, terminal, plane, ...).
+ */
+export const services = [
+  {
+    icon: "code",
+    title: "Backend development",
+    text: "Java and Oracle SQL services and analysers, most recently on Sabre's Intelligent Exchange platform.",
+  },
+  {
+    icon: "check",
+    title: "Quality engineering",
+    text: "14 years in testing, from acceptance testing of air traffic control systems to automated test suites in Java.",
+  },
+  {
+    icon: "terminal",
+    title: "Production support",
+    text: "Troubleshooting, deployments and on-call for airline systems, including customer deployments on GCP.",
+  },
+  {
+    icon: "plane",
+    title: "Aviation know-how",
+    text: "A former commercial pilot who has spent his software career building for air traffic control and airlines.",
+  },
+];
+
 export const about = [
   "I am Sigurður, Siggi to most people.",
   "I was born in 1975 and grew up in the Vestmannaeyjar Islands with my parents and three younger siblings. After secondary school, I attended the Icelandic Flight School (Flugskóli Íslands), graduating with a Commercial Pilot License in 1997 and ATPL First Class in 1998. In 2005, I made the leap into tech by studying Computer Science at Reykjavík University, turning a lifelong curiosity about problem-solving into a long-term career.",
