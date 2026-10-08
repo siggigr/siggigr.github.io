@@ -47,6 +47,11 @@ export const services = [
     title: "Aviation know-how",
     text: "A former commercial pilot who has spent his software career building for air traffic control and airlines.",
   },
+  {
+    icon: "layers",
+    title: "Learning new stacks",
+    text: "Comfortable picking up new languages and tools: built Nextpost solo, an Android app in Kotlin and Jetpack Compose, from spec to shipped app, and works with AI-assisted tools like GitHub Copilot.",
+  },
 ];
 
 export const about = [

@@ -286,6 +286,11 @@ h3 {
   gap: 2rem 2.5rem;
 }
 
+/* An odd card out at the end spans the full width as a closing note. */
+.service:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .service-icon {
   display: block;
   color: var(--accent);
