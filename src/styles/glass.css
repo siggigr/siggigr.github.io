@@ -1,0 +1,293 @@
+/* ---------------------------------------------------------------------
+   EXPERIMENT: glassmorphism theme
+   Loaded after global.css and only overrides it. To go back to the
+   original look, remove the `import "./styles/glass.css"` lines in
+   main.jsx and cv-main.jsx (or delete this file).
+
+   Idea: a soft "aurora over glacier" backdrop in the site's own teal
+   family, with frosted panels floating above it. The cut-out portrait
+   stays sharp and stands in front of a glass pane, so the blur behind
+   it gives the figure depth.
+--------------------------------------------------------------------- */
+:root {
+  --bg: #e9f1f1;
+  --muted: #4a5361; /* a touch darker than before: text sits on glass */
+  --line: rgba(255, 255, 255, 0.55);
+
+  --glass-bg: rgba(255, 255, 255, 0.42);
+  --glass-bg-strong: rgba(255, 255, 255, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-edge: rgba(20, 108, 119, 0.1);
+  --glass-blur: blur(18px) saturate(160%);
+  --glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 24px 48px -28px rgba(15, 52, 66, 0.35);
+  --radius: 18px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Backdrop: fixed aurora blobs behind everything                      */
+/* ------------------------------------------------------------------ */
+body {
+  background: var(--bg);
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10vmax;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(38vmax 30vmax at 12% 18%, rgba(20, 108, 119, 0.62), transparent 70%),
+    radial-gradient(34vmax 28vmax at 88% 12%, rgba(110, 170, 214, 0.7), transparent 70%),
+    radial-gradient(40vmax 30vmax at 78% 78%, rgba(118, 205, 172, 0.5), transparent 70%),
+    radial-gradient(30vmax 26vmax at 18% 88%, rgba(150, 140, 210, 0.38), transparent 70%),
+    linear-gradient(160deg, #dfeef0 0%, #eef3f6 50%, #e3efea 100%);
+  filter: blur(20px);
+  animation: aurora-drift 40s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-3vmax, 2vmax, 0) scale(1.06);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Shared glass surface                                                */
+/* ------------------------------------------------------------------ */
+.nav,
+.section,
+.footer,
+.cv-page,
+.hero-photo-card.free::before {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Keep the skip link fully off-screen now that the nav floats. */
+.skip-link {
+  top: -5rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Navigation: a floating frosted bar                                  */
+/* ------------------------------------------------------------------ */
+.nav {
+  top: 0.75rem;
+  margin: 0.75rem auto 0;
+  max-width: 64rem;
+  width: calc(100% - 1.5rem);
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Hero: figure stands in front of a glass pane                        */
+/* ------------------------------------------------------------------ */
+.hero {
+  padding-top: 4rem;
+}
+
+.hero-photo-card.free::before {
+  /* The figure sits at the left of its 240px box, so the pane is
+     shifted left to stay centred behind it. */
+  inset: 14% 12% 0 -24%;
+  background: linear-gradient(
+    170deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.18)
+  );
+  border-radius: 120px 120px 0 0;
+  border-bottom: none;
+}
+
+.hero-photo-card.free img {
+  filter: drop-shadow(0 18px 24px rgba(15, 52, 66, 0.22));
+}
+
+.hero-subline p {
+  color: #3d4652;
+}
+
+.horizon {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.9) 20%,
+    rgba(255, 255, 255, 0.9) 80%,
+    transparent
+  );
+}
+
+.horizon-marker {
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+/* ------------------------------------------------------------------ */
+/* Sections become frosted panels                                      */
+/* ------------------------------------------------------------------ */
+.section {
+  margin-top: 2.5rem;
+  padding: 2.25rem 2.5rem 2.5rem;
+  border-radius: var(--radius);
+}
+
+.section:first-of-type {
+  margin-top: 3.5rem;
+}
+
+/* Inner surfaces: lighter glass without a second blur (cheaper, and
+   glass-on-glass blur just turns muddy). */
+.card,
+.interest-block {
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 24px -18px rgba(15, 52, 66, 0.35);
+  border-radius: calc(var(--radius) - 6px);
+}
+
+.card-pet img {
+  /* Also fixes a bug on the live site: the global img max-width: 100%
+     stopped the photo from bleeding to the card edges. */
+  max-width: none;
+  border-radius: calc(var(--radius) - 6px) calc(var(--radius) - 6px) 0 0;
+}
+
+.card-empty {
+  border-style: dashed;
+  border-color: rgba(20, 108, 119, 0.35);
+}
+
+.interest-toggle:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.interest-items li,
+.cv-plain-list li {
+  border-bottom-color: rgba(20, 108, 119, 0.15);
+}
+
+.tag {
+  background: rgba(20, 108, 119, 0.12);
+}
+
+.app-link,
+.cv-print-btn,
+.cv-chip {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: var(--glass-border);
+}
+
+/* ------------------------------------------------------------------ */
+/* Footer                                                              */
+/* ------------------------------------------------------------------ */
+.footer {
+  margin: 0 auto 1.5rem;
+  width: calc(100% - 2.5rem);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.75rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* CV page: one big pane                                               */
+/* ------------------------------------------------------------------ */
+.cv-page {
+  margin-top: 2.75rem;
+  margin-bottom: 2rem;
+  padding: 2.5rem;
+  border-radius: var(--radius);
+}
+
+.cv-header,
+.cv-about {
+  border-bottom-color: rgba(20, 108, 119, 0.15);
+}
+
+.cv-avatar {
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 24px -14px rgba(15, 52, 66, 0.45);
+}
+
+/* ------------------------------------------------------------------ */
+/* Small screens                                                       */
+/* ------------------------------------------------------------------ */
+@media (max-width: 700px) {
+  .hero-photo-card.free {
+    position: relative;
+  }
+
+  .hero-photo-card.free::before {
+    inset: 16% -22% 0 -22%;
+  }
+}
+
+@media (max-width: 540px) {
+  .nav {
+    border-radius: 20px;
+  }
+
+  .section {
+    padding: 1.6rem 1.25rem 1.75rem;
+    border-radius: 14px;
+  }
+
+  .cv-page {
+    padding: 1.5rem 1.25rem;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Fallbacks                                                           */
+/* ------------------------------------------------------------------ */
+/* Browsers without backdrop-filter: make panels opaque enough to read. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav,
+  .section,
+  .footer,
+  .cv-page {
+    background: rgba(255, 255, 255, 0.85);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}
+
+/* Print stays plain white (the CV prints from here). */
+@media print {
+  body::before {
+    display: none;
+  }
+
+  .cv-page,
+  .section,
+  .card {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .cv-avatar {
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+}
