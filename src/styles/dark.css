@@ -4,8 +4,8 @@
    a tall profile card with the portrait, and a content panel beside it.
    Loaded after global.css (main page only; the CV page is untouched).
 
-   Accent colour: change --accent below. #f0585c is the template's red;
-   the site's original glacial teal on dark would be about #3fb8c4.
+   Accent colour: change --accent below. #3fb8c4 is the site's glacial
+   teal, lightened to read well on dark (the template used red, #f0585c).
 --------------------------------------------------------------------- */
 :root {
   --bg: #131417;
@@ -14,8 +14,8 @@
   --ink: #eceef1;
   --muted: #a0a7b1;
   --line: #31353b;
-  --accent: #f0585c;
-  --accent-soft: rgba(240, 88, 92, 0.12);
+  --accent: #3fb8c4;
+  --accent-soft: rgba(63, 184, 196, 0.12);
   --radius: 12px;
   --shell-top: 3.5rem;
 
@@ -44,7 +44,7 @@ h3 {
 }
 
 ::selection {
-  background: rgba(240, 88, 92, 0.35);
+  background: rgba(63, 184, 196, 0.35);
   color: #fff;
 }
 
@@ -243,9 +243,13 @@ h3 {
 }
 
 .intro h1 {
-  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
-  line-height: 1.05;
-  margin-bottom: 0.6rem;
+  /* The original site's display serif, kept for the one big headline. */
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  font-size: clamp(2.9rem, 5.5vw, 4.4rem);
+  line-height: 1.02;
+  margin-bottom: 0.7rem;
 }
 
 .intro-meta {
