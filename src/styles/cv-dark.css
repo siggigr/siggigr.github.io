@@ -83,7 +83,7 @@
 
   .cv-avatar {
     /* The photo is a cut-out, so this is the colour behind it. */
-    background: #ffffff;
+    background: #e3eff0; /* the site's original light glacial teal */
     border: 2px solid var(--accent);
     box-shadow: 0 0 0 5px var(--accent-soft);
   }
