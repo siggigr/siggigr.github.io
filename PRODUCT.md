@@ -30,49 +30,59 @@ identity as a distinguishing thread.
 ## Operating Context
 
 Static React + Vite site deployed to GitHub Pages via GitHub Actions on
-push to main (base path `/siggi-site/`). All content lives in data files
+push to main (served at the domain root, https://siggigr.github.io/,
+base path `/`). All content lives in data files
 under `src/content/`; sole maintainer is the owner, editing code
 directly. No backend, no database, no accounts.
 
 ## Capabilities and Constraints
 
-- Sections: Hero, About, Professional life, Interests (nested
-  sections/items), Family, Pets (photo cards), Apps (cards with
-  optional link, "coming soon" tag, "In the hangar" empty state).
-- Content: currently placeholder text in `src/content/site.js`; real
-  copy pending from owner.
-- No apps exist yet; the Apps section must not imply otherwise.
+- Main page layout: icon rail (section links, CV link, "Download CV
+  as PDF" button), sticky profile card (portrait, name, role, contact
+  icons), and a content panel: Intro (headline, meta line, "What I do"
+  grid), About, Family, Professional life, Interests (nested
+  sections/items), Pets (photo cards), Apps (cards with optional link,
+  "coming soon" tag, "In the hangar" empty state).
+- CV page (`cv.html`): dark on screen, plain white one-page A4 when
+  printed or saved as PDF.
+- Content: real copy from the owner, in `src/content/`.
+- One app exists: Nextpost (Android, Kotlin/Compose/Firebase), linked
+  to its GitHub repository. No other apps may be implied.
 - Undecided: timing and mechanism of full bilingual (Icelandic/English)
   version — planned "later"; current content is English with Icelandic
   section eyebrows.
-- Missing (confirmed gap): no contact affordance exists (no email,
-  LinkedIn, or GitHub link anywhere on the site) despite "contact about
-  work" being the success action. Owner's actual contact
-  details/profile URLs not yet provided; must not be invented.
+- Contact: email, LinkedIn and GitHub on the profile card, in the
+  footer and in the CV header (phone on the CV only), all from
+  `contact` in `src/content/site.js`.
 
 ## Brand Commitments
 
 - Name: rendered as "Sigurður G. Hjálmarsson"; brand mark "SGH"; site
   known as siggi-site.
-- Visual direction (owner-pinned): dark editorial look inspired by a
-  Morozov portfolio reference — near-black canvas, large Instrument
-  Serif display type, monochrome cut-out portrait emerging from the
-  dark, restrained glacial-teal accent. Owner explicitly removed
-  section numbering.
-- Signature element: Icelandic eyebrow labels above English section
-  headings (Um mig, Starfsferill, Áhugamál, Fjölskyldan, Dýrin,
-  Smíðar); hero coordinates line "64°07′N 21°55′W — Kópavogur".
-- Type: Instrument Serif (display), DM Sans (body), DM Mono (labels).
-- Aviation as a personality motif (horizon divider, "In the hangar").
+- Visual direction (owner-chosen, October 2026): dark profile layout.
+  Near-black canvas with faint diagonal texture, icon rail, tall
+  profile card with the colour cut-out portrait, dark content panel,
+  glacial-teal accent (#3fb8c4 on dark). Owner explicitly removed
+  section numbering. Light and glassmorphism variants were tried and
+  set aside.
+- Signature element: Icelandic name for each section (Um mig,
+  Fjölskyldan, Starfsferill, Áhugamál, Dýrin, Smíðar) shown in teal
+  italics under the English heading.
+- Type: Instrument Serif for the main headline and the CV name; DM Sans
+  for everything else (bold, lowercase section headings); DM Mono for
+  small labels on the CV.
+- Aviation as a personality motif ("Aviation know-how" card,
+  "In the hangar" empty state).
 
 ## Evidence on Hand
 
-- Real portrait assets: `src/assets/siggi-portrait.webp` (color) and
-  `siggi-portrait-bw.webp` (monochrome, in use), extracted with
-  transparency.
+- Real portrait assets, cut out with transparency:
+  `src/assets/siggi-portrait.webp` (full-length, colour, used on the
+  profile card) and `src/assets/cv-avatar.webp` (head and shoulders,
+  CV page, shown on light teal #e3eff0).
 - Professional facts available from owner's CV/history (20 years:
   14 QA/testing, 6 development; safety-critical ATC systems; airline
-  tech) — usable once owner finalizes copy.
+  tech), already used in the site and CV copy.
 - No testimonials, logos, metrics, or app screenshots exist; none may
   be fabricated.
 
