@@ -1,0 +1,129 @@
+/* ---------------------------------------------------------------------
+   CV page in the dark profile theme (screen only).
+
+   Everything here sits inside @media screen, so printing / "Save as
+   PDF" ignores it completely and uses the original light print styles
+   from global.css: white paper, dark text, no backgrounds.
+--------------------------------------------------------------------- */
+@media screen {
+  :root {
+    --bg: #131417;
+    --panel: #1f2125;
+    --surface: #26292e;
+    --ink: #eceef1;
+    --muted: #a0a7b1;
+    --line: #31353b;
+    --accent: #3fb8c4;
+    --accent-soft: rgba(63, 184, 196, 0.12);
+    --radius: 12px;
+
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(ellipse 60% 50% at 15% 0%, rgba(255, 255, 255, 0.06), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 100% 100%, rgba(255, 255, 255, 0.04), transparent 70%),
+      repeating-linear-gradient(
+        118deg,
+        rgba(255, 255, 255, 0.022) 0 1px,
+        transparent 1px 26px
+      );
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(63, 184, 196, 0.35);
+    color: #fff;
+  }
+
+  /* Top bar */
+  .nav {
+    background: rgba(31, 33, 37, 0.92);
+    border-bottom-color: var(--line);
+  }
+
+  .nav-links a {
+    color: var(--muted);
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  .cv-print-btn {
+    color: var(--ink);
+    border-color: #464b52;
+  }
+
+  .cv-print-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* The CV itself sits on one dark panel */
+  .cv-page {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding: 3rem 3.25rem 2.5rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7);
+  }
+
+  .cv-name {
+    color: #fff;
+  }
+
+  .cv-role {
+    color: var(--accent);
+  }
+
+  .cv-avatar {
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 5px var(--accent-soft);
+  }
+
+  .cv-about {
+    color: #c9ced5;
+  }
+
+  .cv-label {
+    color: var(--accent);
+  }
+
+  .cv-edu-item strong,
+  .cv-job-company {
+    color: var(--ink);
+  }
+
+  .cv-job li,
+  .cv-plain-list li,
+  .cv-small {
+    color: #b8bec7;
+  }
+
+  .cv-chip {
+    background: var(--surface);
+    border-color: var(--line);
+    color: var(--ink);
+  }
+
+  .cv-role-sep {
+    color: #555b63;
+  }
+
+  .footer {
+    border-top-color: var(--line);
+  }
+
+  @media (max-width: 620px) {
+    .cv-page {
+      margin: 1rem 0.75rem 1.5rem;
+      padding: 1.75rem 1.25rem 1.5rem;
+    }
+  }
+}
