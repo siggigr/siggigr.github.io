@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { professional, contact } from "./content/site";
 import cvAvatar from "./assets/cv-avatar.webp";
 import Footer from "./components/Footer";
@@ -14,6 +15,22 @@ import {
 const homeHref = `${import.meta.env.BASE_URL}`;
 
 export default function CVPage() {
+  // Opened as cv.html?print (the "Download CV as PDF" button on the main
+  // site): wait for fonts and the photo, then open the print dialog,
+  // where the visitor can choose "Save as PDF". The marker is removed
+  // from the address first, so reloading the page does not print again.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has("print")) return;
+    window.history.replaceState(null, "", window.location.pathname);
+    const images = Array.from(document.images).map((img) =>
+      img.complete ? Promise.resolve() : new Promise((r) => (img.onload = img.onerror = r))
+    );
+    Promise.all([document.fonts.ready, ...images]).then(() => {
+      setTimeout(() => window.print(), 300);
+    });
+  }, []);
+
   return (
     <>
       <a className="skip-link" href="#cv-main">

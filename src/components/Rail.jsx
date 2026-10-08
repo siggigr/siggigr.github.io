@@ -15,9 +15,10 @@ const LINKS = [
 
 /**
  * Narrow icon rail: brand mark at the top, one icon per section plus
- * the CV page, and a CV shortcut at the bottom. Highlights the section
- * currently in view (the CV link goes to a separate page, so it never
- * lights up).
+ * the CV page, and a "Download CV as PDF" button at the bottom, which
+ * opens the CV page straight into the print dialog (see CVPage.jsx).
+ * Highlights the section currently in view (the CV link goes to a
+ * separate page, so it never lights up).
  * On small screens it becomes a horizontal bar (see dark.css).
  */
 export default function Rail() {
@@ -60,9 +61,9 @@ export default function Rail() {
           </li>
         ))}
       </ul>
-      <a className="rail-cv" href={cvHref} title="CV">
+      <a className="rail-cv" href={`${cvHref}?print`} title="Download CV as PDF">
         <Icon name="download" />
-        <span className="rail-label">CV</span>
+        <span className="rail-label">Download CV as PDF</span>
       </a>
     </nav>
   );
