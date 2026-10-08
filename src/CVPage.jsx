@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { professional, contact } from "./content/site";
 import cvAvatar from "./assets/cv-avatar.webp";
+import Icon from "./components/Icon";
 import Footer from "./components/Footer";
 import {
   experience,
@@ -58,19 +59,25 @@ export default function CVPage() {
             <div className="cv-contacts">
               {contact.phone && (
                 <a href={`tel:${contact.phone.replace(/\s+/g, "")}`}>
+                  <Icon name="phone" size={14} />
                   {contact.phone}
                 </a>
               )}
               {contact.email && (
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                <a href={`mailto:${contact.email}`}>
+                  <Icon name="mail" size={14} />
+                  {contact.email}
+                </a>
               )}
               {contact.linkedin && (
                 <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+                  <Icon name="linkedin" size={14} />
                   LinkedIn
                 </a>
               )}
               {contact.github && (
                 <a href={contact.github} target="_blank" rel="noopener noreferrer">
+                  <Icon name="github" size={14} />
                   GitHub
                 </a>
               )}

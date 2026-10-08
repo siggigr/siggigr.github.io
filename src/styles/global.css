@@ -531,6 +531,7 @@ img {
 .footer-links a {
   color: var(--muted);
   display: inline-flex;
+  gap: 0.4em;
   align-items: center;
   justify-content: center;
   padding: 0.7em;
@@ -618,6 +619,15 @@ img {
 
 .cv-contacts a {
   font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.cv-contacts a svg,
+.footer-links a svg {
+  flex: none;
+  opacity: 0.85;
 }
 
 .cv-about {
