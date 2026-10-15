@@ -102,7 +102,7 @@ export const screens = [];
 
 /** Teaser card on the main page. */
 export const agentsTeaser = {
-  title: "One developer, six AI colleagues",
+  title: "One engineer, six AI colleagues",
   text: "How I run a small team of AI agents that takes a real Android app from requirements to reviewed code, with me approving every step.",
   link: "See how it works",
 };
