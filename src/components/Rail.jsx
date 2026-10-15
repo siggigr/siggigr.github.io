@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 
 const cvHref = `${import.meta.env.BASE_URL}cv.html`;
@@ -20,27 +20,81 @@ const LINKS = [
  * the CV page and the AI agent team page, and a "Download CV as PDF" button at the bottom, which
  * opens the CV page straight into the print dialog (see CVPage.jsx).
  * Highlights the section currently in view (the CV and agent team
- * links go to separate pages, so they never light up).
+ * links go to separate pages, so they never light up): the last
+ * section whose top has passed a line 35% down the screen. At the very
+ * bottom of the page the last section lights up, because a short last
+ * section (Apps) can never scroll up to that line. A clicked icon
+ * stays lit while the page scrolls to it.
  * On small screens it becomes a horizontal bar (see dark.css).
  */
 export default function Rail() {
   const [active, setActive] = useState("about");
 
+  const clicked = useRef(null); // section id while a clicked link scrolls to it
+
   useEffect(() => {
     const sections = LINKS.filter((l) => !l.href)
       .map((l) => document.getElementById(l.id))
       .filter(Boolean);
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActive(visible[0].target.id);
-      },
-      { rootMargin: "-30% 0px -60% 0px" }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+    if (sections.length === 0) return undefined;
+
+    let frame = 0;
+    let settle = 0;
+
+    const update = () => {
+      frame = 0;
+      if (clicked.current) return;
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      if (atBottom) {
+        setActive(sections[sections.length - 1].id);
+        return;
+      }
+      const line = window.innerHeight * 0.35;
+      let current = sections[0].id;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= line) current = section.id;
+      }
+      setActive(current);
+    };
+
+    const onScroll = () => {
+      // After a click, wait until the scrolling stops before following
+      // the scroll position again.
+      if (clicked.current) {
+        clearTimeout(settle);
+        settle = setTimeout(() => {
+          clicked.current = null;
+        }, 150);
+        return;
+      }
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    const onClick = (e) => {
+      const link = e.target.closest('.rail-links a[href^="#"]');
+      if (!link) return;
+      const id = link.getAttribute("href").slice(1);
+      clicked.current = id;
+      setActive(id);
+      clearTimeout(settle);
+      settle = setTimeout(() => {
+        clicked.current = null;
+      }, 1000); // in case the page does not need to scroll at all
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    document.addEventListener("click", onClick);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      document.removeEventListener("click", onClick);
+      cancelAnimationFrame(frame);
+      clearTimeout(settle);
+    };
   }, []);
 
   return (
