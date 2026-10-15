@@ -548,6 +548,14 @@ img {
   text-decoration: none;
 }
 
+.footer-note {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
 /* ------------------------------------------------------------------ */
 /* CV page — resume-style two-column layout, in the site's own tokens */
 /* ------------------------------------------------------------------ */

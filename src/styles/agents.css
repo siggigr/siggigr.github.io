@@ -1,0 +1,294 @@
+/* ---------------------------------------------------------------------
+   AI agent team page (/agents/). Loaded after global.css and
+   cv-dark.css, so it gets the CV page's dark tokens, top bar and
+   background, and adds the main page's type treatment: the serif
+   headline, bold lowercase section headings, Icelandic accent line.
+--------------------------------------------------------------------- */
+.agents-page {
+  max-width: 60rem;
+  margin: 2.5rem auto;
+  padding: 3rem 3.25rem 3.25rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7);
+}
+
+.agents-page h2,
+.agents-page h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Hero */
+.agents-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 5.5vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.005em;
+  color: #fff;
+  margin-bottom: 0.7rem;
+  max-width: 14ch;
+}
+
+.agents-meta {
+  color: var(--accent);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 1.4rem;
+}
+
+.agents-meta-item {
+  white-space: nowrap;
+}
+
+.agents-meta-sep {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.agents-lead {
+  text-wrap: pretty; /* no single word left alone on the last line */
+  color: #c9ced5;
+  font-size: 1.05rem;
+  max-width: 40rem;
+}
+
+.agents-role {
+  margin-top: 2rem;
+  padding: 1.1rem 1.35rem;
+  max-width: 40rem;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.agents-role strong {
+  display: block;
+  color: var(--accent);
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.agents-role p {
+  text-wrap: pretty;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* Sections */
+.agents-section {
+  margin-top: 3rem;
+  padding-top: 2.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.agents-section-head {
+  margin-bottom: 1.4rem;
+}
+
+.agents-section-head h2 {
+  text-transform: lowercase;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  color: var(--ink);
+  margin-bottom: 0;
+}
+
+/* A product name inside a lowercase heading keeps its capitals */
+.agents-name {
+  text-transform: none;
+}
+
+.agents-lead a {
+  text-decoration: underline;
+  text-decoration-color: rgba(63, 184, 196, 0.45);
+  text-underline-offset: 0.18em;
+}
+
+.agents-lead a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.agents-eyebrow {
+  display: block;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 0.35rem;
+}
+
+.agents-section-intro {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  text-wrap: pretty; /* no single word left alone on the last line */
+}
+
+/* Pipeline: numbered cards in reading order */
+.pipeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.pipeline-step {
+  position: relative;
+  padding: 1.15rem 1.25rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.pipeline-top,
+.highlight-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+
+.pipeline-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.pipeline-step h3 {
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: 0.1rem;
+}
+
+.pipeline-output {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.pipeline-step p:last-child {
+  color: #b8bec7;
+  font-size: 0.93rem;
+  margin: 0;
+}
+
+.pipeline-step.is-next {
+  background: transparent;
+  border-style: dashed;
+  border-color: #464b52;
+}
+
+.pipeline-step.is-next h3,
+.pipeline-step.is-next p:last-child {
+  color: var(--muted);
+}
+
+/* Highlights */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.highlight {
+  padding: 1.25rem 1.3rem 1.35rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.highlight-num {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.highlight h3 {
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 0.45rem;
+}
+
+.highlight p {
+  color: #b8bec7;
+  font-size: 0.93rem;
+  margin: 0;
+}
+
+/* Screens */
+.agents-screens-empty {
+  background: transparent;
+}
+
+.agents-screens-empty h3 {
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.agents-screens {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.1rem;
+}
+
+.agents-screens img,
+.agents-screens video {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
+/* Narrower screens */
+@media (max-width: 860px) {
+  .pipeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .agents-page {
+    margin: 1rem 0.75rem 1.5rem;
+    padding: 1.75rem 1.25rem 1.75rem;
+  }
+
+  .pipeline {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Print: plain and light, like the CV */
+@media print {
+  .agents-page {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .agents-page * {
+    color: #000 !important;
+  }
+
+  .pipeline-step,
+  .highlight,
+  .agents-role {
+    background: none;
+    border: 1px solid #999;
+    break-inside: avoid;
+  }
+}

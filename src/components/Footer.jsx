@@ -27,6 +27,7 @@ export default function Footer() {
           ))}
         </nav>
       )}
+      <p className="footer-note">This site counts visits anonymously, without cookies.</p>
     </footer>
   );
 }

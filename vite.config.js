@@ -12,6 +12,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         cv: resolve(__dirname, "cv.html"),
+        agents: resolve(__dirname, "agents/index.html"),
       },
     },
   },

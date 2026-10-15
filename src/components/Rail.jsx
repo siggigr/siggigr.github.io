@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import Icon from "./Icon";
 
 const cvHref = `${import.meta.env.BASE_URL}cv.html`;
+const agentsHref = `${import.meta.env.BASE_URL}agents/`;
 
 const LINKS = [
   { id: "about", label: "About", icon: "user" },
   { id: "family", label: "Family", icon: "home" },
   { id: "professional", label: "Work", icon: "briefcase" },
   { id: "cv", label: "CV", icon: "resume", href: cvHref },
+  { id: "agents", label: "AI agent team", icon: "agents", href: agentsHref },
   { id: "interests", label: "Interests", icon: "book" },
   { id: "pets", label: "Pets", icon: "paw" },
   { id: "apps", label: "Apps", icon: "grid" },
@@ -15,10 +17,10 @@ const LINKS = [
 
 /**
  * Narrow icon rail: brand mark at the top, one icon per section plus
- * the CV page, and a "Download CV as PDF" button at the bottom, which
+ * the CV page and the AI agent team page, and a "Download CV as PDF" button at the bottom, which
  * opens the CV page straight into the print dialog (see CVPage.jsx).
- * Highlights the section currently in view (the CV link goes to a
- * separate page, so it never lights up).
+ * Highlights the section currently in view (the CV and agent team
+ * links go to separate pages, so they never light up).
  * On small screens it becomes a horizontal bar (see dark.css).
  */
 export default function Rail() {

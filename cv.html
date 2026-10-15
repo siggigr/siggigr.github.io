@@ -16,5 +16,18 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/cv-main.jsx"></script>
+    <!--
+      Visitor statistics: GoatCounter, cookie-free. Dashboard (private):
+      https://siggigr.goatcounter.com. Each page is a full page load, so
+      every page change is counted. The path is sent without the query
+      string, so ?ref=linkedin or ?print do not split one page into
+      several rows; the query string still goes along separately, which
+      is how ?ref= shows up as the source. Visits from localhost are not
+      counted.
+    -->
+    <script>
+      window.goatcounter = { path: location.pathname || "/" };
+    </script>
+    <script data-goatcounter="https://siggigr.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
   </body>
 </html>

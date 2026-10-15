@@ -57,6 +57,16 @@ const PATHS = {
       <path d="M8 19h8" />
     </>
   ),
+  agents: (
+    <>
+      <circle cx="12" cy="12" r="2.6" />
+      <circle cx="5" cy="5" r="2" />
+      <circle cx="19" cy="5" r="2" />
+      <circle cx="5" cy="19" r="2" />
+      <circle cx="19" cy="19" r="2" />
+      <path d="M6.5 6.5l3.6 3.6M17.5 6.5l-3.6 3.6M6.5 17.5l3.6-3.6M17.5 17.5l-3.6-3.6" />
+    </>
+  ),
   download: (
     <>
       <path d="M12 4v11" />

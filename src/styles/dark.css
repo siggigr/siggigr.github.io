@@ -308,6 +308,40 @@ h3 {
   margin: 0;
 }
 
+/* Teaser card for the AI agent team page, under "What I do" */
+.teaser {
+  display: flex;
+  gap: 1.1rem;
+  margin-top: 2.25rem;
+  padding: 1.35rem 1.5rem 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.teaser-icon {
+  flex: none;
+  color: var(--accent);
+  margin-top: 0.15rem;
+}
+
+.teaser h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.teaser p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+  max-width: 36rem;
+}
+
+.teaser .app-link:hover {
+  border-color: var(--accent);
+}
+
 /* Sections inside the panel */
 .section {
   margin-top: 3rem;
@@ -477,6 +511,17 @@ h3 {
 
   .profile-photo img {
     width: 92%;
+  }
+}
+
+@media (max-width: 380px) {
+  .rail {
+    padding: 0.5rem 0.6rem;
+  }
+
+  .rail-links a,
+  .rail-cv {
+    width: 2.05rem;
   }
 }
 

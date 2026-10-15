@@ -45,9 +45,21 @@ directly. No backend, no database, no accounts.
   "coming soon" tag, "In the hangar" empty state).
 - CV page (`cv.html`): dark on screen, plain white one-page A4 when
   printed or saved as PDF.
+- AI agent team page (`agents/index.html`, served at `/agents/`): same
+  dark top bar and single panel as the CV page. Shows the owner's team
+  of AI agents (Analyst, Architect, Designer, Developer, Reviewer, QA)
+  on Tillslip, a grocery receipt scanner for Android: pipeline cards,
+  three highlights, and a screenshots placeholder. Text in
+  `src/content/agents.js`. Linked from the icon rail (after CV) and a
+  teaser card under "What I do". English now, Icelandic later.
+- Visitor statistics: GoatCounter (cookie-free) on all three pages,
+  dashboard private at siggigr.goatcounter.com; no counter shown on the
+  site, only a one-line note in the footer.
 - Content: real copy from the owner, in `src/content/`.
-- One app exists: Nextpost (Android, Kotlin/Compose/Firebase), linked
-  to its GitHub repository. No other apps may be implied.
+- Apps: Nextpost (Android, Kotlin/Compose/Firebase), linked to its
+  GitHub repository, is the only finished app. Tillslip is in
+  development (private repository, not linked); it appears only on the
+  AI agent team page. No other apps may be implied.
 - Undecided: timing and mechanism of full bilingual (Icelandic/English)
   version — planned "later"; current content is English with Icelandic
   section eyebrows.

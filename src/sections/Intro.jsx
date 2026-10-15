@@ -1,9 +1,13 @@
 import { hero, profile, services } from "../content/site";
 import Icon from "../components/Icon";
+import { agentsTeaser } from "../content/agents";
+
+const agentsHref = `${import.meta.env.BASE_URL}agents/`;
 
 /**
  * Opening block of the content panel: big headline, accent meta line,
- * short intro, then the "What I do" grid.
+ * short intro, the "What I do" grid, then the teaser card for the
+ * AI agent team page.
  */
 export default function Intro() {
   return (
@@ -31,6 +35,19 @@ export default function Intro() {
           </li>
         ))}
       </ul>
+
+      <aside className="teaser" aria-labelledby="teaser-title">
+        <span className="teaser-icon">
+          <Icon name="agents" size={26} />
+        </span>
+        <div>
+          <h3 id="teaser-title">{agentsTeaser.title}</h3>
+          <p>{agentsTeaser.text}</p>
+          <a className="app-link" href={agentsHref}>
+            {agentsTeaser.link} →
+          </a>
+        </div>
+      </aside>
     </header>
   );
 }
