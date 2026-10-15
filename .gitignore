@@ -30,3 +30,5 @@ desktop.ini
 
 # Claude Code
 .claude/
+.agents/
+.codex/
