@@ -11,12 +11,14 @@ Live at **https://siggigr.github.io/**.
 ## Pages
 
 - **`index.html`** — the main site, in a dark profile layout:
-  - an **icon rail** on the left (section links, a CV link, and a
-    "Download CV as PDF" button at the bottom);
+  - an **icon rail** on the left (section links, links to the CV and
+    the AI agent team page, and a "Download CV as PDF" button at the
+    bottom);
   - a sticky **profile card** with the portrait, name, role and
     contact icons;
-  - a **content panel**: intro (headline, meta line, "What I do"),
-    About, Family, Professional life, Interests, Pets, Apps.
+  - a **content panel**: intro (headline, meta line, "What I do", and
+    a teaser card for the AI agent team page), About, Family,
+    Professional life, Interests, Pets, Apps.
 
   On phones the rail becomes a bar of icons along the top and the
   profile card sits above the content.
@@ -24,6 +26,15 @@ Live at **https://siggigr.github.io/**.
   site; printing or "Print / Save as PDF" always gives the plain white
   one-page A4 version. Opening `cv.html?print` (what the "Download CV
   as PDF" button does) goes straight to the print dialog.
+- **`agents/index.html`**, served at **`/agents/`** — a case study of
+  my team of AI agents (Analyst, Architect, Designer, Developer,
+  Reviewer, QA) building Tillslip, a grocery receipt scanner for
+  Android. Same dark top bar and panel as the CV page: intro with
+  "My part", the pipeline (one card per role), three key decisions,
+  and a placeholder for screenshots.
+
+Every page is its own HTML file, so moving between pages is a full
+page load (this matters for the visitor statistics below).
 
 ## How to change the site
 
@@ -42,9 +53,13 @@ Live at **https://siggigr.github.io/**.
 | App cards                                    | `src/content/apps.js`                         |
 | Contact links (profile card, footer, CV)     | `src/content/site.js` (`contact`)             |
 | CV content (experience, education, skills…)  | `src/content/cv.js`                           |
+| AI agent team page text                      | `src/content/agents.js`                       |
+| "Updated …" date on the agents page          | `src/content/agents.js` (`lastUpdated`)       |
+| Agents teaser card on the main page          | `src/content/agents.js` (`agentsTeaser`)      |
 | Icons (rail, "What I do", contact links)     | `src/components/Icon.jsx`                     |
 | Main page look                               | `src/styles/dark.css`                         |
 | CV look on screen                            | `src/styles/cv-dark.css`                      |
+| Agents page look                             | `src/styles/agents.css`                       |
 | Shared base styles and the CV print layout   | `src/styles/global.css`                       |
 
 The accent colour is one variable, `--accent`, at the top of
@@ -122,23 +137,73 @@ length. Adding a significant amount of new text (another job, a long
 bullet list) can push it to two pages — check with the browser's print
 preview (Ctrl/Cmd+P) after any substantial CV edit.
 
+### Updating the AI agent team page
+
+All text is in `src/content/agents.js`. When you change it, also set
+`lastUpdated` near the top (for example `"2 November 2026"`); it shows
+at the end of the line under the headline.
+
+To add screenshots or a screen recording, put the files in
+`public/agents/` (create the folder; files in `public/` are copied
+as-is) and list them in `screens`:
+
+```js
+export const screens = [
+  { type: "image", src: "/agents/tillslip-scan.webp", alt: "Scanning a receipt" },
+  { type: "video", src: "/agents/tillslip-demo.mp4", poster: "/agents/poster.webp", alt: "Short demo" },
+];
+```
+
+While `screens` is empty, the section shows a "Still in the hangar"
+placeholder card.
+
+## Visitor statistics
+
+Visits are counted with [GoatCounter](https://www.goatcounter.com/):
+free, cookie-free and anonymous, so no cookie banner is needed. The
+script is at the bottom of `index.html`, `cv.html` and
+`agents/index.html`; a one-line note in the footer says the site
+counts visits.
+
+- **Dashboard:** https://siggigr.goatcounter.com (private: "Dashboard
+  viewable by: Only logged in users" in the GoatCounter settings).
+  Nothing is shown on the site itself.
+- **Pages:** only the path is counted, without the query string, so
+  `/cv.html` and `/cv.html?print` are one row. Jumps within the main
+  page (`#about`, `#pets`) are not page views.
+- **Where visitors come from:** add `?ref=` to links you share, e.g.
+  `https://siggigr.github.io/agents/?ref=linkedin` or
+  `?ref=application`. The value shows up as the source in the
+  dashboard. Add `&utm_campaign=name` to group posts under Campaigns.
+  Do not tag links between pages of the site itself.
+- **Your own visits:** visits from `localhost` (`npm run dev`) are
+  never counted. Your home IP is under *Ignore IPs* in the GoatCounter
+  settings (add it again if your IP changes), and *disable for this
+  browser* there stops counting in one browser anywhere.
+- **New page?** Copy the two GoatCounter `<script>` tags from
+  `index.html` into its HTML file.
+
 ## Project structure
 
 ```
 siggigr.github.io/
 ├── index.html                  Main site entry HTML, fonts, meta tags
 ├── cv.html                     CV page entry HTML
-├── vite.config.js              Build config (two-page build: index + cv)
+├── agents/index.html           AI agent team page entry HTML (/agents/)
+├── vite.config.js              Build config (three pages: index, cv, agents)
 ├── .github/workflows/deploy.yml  Auto-deploy to GitHub Pages
 ├── PRODUCT.md                  Product context (audience, goals, brand)
 │                                — read by the Impeccable design skill
 └── src/
     ├── App.jsx                 Main page layout (rail | card | panel)
     ├── CVPage.jsx              CV page (incl. the ?print behaviour)
-    ├── main.jsx / cv-main.jsx  React entry points for each page
+    ├── AgentsPage.jsx          AI agent team page
+    ├── main.jsx, cv-main.jsx,
+    │   agents-main.jsx         React entry points for each page
     ├── content/                ← the "database": all editable content
     │   ├── site.js             Headline, profile, "What I do", section
     │   │                       texts, contact links
+    │   ├── agents.js           AI agent team page and its teaser card
     │   ├── family.js, pets.js, interests.js, apps.js, cv.js
     ├── assets/                 Portrait, CV avatar, pet photos
     ├── components/             Rail, ProfileCard, Icon, Section, Footer
@@ -147,7 +212,8 @@ siggigr.github.io/
     └── styles/
         ├── global.css          Base styles, components, CV print layout
         ├── dark.css            Main page theme and layout
-        └── cv-dark.css         CV page theme (screen only)
+        ├── cv-dark.css         CV page theme (screen only)
+        └── agents.css          AI agent team page (on top of cv-dark.css)
 ```
 
 ## One-time setup
@@ -176,6 +242,7 @@ provides HTTPS automatically. `base` in `vite.config.js` is already
   back to `"/<repo-name>/"` to match, or the deployed site will 404 on
   all its assets.
 - `PRODUCT.md` gives the Impeccable design skill (installed locally
-  under `.claude/skills/`, not committed) context for audit, polish
+  under `.claude/` and `.agents/`; both folders, and `.codex/`, are in
+  `.gitignore`) context for audit, polish
   and critique passes when working on this project with Claude Code.
   Not required reading to just edit content.

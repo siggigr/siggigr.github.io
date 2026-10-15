@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./styles/global.css";
-import "./styles/dark.css"; // EXPERIMENT: dark profile layout
+import "./styles/dark.css"; // dark profile layout
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
