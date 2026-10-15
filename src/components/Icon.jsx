@@ -58,13 +58,14 @@ const PATHS = {
     </>
   ),
   agents: (
+    // A small team: one person in front, two behind (same style as "user")
     <>
-      <circle cx="12" cy="12" r="2.6" />
-      <circle cx="5" cy="5" r="2" />
-      <circle cx="19" cy="5" r="2" />
-      <circle cx="5" cy="19" r="2" />
-      <circle cx="19" cy="19" r="2" />
-      <path d="M6.5 6.5l3.6 3.6M17.5 6.5l-3.6 3.6M6.5 17.5l3.6-3.6M17.5 17.5l-3.6-3.6" />
+      <circle cx="12" cy="9.6" r="3" />
+      <path d="M5.6 20.8c0-3.5 2.9-6 6.4-6s6.4 2.5 6.4 6" />
+      <circle cx="5" cy="7" r="2.3" />
+      <circle cx="19" cy="7" r="2.3" />
+      <path d="M1.2 16.6c0-2.7 1.7-4.6 3.8-4.6.9 0 1.7.3 2.4.8" />
+      <path d="M22.8 16.6c0-2.7-1.7-4.6-3.8-4.6-.9 0-1.7.3-2.4.8" />
     </>
   ),
   download: (
