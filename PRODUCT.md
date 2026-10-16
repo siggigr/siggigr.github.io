@@ -49,7 +49,9 @@ directly. No backend, no database, no accounts.
   dark top bar and single panel as the CV page. Shows the owner's team
   of AI agents (Analyst, Architect, Designer, Developer, Reviewer, QA)
   on Tillslip, a grocery receipt scanner for Android: pipeline cards,
-  three highlights, and a screenshots placeholder. Text in
+  three highlights, "The office" (a playful animated office scene with
+  the agents, Siggi and Alan Isaac the office cat, clearly labelled as
+  not connected to real work), and a screenshots placeholder. Text in
   `src/content/agents.js`. Linked from the icon rail (after CV) and a
   teaser card under "What I do". English now, Icelandic later.
 - Visitor statistics: GoatCounter (cookie-free) on all three pages,

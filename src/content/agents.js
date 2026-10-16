@@ -91,6 +91,10 @@ export const highlights = [
   },
 ];
 
+/** Intro line for "The office", the animated scene of the team. */
+export const officeIntro =
+  "A playful look at my AI team between tasks: desk work, coffee, stand-ups and the odd game of ping-pong. I drop in to approve their work, and Alan Isaac, the office cat, keeps everyone company. It is just for fun and not connected to the agents' real work.";
+
 /**
  * Screenshots or a screen recording of the app. While this list is
  * empty, the section shows a placeholder card. Add entries like:

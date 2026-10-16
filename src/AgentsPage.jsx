@@ -1,10 +1,12 @@
 import Footer from "./components/Footer";
+import AgentOffice from "./components/AgentOffice";
 import {
   agentsHero,
   myRole,
   pipeline,
   highlights,
   highlightsIntro,
+  officeIntro,
   screens,
 } from "./content/agents";
 
@@ -122,6 +124,11 @@ export default function AgentsPage() {
               </article>
             ))}
           </div>
+        </AgentsSection>
+
+        <AgentsSection id="office" eyebrow="Skrifstofan" title="The office">
+          <p className="agents-section-intro">{officeIntro}</p>
+          <AgentOffice />
         </AgentsSection>
 
         <AgentsSection id="screens" eyebrow="Skjámyndir" title={

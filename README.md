@@ -31,7 +31,8 @@ Live at **https://siggigr.github.io/**.
   Reviewer, QA) building Tillslip, a grocery receipt scanner for
   Android. Same dark top bar and panel as the CV page: intro with
   "My part", the pipeline (one card per role), three key decisions,
-  and a placeholder for screenshots.
+  "The office" (an animated scene of the team, Siggi and Alan Isaac
+  the office cat), and a placeholder for screenshots.
 
 Every page is its own HTML file, so moving between pages is a full
 page load (this matters for the visitor statistics below).
@@ -56,6 +57,8 @@ page load (this matters for the visitor statistics below).
 | AI agent team page text                      | `src/content/agents.js`                       |
 | "Updated …" date on the agents page          | `src/content/agents.js` (`lastUpdated`)       |
 | Agents teaser card on the main page          | `src/content/agents.js` (`agentsTeaser`)      |
+| "The office" intro text                      | `src/content/agents.js` (`officeIntro`)       |
+| The office animation itself                  | `src/office/agentOffice.js`                   |
 | Icons (rail, "What I do", contact links)     | `src/components/Icon.jsx`                     |
 | Main page look                               | `src/styles/dark.css`                         |
 | CV look on screen                            | `src/styles/cv-dark.css`                      |
@@ -157,6 +160,17 @@ export const screens = [
 While `screens` is empty, the section shows a "Still in the hangar"
 placeholder card.
 
+### The office animation
+
+"The office" is drawn on a canvas by `src/office/agentOffice.js`, with
+no libraries; `src/components/AgentOffice.jsx` puts it on the page with
+the Pause/Play button and the live list of what everyone is doing. It
+is just for fun and not connected to the agents' real work. The team
+(names, shirt colours, speech bubbles), Siggi, the cat's name, the
+floor plan and the furniture are all defined near the top of
+`agentOffice.js`. The animation pauses when it is scrolled out of view,
+and starts paused for visitors whose device asks for reduced motion.
+
 ## Visitor statistics
 
 Visits are counted with [GoatCounter](https://www.goatcounter.com/):
@@ -198,6 +212,7 @@ siggigr.github.io/
     ├── App.jsx                 Main page layout (rail | card | panel)
     ├── CVPage.jsx              CV page (incl. the ?print behaviour)
     ├── AgentsPage.jsx          AI agent team page
+    ├── office/agentOffice.js   "The office" animation (canvas, no libraries)
     ├── main.jsx, cv-main.jsx,
     │   agents-main.jsx         React entry points for each page
     ├── content/                ← the "database": all editable content
@@ -206,7 +221,8 @@ siggigr.github.io/
     │   ├── agents.js           AI agent team page and its teaser card
     │   ├── family.js, pets.js, interests.js, apps.js, cv.js
     ├── assets/                 Portrait, CV avatar, pet photos
-    ├── components/             Rail, ProfileCard, Icon, Section, Footer
+    ├── components/             Rail, ProfileCard, Icon, Section, Footer,
+    │                           AgentOffice
     ├── sections/               Intro, About, Family, Professional,
     │                           Interests, Pets, Apps
     └── styles/
