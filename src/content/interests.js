@@ -7,8 +7,8 @@
  */
 export const interests = [
   {
-    title: "Favourite books",
-    blurb: "Not ranked — just a shelf of favourites, and there are many more.",
+    title: "Some favourite books",
+    blurb: "Not ranked, and far from complete. I listen to a lot of audiobooks.",
     items: [
       { title: "The Primal Hunter series", note: "Zogarth" },
       { title: "Dungeon Crawler Carl series", note: "Matt Dinniman" },
