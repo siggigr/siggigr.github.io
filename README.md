@@ -18,7 +18,8 @@ Live at **https://siggigr.github.io/**.
     contact icons;
   - a **content panel**: intro (headline, meta line, "What I do", and
     a teaser card for the AI agent team page), About, Family,
-    Professional life, Interests, Pets, Apps.
+    Professional life, Interests (the book and game lists open as
+    flip-books), Pets, Apps.
 
   On phones the rail becomes a bar of icons along the top and the
   profile card sits above the content.
@@ -50,7 +51,7 @@ page load (this matters for the visitor statistics below).
 | Pets intro text                              | `src/content/site.js` (`petsIntro`)           |
 | Pets (and photos)                            | `src/content/pets.js` + `src/assets/pets/`    |
 | Interests intro text                         | `src/content/site.js` (`interestsIntro`)      |
-| Interest subsections (books, etc.)           | `src/content/interests.js`                    |
+| Book and game lists (the flip-books), notes  | `src/content/interests.js`                    |
 | App cards                                    | `src/content/apps.js`                         |
 | Contact links (profile card, footer, CV)     | `src/content/site.js` (`contact`)             |
 | CV content (experience, education, skills…)  | `src/content/cv.js`                           |
@@ -160,6 +161,14 @@ export const screens = [
 While `screens` is empty, the section shows a "Still in the hangar"
 placeholder card.
 
+### The book and game flip-books
+
+The two buttons under Interests open each list in `src/content/interests.js`
+as a book, one favourite per page (`src/flipbook/flipBook.js`, styles in
+`src/styles/flipbook.css`). To add your own words to a page, fill in its
+`note`; an empty note simply isn't shown. `favourite: true` adds the red
+ribbon and "All-time favourite".
+
 ### The office animation
 
 "The office" is drawn on a canvas by `src/office/agentOffice.js`, with
@@ -213,6 +222,7 @@ siggigr.github.io/
     ├── CVPage.jsx              CV page (incl. the ?print behaviour)
     ├── AgentsPage.jsx          AI agent team page
     ├── office/agentOffice.js   "The office" animation (canvas, no libraries)
+    ├── flipbook/flipBook.js    Book and game lists as flip-books
     ├── main.jsx, cv-main.jsx,
     │   agents-main.jsx         React entry points for each page
     ├── content/                ← the "database": all editable content
