@@ -27,7 +27,10 @@ export default function Footer() {
           ))}
         </nav>
       )}
-      <p className="footer-note">This site counts visits anonymously, without cookies.</p>
+      <p className="footer-note">
+        This site counts visits without cookies.{" "}
+        <a href={`${import.meta.env.BASE_URL}privacy.html`}>Privacy</a>
+      </p>
     </footer>
   );
 }

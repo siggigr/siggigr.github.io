@@ -13,6 +13,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         cv: resolve(__dirname, "cv.html"),
         agents: resolve(__dirname, "agents/index.html"),
+        privacy: resolve(__dirname, "privacy.html"),
       },
     },
   },

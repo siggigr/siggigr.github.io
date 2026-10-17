@@ -183,10 +183,11 @@ and starts paused for visitors whose device asks for reduced motion.
 ## Visitor statistics
 
 Visits are counted with [GoatCounter](https://www.goatcounter.com/):
-free, cookie-free and anonymous, so no cookie banner is needed. The
-script is at the bottom of `index.html`, `cv.html` and
-`agents/index.html`; a one-line note in the footer says the site
-counts visits.
+free and cookie-free, so no cookie banner is needed. The script is at
+the bottom of `index.html`, `cv.html`, `agents/index.html` and
+`privacy.html`; a one-line note in the footer says the site counts
+visits and links to the privacy page (`src/PrivacyPage.jsx`), which
+says what is sent. Keep that page in step if the tracking changes.
 
 - **Dashboard:** https://siggigr.goatcounter.com (private: "Dashboard
   viewable by: Only logged in users" in the GoatCounter settings).
@@ -204,15 +205,18 @@ counts visits.
   settings (add it again if your IP changes), and *disable for this
   browser* there stops counting in one browser anywhere.
 - **New page?** Copy the two GoatCounter `<script>` tags from
-  `index.html` into its HTML file.
+  `index.html` into its HTML file. Fonts are self-hosted through
+  `@fontsource` (`src/styles/fonts.css`, imported by `global.css`), so
+  do not add Google Fonts links: they would send visitor IPs to Google.
 
 ## Project structure
 
 ```
 siggigr.github.io/
-├── index.html                  Main site entry HTML, fonts, meta tags
+├── index.html                  Main site entry HTML, meta tags
 ├── cv.html                     CV page entry HTML
 ├── agents/index.html           AI agent team page entry HTML (/agents/)
+├── privacy.html                Privacy notice entry HTML
 ├── vite.config.js              Build config (three pages: index, cv, agents)
 ├── .github/workflows/deploy.yml  Auto-deploy to GitHub Pages
 ├── PRODUCT.md                  Product context (audience, goals, brand)

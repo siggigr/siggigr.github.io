@@ -1,3 +1,5 @@
+@import "./fonts.css";
+
 /* ---------------------------------------------------------------------
    Design tokens
    Palette: cool near-white, ink, glacial teal accent.
@@ -142,7 +144,7 @@ img {
   z-index: 30;
   padding: 0.5em 1em;
   background: var(--accent);
-  color: #ffffff;
+  color: var(--bg); /* dark text on the accent: 8.8:1 dark theme, 5.7:1 light */
   border-radius: 7px;
   font-size: 0.9rem;
   transition: top 0.15s ease-out;
