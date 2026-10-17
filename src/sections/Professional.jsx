@@ -12,7 +12,7 @@ export default function Professional() {
         ))}
       </div>
       <a className="cv-link" href={cvHref}>
-        View my full CV →
+        View my full CV <span aria-hidden="true">→</span>
       </a>
     </Section>
   );

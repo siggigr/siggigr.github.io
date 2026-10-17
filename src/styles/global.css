@@ -474,6 +474,9 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+  list-style: none; /* a <ul>, so screen readers announce the number of skills */
+  margin: 0;
+  padding: 0;
 }
 
 .cv-chip {

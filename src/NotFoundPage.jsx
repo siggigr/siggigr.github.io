@@ -12,7 +12,7 @@ export default function NotFoundPage() {
 
       <nav className="nav cv-nav" aria-label="Main">
         <div className="nav-links">
-          <a href={base}>← Back to site</a>
+          <a href={base}><span aria-hidden="true">←</span> Back to site</a>
         </div>
       </nav>
 

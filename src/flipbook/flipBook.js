@@ -84,9 +84,9 @@ function buildUi() {
     <div class="bk-stage"><div class="bk-book" aria-hidden="true"></div></div>
     <div>
       <div class="bk-controls">
-        <button type="button" class="bk-nav bk-prev">← Previous</button>
+        <button type="button" class="bk-nav bk-prev"><span aria-hidden="true">←</span> Previous</button>
         <span class="bk-where" aria-live="polite"></span>
-        <button type="button" class="bk-nav bk-next">Next →</button>
+        <button type="button" class="bk-nav bk-next">Next <span aria-hidden="true">→</span></button>
       </div>
       <p class="bk-hint">Click a page, swipe, or use the arrow keys</p>
     </div>

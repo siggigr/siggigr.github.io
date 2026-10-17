@@ -45,7 +45,7 @@ export default function CVPage() {
 
       <nav className="nav cv-nav" aria-label="Main">
         <div className="nav-links">
-          <a href={homeHref}>← Back to site</a>
+          <a href={homeHref}><span aria-hidden="true">←</span> Back to site</a>
           <button
             type="button"
             className="cv-print-btn"
@@ -169,13 +169,13 @@ export default function CVPage() {
                             {technicalSkills.map((group) => (
                 <div key={group.label} className="cv-skill-group">
                   <span className="cv-skill-label">{group.label}</span>
-                  <div className="cv-chip-list">
+                  <ul className="cv-chip-list">
                     {group.items.map((skill) => (
-                      <span key={skill} className="cv-chip">
+                      <li key={skill} className="cv-chip">
                         {skill}
-                      </span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               ))}
             </section>
