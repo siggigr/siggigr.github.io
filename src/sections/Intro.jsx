@@ -44,7 +44,7 @@ export default function Intro() {
           <h3 id="teaser-title">{agentsTeaser.title}</h3>
           <p>{agentsTeaser.text}</p>
           <a className="app-link" href={agentsHref}>
-            {agentsTeaser.link} →
+            {agentsTeaser.link} <span aria-hidden="true">→</span>
           </a>
         </div>
       </aside>

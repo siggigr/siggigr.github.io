@@ -30,7 +30,7 @@ export default function Interests() {
             <span className="shelf-text">
               <span className="shelf-title">{list.title}</span>
               <span className="shelf-meta">{list.meta}</span>
-              <span className="shelf-open">{list.openLabel} →</span>
+              <span className="shelf-open">{list.openLabel} <span aria-hidden="true">→</span></span>
             </span>
           </button>
         ))}

@@ -20,7 +20,7 @@ export default function ProfileCard() {
           src={portrait}
           fetchpriority="high"
           decoding="async"
-          alt="Sigurður G. Hjálmarsson"
+          alt="" /* the name is right below */
           width="532"
           height="1571"
         />

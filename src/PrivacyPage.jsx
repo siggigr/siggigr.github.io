@@ -17,7 +17,7 @@ export default function PrivacyPage() {
 
       <nav className="nav cv-nav" aria-label="Main">
         <div className="nav-links">
-          <a href={homeHref}>← Back to site</a>
+          <a href={homeHref}><span aria-hidden="true">←</span> Back to site</a>
         </div>
       </nav>
 

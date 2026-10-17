@@ -29,7 +29,7 @@ export default function Apps() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View on GitHub →
+                View on GitHub <span aria-hidden="true">→</span>
               </a>
             )}
           </article>

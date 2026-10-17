@@ -19,7 +19,7 @@ export default function Pets() {
       <div className="card-grid card-grid-spaced">
         {pets.map((pet) => (
           <article key={pet.name} className="card card-pet">
-            {pet.photo && <img src={pet.photo} alt={pet.name} loading="lazy" />}
+            {pet.photo && <img src={pet.photo} alt="" /* the heading below names the pet */ loading="lazy" />}
             <h3>{pet.name}</h3>
             <p>{pet.description}</p>
           </article>
