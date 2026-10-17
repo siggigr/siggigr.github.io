@@ -56,7 +56,8 @@ directly. No backend, no database, no accounts.
   teaser card under "What I do". English now, Icelandic later.
 - Visitor statistics: GoatCounter (cookie-free) on all three pages,
   dashboard private at siggigr.goatcounter.com; no counter shown on the
-  site, only a one-line note in the footer.
+  site, only a one-line note in the footer, linking to a privacy
+  page (`privacy.html`). Fonts are self-hosted; no Google Fonts.
 - Content: real copy from the owner, in `src/content/`.
 - Apps: Nextpost (Android, Kotlin/Compose/Firebase), linked to its
   GitHub repository, is the only finished app. Tillslip is in

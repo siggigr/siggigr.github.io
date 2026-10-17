@@ -135,8 +135,9 @@ function buildUi() {
       // keep keyboard focus inside the dialog
       const f = [ui.close, ui.prev, ui.next].filter((b) => !b.disabled);
       const i = f.indexOf(document.activeElement);
+      // i === -1: focus is outside the buttons (e.g. on the body), so wrap
       if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
-      else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+      else if (!e.shiftKey && (i === -1 || i === f.length - 1)) { e.preventDefault(); f[0].focus(); }
     }
   });
   window.addEventListener("resize", () => {
@@ -199,8 +200,13 @@ function layout(instant, moving) {
   ui.book.classList.toggle("at-open", !state.single && state.index > 0 && state.index < n);
   ui.book.classList.toggle("at-end", !state.single && state.index === n);
   const i = state.index, total = state.pages.length;
-  ui.prev.disabled = i === 0;
-  ui.next.disabled = i >= maxIndex();
+  const atStart = i === 0, atEnd = i >= maxIndex();
+  // a focused button that becomes disabled drops focus to the body, so
+  // move it first: to the other nav button, or to Close
+  if (atStart && document.activeElement === ui.prev) (atEnd ? ui.close : ui.next).focus();
+  if (atEnd && document.activeElement === ui.next) (atStart ? ui.close : ui.prev).focus();
+  ui.prev.disabled = atStart;
+  ui.next.disabled = atEnd;
   ui.where.textContent = state.single
     ? i === 0 ? "Cover" : i === total - 1 ? "Back cover" : `Page ${i} of ${total - 2}`
     : i === 0 ? "Cover" : i === n ? "Back cover" : `Pages ${2 * i - 1}–${Math.min(2 * i, total - 2)} of ${total - 2}`;
@@ -215,12 +221,20 @@ function go(delta) {
   layout(false, moving);
 }
 
+// the page behind the dialog (the React root) is taken out of reach of
+// keyboard and screen readers while the book is open
+function setPageInert(on) {
+  const root = document.getElementById("root");
+  if (root) root.inert = on;
+}
+
 export function openBook(list, button) {
   if (!ui) buildUi();
   trigger = button || null;
   ui.overlay.hidden = false;
   build(list);
   document.body.style.overflow = "hidden";
+  setPageInert(true);
   requestAnimationFrame(() => {
     ui.overlay.classList.add("is-open");
     ui.book.classList.add("is-shown");
@@ -235,6 +249,7 @@ export function closeBook() {
   ui.overlay.classList.remove("is-open");
   ui.book.classList.remove("is-shown");
   document.body.style.overflow = "";
+  setPageInert(false);
   state = null;
   const done = () => {
     if (state) return; // reopened meanwhile
