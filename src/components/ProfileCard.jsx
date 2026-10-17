@@ -26,7 +26,7 @@ export default function ProfileCard() {
         />
       </div>
       <div className="profile-info">
-        <h2 className="profile-name">{profile.name}</h2>
+        <p className="profile-name">{profile.name}</p>
         <p className="profile-role">{profile.role}</p>
         <ul className="profile-links">
           {links.map((link) => (

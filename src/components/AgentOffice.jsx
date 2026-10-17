@@ -45,7 +45,6 @@ export default function AgentOffice() {
         <button
           type="button"
           className="office-toggle"
-          aria-pressed={!running}
           onClick={toggle}
         >
           {running ? "Pause" : "Play"}

@@ -19,16 +19,18 @@ export default function App() {
       <div className="shell" id="top">
         <Rail />
         <ProfileCard />
-        <main id="main" className="panel">
-          <Intro />
-          <About />
-          <Family />
-          <Professional />
-          <Interests />
-          <Pets />
-          <Apps />
+        <div className="panel">
+          <main id="main">
+            <Intro />
+            <About />
+            <Family />
+            <Professional />
+            <Interests />
+            <Pets />
+            <Apps />
+          </main>
           <Footer />
-        </main>
+        </div>
       </div>
     </>
   );

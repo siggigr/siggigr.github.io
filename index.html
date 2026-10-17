@@ -18,11 +18,13 @@
       string, so ?ref=linkedin or ?print do not split one page into
       several rows; the query string still goes along separately, which
       is how ?ref= shows up as the source. Visits from localhost are not
-      counted.
+      counted. count.v4.js is pinned with an integrity hash;
+      when moving to a new version, update src and integrity on every
+      page (index.html, cv.html, agents/index.html, privacy.html).
     -->
     <script>
       window.goatcounter = { path: location.pathname || "/" };
     </script>
-    <script data-goatcounter="https://siggigr.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <script data-goatcounter="https://siggigr.goatcounter.com/count" async src="https://gc.zgo.at/count.v4.js" integrity="sha384-nRw6qfbWyJha9LhsOtSb2YJDyZdKvvCFh0fJYlkquSFjUxp9FVNugbfy8q1jdxI+" crossorigin="anonymous"></script>
   </body>
 </html>

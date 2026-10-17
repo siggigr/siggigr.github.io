@@ -172,13 +172,6 @@ img {
   border-bottom: 1px solid var(--line);
 }
 
-.nav-brand {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  color: var(--ink);
-}
-
 .nav-links {
   display: flex;
   align-items: center;
@@ -205,122 +198,6 @@ img {
 .hero {
   padding-top: 5rem;
   position: relative;
-}
-
-/* Two-column hero: text beside a portrait card, figure standing on
-   the horizon line below. */
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
-  gap: 3rem;
-  align-items: end;
-}
-
-.hero-photo-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius) var(--radius) 0 0;
-  overflow: hidden;
-  box-shadow: 0 20px 40px -22px rgba(22, 24, 29, 0.25);
-  margin-right: 10px;
-}
-
-.hero-photo-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Variant: soft teal card behind the figure */
-.hero-photo-card.tinted {
-  background: var(--accent-soft);
-}
-
-/* Variant: no card at all — the figure stands on the page itself */
-.hero-photo-card.free {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  margin-right: 0;
-  border-radius: 0;
-  overflow: visible;
-  position: absolute;
-  top: 5rem;
-  bottom: 1px;
-  right: 0;
-  width: 240px;
-}
-
-.hero-photo-card.free::before {
-  content: "";
-  position: absolute;
-  inset: 6% 22% 30% 0;
-  background: radial-gradient(closest-side, var(--accent-soft), transparent 72%);
-  z-index: -1;
-}
-
-.hero-photo-card.free img {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  object-position: bottom left;
-}
-
-@media (max-width: 700px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .hero-photo-card {
-    max-width: 250px;
-  }
-
-  .hero-photo-card.free {
-    position: static;
-    width: auto;
-    max-width: 190px;
-    margin: 0 auto;
-  }
-
-  .hero-photo-card.free img {
-    height: auto;
-    object-fit: unset;
-  }
-}
-
-.hero-coords {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 1.2rem;
-}
-
-.hero-subline p {
-  color: var(--muted);
-  font-size: 1.15rem;
-  max-width: 36rem;
-}
-
-/* Horizon divider: a quiet nod to the attitude indicator. */
-.horizon {
-  position: relative;
-  height: 1px;
-  background: var(--line);
-  margin-top: 3rem;
-}
-
-.horizon-marker {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 9px;
-  height: 9px;
-  border: 1.5px solid var(--accent);
-  border-radius: 50%;
-  background: var(--bg);
 }
 
 /* ------------------------------------------------------------------ */
@@ -380,132 +257,6 @@ img {
   border-radius: 99px;
   padding: 0.2em 0.7em;
   vertical-align: middle;
-}
-
-/* ------------------------------------------------------------------ */
-/* Interests — accordion of subsections behind tactile toggle buttons */
-/* ------------------------------------------------------------------ */
-.interest-toggles {
-  margin-top: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.interest-block {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-  overflow: hidden;
-}
-
-/* The tactile button itself: same physics as the standalone demo
-   (transform + opacity only, snappy ease-out), recolored to the
-   site's own teal accent instead of the demo's gold. */
-.interest-toggle {
-  position: relative;
-  isolation: isolate;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem 1.25rem;
-  border: none;
-  background: transparent;
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: left;
-  cursor: pointer;
-  transform: translateZ(0) scale(1);
-  transition: transform 250ms var(--ease-out-snap, cubic-bezier(0.16, 1, 0.3, 1)),
-    background-color 250ms var(--ease-out-snap, cubic-bezier(0.16, 1, 0.3, 1));
-}
-
-.interest-toggle:hover {
-  background: var(--accent-soft);
-  transform: translateZ(0) scale(1.008);
-}
-
-.interest-toggle:active {
-  transform: translateZ(0) scale(0.99);
-  transition-duration: 120ms;
-}
-
-.interest-toggle:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: -2px;
-}
-
-.interest-toggle-icon {
-  flex: none;
-  color: var(--accent);
-  transition: transform 250ms var(--ease-out-snap, cubic-bezier(0.16, 1, 0.3, 1));
-}
-
-.interest-toggle[aria-expanded="true"] .interest-toggle-icon {
-  transform: rotate(180deg);
-}
-
-/* Collapse/expand via grid-template-rows (0fr <-> 1fr): the row
-   height animates smoothly without a fixed max-height guess, and
-   the inner content only needs overflow hidden on the track. */
-.interest-panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 280ms var(--ease-out-snap, cubic-bezier(0.16, 1, 0.3, 1));
-}
-
-.interest-panel[data-open="true"] {
-  grid-template-rows: 1fr;
-}
-
-.interest-panel-inner {
-  overflow: hidden;
-  padding: 0 1.25rem;
-}
-
-.interest-panel[data-open="true"] .interest-panel-inner {
-  padding: 0 1.25rem 1.1rem;
-}
-
-.interest-blurb {
-  color: var(--muted);
-  max-width: 38rem;
-  margin-top: 0;
-}
-
-.interest-items {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.interest-items li {
-  padding: 0.45rem 0;
-  border-bottom: 1px dotted var(--line);
-}
-
-.interest-items li:last-child {
-  border-bottom: none;
-}
-
-.item-title {
-  font-weight: 500;
-}
-
-.item-note {
-  color: var(--muted);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .interest-toggle,
-  .interest-toggle-icon,
-  .interest-panel {
-    transition-duration: 0.01ms !important;
-  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -632,6 +383,11 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
+}
+
+/* LinkedIn/GitHub: the label on screen, the full address in print */
+.cv-link-url {
+  display: none;
 }
 
 .cv-contacts a svg,
@@ -766,14 +522,11 @@ img {
 }
 
 .cv-job-company {
+  font-family: var(--font-body); /* an <h3>: undo the heading defaults */
+  line-height: 1.65;
+  margin: 0;
   font-weight: 500;
   font-size: 0.95rem;
-}
-
-.cv-job-period {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--muted);
 }
 
 .cv-job-role {
@@ -895,6 +648,13 @@ img {
 }
 
 /* Print: strip chrome, force plain light output regardless of theme */
+/* Print / Save as PDF on A4 by default. Desktop Chrome and Edge lock the
+   paper size to this; some browsers (e.g. Chrome on Android) ignore it
+   and use the print dialog's own paper size. */
+@page {
+  size: A4;
+}
+
 @media print {
   .nav,
   .footer,
@@ -942,12 +702,22 @@ img {
 
   .cv-contacts {
     margin-top: 0.35rem;
-    gap: 1rem;
+    gap: 0.15rem; /* with the margin below: 0.75rem between items */
   }
 
+  /* 8.5pt and tight spacing keep the full LinkedIn/GitHub addresses on
+     one line; a second line pushes the CV onto two pages */
   .cv-contacts a {
-    font-size: 9pt;
-    margin-right: 0.6rem; /* fallback for print engines without flex-gap support */
+    font-size: 8.5pt;
+    margin-right: 0.6rem; /* also the fallback for print engines without flex-gap support */
+  }
+
+  .cv-link-label {
+    display: none;
+  }
+
+  .cv-link-url {
+    display: inline;
   }
 
   .cv-about {
@@ -1032,10 +802,6 @@ img {
 
   .cv-job-company {
     font-size: 10pt;
-  }
-
-  .cv-job-period {
-    font-size: 8pt;
   }
 
   .cv-job-role {
