@@ -265,12 +265,29 @@ const global = window;
   [[GOLF.x0, GOLF.y0, GOLF.x1 - GOLF.x0, 0.1], [GOLF.x0, GOLF.y1 - 0.1, GOLF.x1 - GOLF.x0, 0.1],
    [GOLF.x0, GOLF.y0, 0.1, GOLF.y1 - GOLF.y0], [GOLF.x1 - 0.1, GOLF.y0, 0.1, GOLF.y1 - GOLF.y0]]
     .forEach(([x, y, w, d]) => box(Object.assign({ x, y, w, d, h: 0.14 }, rail)));
-  box({ x: 10.0, y: 16.7, w: 0.5, d: 0.3, h: 0.55, c: "#c9614b" });
-  box({ x: 10.0, y: 17.7, w: 0.5, d: 0.3, h: 0.55, c: "#c9614b" });
-  box({ x: 10.0, y: 16.7, w: 0.5, d: 1.3, h: 0.28, z: 0.55, top: "#7a4b3a", c: "#8f5642", after: windmillBlades, whole: true });
+  // A tapered tower with a tunnel the ball rolls through, a roof, and sails
+  // turning on the face towards the hole
+  const MILL = { x0: 9.95, x1: 10.65, y0: 16.95, y1: 17.75, taper: 0.1, h: 0.95, tunnel: [17.17, 17.53, 0.26] };
+  FURN.push({ kind: "windmill" });
   FURN.push({ kind: "flag", cx: GOLF.hole.x, cy: GOLF.hole.y });
   spot("tee", GOLF.tee.x - 0.45, GOLF.tee.y + 0.05, "E");
   plant(0.6, 7.65); plant(6.95, 19.3, true); plant(17.4, 13.4);
+
+  // Alan's corner by the mini golf: a bed, a cat tree, bowls and a toy mouse.
+  // The cat tree stays inside one floor cell so its stacked parts sort by height.
+  const CAT_CORNER = { bed: { x: 14.2, y: 19.0 }, tree: { x: 15.35, y: 18.3, w: 0.6, d: 0.6 }, bowls: { x: 16.55, y: 19.4 }, mouse: { x: 13.55, y: 18.35 } };
+  FURN.push({ kind: "catbed", cx: CAT_CORNER.bed.x, cy: CAT_CORNER.bed.y });
+  BLOCKS.push([CAT_CORNER.bed.x - 0.45, CAT_CORNER.bed.y - 0.35, 0.9, 0.7]);
+  {
+    const t = CAT_CORNER.tree, carpet = { c: "#d8c3a0" }, sisal = { c: "#c9ad7c" };
+    box(Object.assign({ x: t.x, y: t.y, w: t.w, d: t.d, h: 0.08, block: true }, carpet));
+    box(Object.assign({ x: t.x + 0.22, y: t.y + 0.22, w: 0.16, d: 0.16, h: 0.57, z: 0.08 }, sisal));
+    box(Object.assign({ x: t.x + 0.05, y: t.y + 0.05, w: 0.5, d: 0.5, h: 0.06, z: 0.65, after: catTreeToy }, carpet));
+    box(Object.assign({ x: t.x + 0.22, y: t.y + 0.22, w: 0.16, d: 0.16, h: 0.54, z: 0.71 }, sisal));
+    box({ x: t.x, y: t.y, w: t.w, d: t.d, h: 0.07, z: 1.25, c: "#d8c3a0", top: "#e9d6c1" });
+  }
+  FURN.push({ kind: "bowls", cx: CAT_CORNER.bowls.x, cy: CAT_CORNER.bowls.y });
+  FURN.push({ kind: "mouse", cx: CAT_CORNER.mouse.x, cy: CAT_CORNER.mouse.y });
 
   /* ---------------- walkability ---------------- */
   const blocked = [], hEdge = [], vEdge = [];
@@ -456,6 +473,10 @@ const global = window;
     else if (f.kind === "round") STATIC.push({ key: f.cx + f.cy, draw: () => drawRoundTable(f) });
     else if (f.kind === "plant") STATIC.push({ key: f.cx + f.cy, draw: () => drawPlant(f) });
     else if (f.kind === "lamp") STATIC.push({ key: f.cx + f.cy, draw: () => drawLamp(f) });
+    else if (f.kind === "windmill") STATIC.push({ key: (MILL.x0 + MILL.x1) / 2 + (MILL.y0 + MILL.y1) / 2, draw: drawWindmill });
+    else if (f.kind === "catbed") STATIC.push({ key: f.cx + f.cy - 0.3, draw: () => drawCatBed(f.cx, f.cy) });
+    else if (f.kind === "bowls") STATIC.push({ key: f.cx + f.cy, draw: () => drawBowls(f) });
+    else if (f.kind === "mouse") STATIC.push({ key: f.cx + f.cy, draw: () => drawToyMouse(f) });
     else if (f.kind === "flag") STATIC.push({ key: f.cx + f.cy + 0.1, draw: () => drawFlag(f) });
     // just after the table it stands on (same centre, key + 0.05)
     else if (f.kind === "net") STATIC.push({ key: f.x + f.w / 2 + f.y + 0.05, draw: () => drawNet(f) });
@@ -652,15 +673,83 @@ const global = window;
     ctx.fillStyle = "#f6e7c4"; ctx.beginPath();
     ctx.moveTo(t[0] - 4 * k, t[1] + 2 * k); ctx.lineTo(t[0] + 4 * k, t[1] + 2 * k); ctx.lineTo(t[0] + 2.6 * k, t[1] - 4 * k); ctx.lineTo(t[0] - 2.6 * k, t[1] - 4 * k); ctx.closePath(); ctx.fill();
   }
-  function windmillBlades(b) {
-    const c = P(b.x + b.w + 0.02, b.y + b.d / 2, b.z + 0.55);
-    const a0 = world.t * 1.6;
-    ctx.strokeStyle = "#f2efe8"; ctx.lineWidth = 2.2 * k; ctx.lineCap = "round";
+  function drawWindmill() {
+    const m = MILL, T = m.taper, zt = m.h;
+    const s = (z) => (T * z) / zt; // how far the walls lean in at height z
+    // the face towards the hole (+x) and the face towards the viewer (+y)
+    const faceX = (ya, yb, za, zb) => [P(m.x1 - s(zb), Math.max(ya, m.y0 + s(zb)), zb), P(m.x1 - s(zb), Math.min(yb, m.y1 - s(zb)), zb),
+      P(m.x1 - s(za), Math.min(yb, m.y1 - s(za)), za), P(m.x1 - s(za), Math.max(ya, m.y0 + s(za)), za)];
+    const faceY = (xa, xb, za, zb) => [P(Math.max(xa, m.x0 + s(zb)), m.y1 - s(zb), zb), P(Math.min(xb, m.x1 - s(zb)), m.y1 - s(zb), zb),
+      P(Math.min(xb, m.x1 - s(za)), m.y1 - s(za), za), P(Math.max(xa, m.x0 + s(za)), m.y1 - s(za), za)];
+    const p0 = P((m.x0 + m.x1) / 2, (m.y0 + m.y1) / 2, 0);
+    ctx.fillStyle = "rgba(0,0,0,0.16)";
+    ctx.beginPath(); ctx.ellipse(p0[0] + 3 * k, p0[1] + 1.5 * k, 18 * k, 8.5 * k, 0, 0, Math.PI * 2); ctx.fill();
+    // whitewashed walls on a brick base
+    poly(faceY(m.x0, m.x1, 0, zt), "#efe8dc");
+    poly(faceX(m.y0, m.y1, 0, zt), "#d8cebe");
+    poly(faceY(m.x0, m.x1, 0, 0.13), "#b9573f");
+    poly(faceX(m.y0, m.y1, 0, 0.13), "#9c4835");
+    // tunnel the ball rolls through, with a rounded top
+    const [ta, tb, th] = m.tunnel, mid = (ta + tb) / 2, r = (tb - ta) / 2;
+    const arch = [];
+    for (let i = 0; i <= 8; i++) { const a = Math.PI - (i * Math.PI) / 8; const y = mid + Math.cos(a) * r, z = th - r + Math.sin(a) * r; arch.push(P(m.x1 - s(z) + 0.002, y, z)); }
+    poly([P(m.x1 + 0.002, ta, 0), ...arch, P(m.x1 + 0.002, tb, 0)], "#2a2420");
+    // a small window and a door frame line
+    const wx = (m.x0 + m.x1) / 2;
+    poly(faceY(wx - 0.09, wx + 0.09, 0.48, 0.66).map(([x, y]) => [x, y]), "#5d7f95");
+    poly(faceY(wx - 0.09, wx + 0.09, 0.565, 0.575), "#efe8dc");
+    // roof: a pyramid that overhangs the walls a little
+    const o = 0.06, rx0 = m.x0 + T - o, rx1 = m.x1 - T + o, ry0 = m.y0 + T - o, ry1 = m.y1 - T + o;
+    const apex = P((m.x0 + m.x1) / 2, (m.y0 + m.y1) / 2, zt + 0.45);
+    poly([P(rx0, ry1, zt), P(rx1, ry1, zt), apex], "#8f4a3a");
+    poly([P(rx1, ry0, zt), P(rx1, ry1, zt), apex], "#6f392d");
+    // four lattice sails turning on the +x face
+    const hz = 0.7, hx = m.x1 - s(hz) + 0.07, hy = (m.y0 + m.y1) / 2;
+    const at = (a, rr, w) => P(hx, hy + Math.cos(a) * rr - Math.sin(a) * w, hz + Math.sin(a) * rr + Math.cos(a) * w);
+    const a0 = world.t * 1.3;
+    ctx.lineCap = "round";
     for (let i = 0; i < 4; i++) {
       const a = a0 + (i * Math.PI) / 2;
-      ctx.beginPath(); ctx.moveTo(c[0], c[1]); ctx.lineTo(c[0] + Math.cos(a) * 10 * k, c[1] + Math.sin(a) * 10 * k * 0.9 - Math.cos(a) * 5 * k * 0.5); ctx.stroke();
+      poly([at(a, 0.14, 0.02), at(a, 0.62, 0.02), at(a, 0.62, 0.15), at(a, 0.14, 0.15)], "rgba(246,241,231,0.92)", "#8a7a66", Math.max(0.6, 0.6 * k));
+      ctx.strokeStyle = "#8a7a66"; ctx.lineWidth = Math.max(0.5, 0.45 * k);
+      for (const rr of [0.3, 0.46]) { ctx.beginPath(); ctx.moveTo(...at(a, rr, 0.02)); ctx.lineTo(...at(a, rr, 0.15)); ctx.stroke(); }
+      ctx.strokeStyle = "#5b4030"; ctx.lineWidth = 1.3 * k;
+      ctx.beginPath(); ctx.moveTo(...at(a, 0, 0)); ctx.lineTo(...at(a, 0.64, 0)); ctx.stroke();
     }
-    ctx.fillStyle = "#3a3d44"; ctx.beginPath(); ctx.arc(c[0], c[1], 1.6 * k, 0, Math.PI * 2); ctx.fill();
+    const hub = P(hx, hy, hz);
+    ctx.fillStyle = "#3a3d44"; ctx.beginPath(); ctx.arc(hub[0], hub[1], 1.7 * k, 0, Math.PI * 2); ctx.fill();
+  }
+  function drawCatBed(x, y) {
+    const b = P(x, y);
+    ctx.fillStyle = "rgba(0,0,0,0.14)"; ctx.beginPath(); ctx.ellipse(b[0], b[1] + 1.5 * k, 14 * k, 7 * k, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#a8654a"; ctx.beginPath(); ctx.ellipse(b[0], b[1] + 1 * k, 13 * k, 6.5 * k, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#c27b5a"; ctx.beginPath(); ctx.ellipse(b[0], b[1] - 1 * k, 13 * k, 6.5 * k, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#e9d6c1"; ctx.beginPath(); ctx.ellipse(b[0], b[1] - 0.5 * k, 9.5 * k, 4.5 * k, 0, 0, Math.PI * 2); ctx.fill();
+  }
+  function drawBowls(f) {
+    const mat = 0.3;
+    poly([P(f.cx - 0.45, f.cy - mat), P(f.cx + 0.45, f.cy - mat), P(f.cx + 0.45, f.cy + mat - 0.1), P(f.cx - 0.45, f.cy + mat - 0.1)], "#e8a6a0");
+    [[-0.2, "#4f7cc4", "#8a5a3a"], [0.2, "#f2efe8", "#9fd3e6"]].forEach(([dx, rim, inside]) => {
+      const p = P(f.cx + dx, f.cy - 0.05);
+      ctx.fillStyle = shade(rim, 0.8); ctx.beginPath(); ctx.ellipse(p[0], p[1], 4.4 * k, 2.3 * k, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = rim; ctx.beginPath(); ctx.ellipse(p[0], p[1] - 1.2 * k, 4.4 * k, 2.2 * k, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = inside; ctx.beginPath(); ctx.ellipse(p[0], p[1] - 1.2 * k, 3.2 * k, 1.5 * k, 0, 0, Math.PI * 2); ctx.fill();
+    });
+  }
+  function drawToyMouse(f) {
+    const p = P(f.cx, f.cy);
+    ctx.strokeStyle = "#e88aa0"; ctx.lineWidth = 0.8 * k; ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(p[0] - 2.5 * k, p[1] - 1 * k); ctx.quadraticCurveTo(p[0] - 6 * k, p[1] - 3 * k, p[0] - 5 * k, p[1] + 1 * k); ctx.stroke();
+    ctx.fillStyle = "#9aa1a8"; ctx.beginPath(); ctx.ellipse(p[0], p[1] - 1.3 * k, 3 * k, 1.8 * k, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#e88aa0"; ctx.beginPath(); ctx.arc(p[0] + 1.6 * k, p[1] - 2.8 * k, 0.9 * k, 0, Math.PI * 2); ctx.fill();
+  }
+  function catTreeToy(b) {
+    // a pompom on a string, swinging under the middle platform
+    const a = P(b.x + b.w - 0.04, b.y + b.d - 0.04, b.z);
+    const sw = Math.sin(world.t * 2.1) * 2.5 * k;
+    ctx.strokeStyle = "#7a6a58"; ctx.lineWidth = 0.7 * k;
+    ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(a[0] + sw, a[1] + 9 * k); ctx.stroke();
+    ctx.fillStyle = "#d4628a"; ctx.beginPath(); ctx.arc(a[0] + sw, a[1] + 10.2 * k, 1.6 * k, 0, Math.PI * 2); ctx.fill();
   }
   function drawFlag(f) {
     const b = P(f.cx, f.cy, 0), t = P(f.cx, f.cy, 1.35);
@@ -766,9 +855,7 @@ const global = window;
     }
     // doormat and cat bed
     poly([P(23.0, 15.1), P(24, 15.1), P(24, 16.9), P(23.0, 16.9)], "#5b4a3a");
-    const bed = P(23.2, 5.3);
-    ctx.fillStyle = "#c27b5a"; ctx.beginPath(); ctx.ellipse(bed[0], bed[1], 13 * k, 6.5 * k, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = "#e9d6c1"; ctx.beginPath(); ctx.ellipse(bed[0], bed[1] + 0.5 * k, 9.5 * k, 4.5 * k, 0, 0, Math.PI * 2); ctx.fill();
+    drawCatBed(23.2, 5.3);
 
     // outer walls (back left x=0, back right y=0)
     const wall = "#ece7df", wallR = "#e2dcd2";
@@ -1143,6 +1230,8 @@ const global = window;
     { x: 1.0, y: 9.1, z: 0, label: "napping in the sun" },
     { x: 23.2, y: 5.3, z: 0, label: "asleep in the cat bed", approach: { x: 22.6, y: 5.5 } },
     { x: 3.4, y: 18.6, z: 0.42, label: "napping on the sofa", approach: { x: 3.4, y: 17.6 } },
+    { x: CAT_CORNER.bed.x, y: CAT_CORNER.bed.y - 0.05, z: 0, label: "curled up in the bed by the mini golf", approach: { x: CAT_CORNER.bed.x, y: 18.4 } },
+    { x: CAT_CORNER.tree.x + 0.3, y: CAT_CORNER.tree.y + 0.3, z: 1.32, label: "napping on top of the cat tree", approach: { x: CAT_CORNER.tree.x + 0.3, y: 17.6 } },
   ];
   function catGo(t, speed, then) {
     cat.path = findPath(cat.x, cat.y, t.approach || t);
@@ -1154,18 +1243,18 @@ const global = window;
     if (cat.reservedBy) return;
     const working = agents.filter((a) => a.atSpot && a.spot === a.home && a.anim === "type");
     const r = Math.random();
-    if (r < 0.32) {
+    if (r < 0.3) {
       const nap = pick(CAT_NAPS);
       cat.label = "walking over for a nap";
       catGo(nap, 1.3, () => {
         const settle = () => { cat.mode = "sleep"; cat.label = nap.label; cat.until = world.t + rand(16, 26); };
         if (nap.approach) catJump(nap, settle); else settle();
       });
-    } else if (r < 0.58) {
+    } else if (r < 0.5) {
       cat.label = "playing with a ball of yarn";
       yarn.active = true; yarn.x = rand(2.5, 7); yarn.y = rand(13.0, 14.1); yarn.tx = yarn.x; yarn.ty = yarn.y;
       catGo({ x: yarn.x - 0.6, y: yarn.y }, 2.2, () => { cat.mode = "play"; cat.until = world.t + rand(9, 13); });
-    } else if (r < 0.8 && working.length) {
+    } else if (r < 0.7 && working.length) {
       const a = pick(working);
       const deskTop = { x: a.home.desk.x + 0.55, y: a.home.desk.y, z: 0.75 };
       const appr = { x: a.home.x + 0.75, y: a.home.y };
@@ -1174,6 +1263,15 @@ const global = window;
         cat.mode = "sit"; cat.until = world.t + rand(8, 11); cat.onDesk = { a, appr };
         a.say(pick(["Alan, not the keyboard!", "Hi, Alan 😺", "Off the desk, Alan", "Help, a cat"]), 3);
       }));
+    } else if (r < 0.88) {
+      // Alan's corner: a bite to eat, or a go at the scratching post
+      if (Math.random() < 0.55) {
+        cat.label = "walking over to the food bowl";
+        catGo({ x: CAT_CORNER.bowls.x - 0.2, y: CAT_CORNER.bowls.y - 0.5 }, 1.8, () => { cat.mode = "sit"; cat.sdir = 1; cat.label = "having a bite to eat"; cat.until = world.t + rand(5, 8); });
+      } else {
+        cat.label = "heading for the cat tree";
+        catGo({ x: CAT_CORNER.tree.x + 0.3, y: CAT_CORNER.tree.y - 0.3 }, 1.6, () => { cat.mode = "sit"; cat.sdir = 1; cat.label = "sharpening claws on the cat tree"; cat.until = world.t + rand(4, 6); });
+      }
     } else {
       cat.label = "exploring the office";
       const spots = [{ x: 6, y: 14.5 }, { x: 15, y: 9 }, { x: 20.5, y: 16 }, { x: 3, y: 18.5 }, { x: 10.5, y: 15 }, { x: 16, y: 13 }];
@@ -1517,6 +1615,7 @@ const global = window;
         bx = GOLF.tee.x + (GOLF.hole.x - GOLF.tee.x) * e * reach;
         by = GOLF.tee.y + Math.sin(e * Math.PI) * 0.12;
         if (g.putt.make && u >= 1) show = false;
+        if (bx > MILL.x0 - 0.05 && bx < MILL.x1) show = false; // inside the windmill's tunnel
       }
       if (show) list.push({ key: bx + by + 0.05, draw: () => withScale(1.2, () => drawGolfBall(bx, by)) });
     }
