@@ -192,6 +192,9 @@ h3 {
 }
 
 .profile-name {
+  font-family: var(--font-body); /* a <p>, styled like the section headings */
+  font-weight: 700;
+  letter-spacing: -0.01em;
   font-size: 1.65rem;
   line-height: 1.2;
   margin: 0 0 0.35rem;
@@ -379,8 +382,7 @@ h3 {
 }
 
 /* Cards, toggles, tags */
-.card,
-.interest-block {
+.card {
   background: var(--surface);
   border-color: var(--line);
 }
@@ -395,18 +397,6 @@ h3 {
 
 .card-empty {
   border-color: #464b52;
-}
-
-.interest-toggle {
-  color: var(--ink);
-}
-
-.interest-toggle:hover {
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.interest-items li {
-  border-bottom-color: var(--line);
 }
 
 .tag {

@@ -11,9 +11,14 @@ import {
   languages,
   cvInterests,
   referencesNote,
+  cvPhone,
 } from "./content/cv";
 
 const homeHref = `${import.meta.env.BASE_URL}`;
+
+// "https://www.linkedin.com/in/x" -> "linkedin.com/in/x": the address
+// printed on paper, where a link label like "LinkedIn" cannot be clicked
+const printedUrl = (url) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
 export default function CVPage() {
   // Opened as cv.html?print (the "Download CV as PDF" button on the main
@@ -57,10 +62,10 @@ export default function CVPage() {
             <h1 className="cv-name">Sigurður G. Hjálmarsson</h1>
             <p className="cv-role">Senior Software Engineer | Backend Development &amp; QA | 20 Years in Software (Java, SQL)</p>
             <div className="cv-contacts">
-              {contact.phone && (
-                <a href={`tel:${contact.phone.replace(/\s+/g, "")}`}>
+              {cvPhone && (
+                <a href={`tel:${cvPhone.replace(/\s+/g, "")}`}>
                   <Icon name="phone" size={14} />
-                  {contact.phone}
+                  {cvPhone}
                 </a>
               )}
               {contact.email && (
@@ -72,13 +77,15 @@ export default function CVPage() {
               {contact.linkedin && (
                 <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
                   <Icon name="linkedin" size={14} />
-                  LinkedIn
+                  <span className="cv-link-label">LinkedIn</span>
+                  <span className="cv-link-url">{printedUrl(contact.linkedin)}</span>
                 </a>
               )}
               {contact.github && (
                 <a href={contact.github} target="_blank" rel="noopener noreferrer">
                   <Icon name="github" size={14} />
-                  GitHub
+                  <span className="cv-link-label">GitHub</span>
+                  <span className="cv-link-url">{printedUrl(contact.github)}</span>
                 </a>
               )}
             </div>
@@ -137,7 +144,7 @@ export default function CVPage() {
               {experience.map((job) => (
                 <article key={job.company} className="cv-job">
                   <div className="cv-job-header">
-                    <span className="cv-job-company">{job.company}</span>
+                    <h3 className="cv-job-company">{job.company}</h3>
                   </div>
                   {job.roles.map((role) => (
                     <div className="cv-job-role-block" key={role.title}>

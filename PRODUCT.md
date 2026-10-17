@@ -67,8 +67,9 @@ directly. No backend, no database, no accounts.
   version — planned "later"; current content is English with Icelandic
   section eyebrows.
 - Contact: email, LinkedIn and GitHub on the profile card, in the
-  footer and in the CV header (phone on the CV only), all from
-  `contact` in `src/content/site.js`.
+  footer and in the CV header, from `contact` in `src/content/site.js`;
+  the phone number is on the CV only, from `cvPhone` in
+  `src/content/cv.js`, so only the CV page bundle contains it.
 
 ## Brand Commitments
 

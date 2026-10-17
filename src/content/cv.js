@@ -7,6 +7,12 @@
  * they were done in — not to the company as a whole.
  */
 
+/**
+ * Phone number, shown in the CV header only. It lives here rather than
+ * in `contact` (site.js) so it is bundled with the CV page alone.
+ */
+export const cvPhone = "+354 698 7372";
+
 export const experience = [
   {
     company: "Sabre Corporation",

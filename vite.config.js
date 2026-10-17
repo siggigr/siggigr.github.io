@@ -14,6 +14,7 @@ export default defineConfig({
         cv: resolve(__dirname, "cv.html"),
         agents: resolve(__dirname, "agents/index.html"),
         privacy: resolve(__dirname, "privacy.html"),
+        notFound: resolve(__dirname, "404.html"),
       },
     },
   },
