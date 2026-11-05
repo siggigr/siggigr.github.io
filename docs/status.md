@@ -20,6 +20,7 @@ The site is live from `main` on GitHub Pages: main site, CV, the AI agent team p
 | 2 | The agents-page figures are updated when a Tillslip milestone is merged. | Developer |
 | 3 | Done: `site-build` is already a required check in the ruleset. | Owner |
 | 4 | Proofread the Icelandic text on `/agents/`. | Owner |
+| 5 | Secret Protection is off; the Tech Lead recommends turning it on. | Owner |
 
 ## Decisions
 
@@ -30,6 +31,8 @@ The site is live from `main` on GitHub Pages: main site, CV, the AI agent team p
 - 5 November 2026: print is best effort. The pages must print readably, but print layout gets no further polish unless the owner asks.
 - 5 November 2026: `main` is protected by a GitHub ruleset: no direct pushes, no force pushes, merges only through a pull request, no branch deletion, 0 approvals, and the `site-build` check must pass.
 - 5 November 2026: `deploy.yml` actions stay pinned by tag for now (owner); revisit if a third-party action is added.
+- 5 November 2026: the prose sections ("What I learned", "In 30 seconds") keep the 40rem text width, as in the approved design (owner).
+- 5 November 2026: "Grouped security updates" stays off in the repository settings; `dependabot.yml` does the grouping.
 
 ## Log
 
@@ -42,3 +45,5 @@ One line per event: date, what, outcome.
 - 2026-11-05 | PR #6 round 3 (developer) | team-map role names no longer break inside a word (Developer/Develope-r); wide-layout node side padding 0.9rem to 0.6rem; build green locally
 - 2026-11-05 | PR #6 review (reviewer, e00ea3e) | Approved with minor changes: status.md item 3 out of date (site-build already required), PR #4 merge date, CLAUDE.md ruleset line missing the required check; CI and Dependabot OK; build and site-build green
 - 2026-11-05 | PR #6 round 4 (developer) | reviewer findings 1-4 fixed (status.md and CLAUDE.md only); `deploy.yml` tag-pinning decision recorded; build green locally
+- 2026-11-05 | PR #6 chore/status-and-checks | merged (5a7a232); Dependabot alerts and security updates on
+- 2026-11-05 | PR #11 vite 6.4.4 to 6.4.5 (npm-security, Dependabot) | merged (cce9604)
