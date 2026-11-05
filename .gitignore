@@ -33,3 +33,7 @@ desktop.ini
 .agents/
 .codex/
 .agent-reports/
+
+# Impeccable local state (config.json is committed)
+.impeccable/config.local.json
+.impeccable/hook.cache.json

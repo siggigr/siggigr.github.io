@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------------
-   Agent office: an animated isometric office where the six AI agents
-   (Analyst, Architect, Designer, Developer, Reviewer, QA Engineer) and
+   Agent office: an animated isometric office where the seven AI agents
+   (Analyst, Architect, Designer, Developer, Reviewer, QA Engineer, Tech Lead) and
    the office cat go about their day. Just for fun: it is not connected
    to the agents' real work.
 
@@ -54,9 +54,11 @@ const global = window;
     { id: "developer", name: "Developer", shirt: "#2fa7b3", hair: "#6b4a2b", skin: "#e8b892", hairStyle: "short",
       work: "writing code", bubbles: ["git push", "{ }", "Tests pass ✓", "One more PR"] },
     { id: "reviewer", name: "Reviewer", shirt: "#8a6fd1", hair: "#d8c79c", skin: "#c68c63", hairStyle: "short",
-      work: "reviewing a pull request", bubbles: ["LGTM", "nit:", "🔍", "Allowlist!"] },
+      work: "reviewing a pull request", bubbles: ["LGTM", "nit:", "🔍", "Blocker: B1"] },
     { id: "qa", name: "QA Engineer", short: "QA", shirt: "#5aa865", hair: "#2a1c14", skin: "#f0c39c", hairStyle: "long",
-      work: "testing on a phone", bubbles: ["🐞 Found one", "Test 41 ✓", "Keyboard OK?", "📱"] },
+      work: "testing on a phone", bubbles: ["🐞 Found one", "Test 262 ✓", "Keyboard OK?", "📱"] },
+    { id: "techlead", name: "Tech Lead", shirt: "#b94a34", hair: "#c3c6cc", skin: "#9a6644", hairStyle: "short",
+      work: "keeping the overview", bubbles: ["Status ✓", "Check the file", "Who's next?"] },
   ];
   const SIGGI = { id: "siggi", name: "Siggi", shirt: "#9cc3e6", hair: "#8d7656", skin: "#f1cfb3", hairStyle: "short",
     work: "planning the next step", bubbles: ["Next milestone", "Let's decide", "📋", "Good call"] };
@@ -235,7 +237,7 @@ const global = window;
   const PODA = pod(1.8, ["dA1", "dA2", "dA3", "dA4"]);
   const PODB = pod(8.0, ["dB1", "dB2", "dB3", "dB4"]);
   void PODA; void PODB;
-  const HOME = { analyst: "dA1", architect: "dA2", designer: "dA3", developer: "dB1", reviewer: "dB2", qa: "dB3", siggi: "dA4" };
+  const HOME = { analyst: "dA1", architect: "dA2", designer: "dA3", developer: "dB1", reviewer: "dB2", qa: "dB3", techlead: "dB4", siggi: "dA4" };
 
   // Kanban board on the left wall, bookshelf, printer, water cooler
   spot("kanban", 0.95, 14.6, "W");
@@ -1677,7 +1679,7 @@ const global = window;
     opts = opts || {};
     const canvas = document.createElement("canvas");
     canvas.setAttribute("role", "img");
-    canvas.setAttribute("aria-label", "Animated illustration of the AI agent team's office: six agents, Siggi and Alan Isaac the cat moving between desks, the kitchen, meeting rooms, the game room and the entrance.");
+    canvas.setAttribute("aria-label", "Animated illustration of the AI agent team's office: seven agents, Siggi and Alan Isaac the cat moving between desks, the kitchen, meeting rooms, the game room and the entrance.");
     container.appendChild(canvas);
     const rows = buildLegend(opts.legend);
     reset();

@@ -28,12 +28,14 @@ Live at **https://siggigr.github.io/**.
   one-page A4 version. Opening `cv.html?print` (what the "Download CV
   as PDF" button does) goes straight to the print dialog.
 - **`agents/index.html`**, served at **`/agents/`** — a case study of
-  my team of AI agents (Analyst, Architect, Designer, Developer,
-  Reviewer, QA) building Tillslip, a grocery receipt scanner for
-  Android. Same dark top bar and panel as the CV page: intro with
-  "My part", the pipeline (one card per role), three key decisions,
-  "The office" (an animated scene of the team, Siggi and Alan Isaac
-  the office cat), and a placeholder for screenshots.
+  my team of seven AI agents (Analyst, Architect, Designer, Developer,
+  Reviewer, QA, Tech Lead) building Tillslip, a grocery receipt scanner
+  for Android. Same dark top bar and panel as the CV page: intro with
+  three facts, "In 30 seconds" with "My part", the team (a map of the
+  roles and one card per role), how I keep it honest, four moments that
+  mattered, by the numbers, what I learned, under the hood, what's
+  next, and "The office" (an animated scene of the team, Siggi and Alan
+  Isaac the office cat).
 
 Every page is its own HTML file, so moving between pages is a full
 page load (this matters for the visitor statistics below).
@@ -58,7 +60,7 @@ page load (this matters for the visitor statistics below).
 | AI agent team page text                      | `src/content/agents.js`                       |
 | "Updated …" date on the agents page          | `src/content/agents.js` (`lastUpdated`)       |
 | Agents teaser card on the main page          | `src/content/agents.js` (`agentsTeaser`)      |
-| "The office" intro text                      | `src/content/agents.js` (`officeIntro`)       |
+| "The office" intro text                      | `src/content/agents.js` (`office.intro`)      |
 | The office animation itself                  | `src/office/agentOffice.js`                   |
 | Icons (rail, "What I do", contact links)     | `src/components/Icon.jsx`                     |
 | Main page look                               | `src/styles/dark.css`                         |
@@ -147,19 +149,8 @@ All text is in `src/content/agents.js`. When you change it, also set
 `lastUpdated` near the top (for example `"2 November 2026"`); it shows
 at the end of the line under the headline.
 
-To add screenshots or a screen recording, put the files in
-`public/agents/` (create the folder; files in `public/` are copied
-as-is) and list them in `screens`:
-
-```js
-export const screens = [
-  { type: "image", src: "/agents/tillslip-scan.webp", alt: "Scanning a receipt" },
-  { type: "video", src: "/agents/tillslip-demo.mp4", poster: "/agents/poster.webp", alt: "Short demo" },
-];
-```
-
-While `screens` is empty, the section shows a "Still in the hangar"
-placeholder card.
+The page has no screenshots section for now. Add one when there are
+screenshots to show.
 
 ### The book and game flip-books
 
