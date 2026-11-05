@@ -323,7 +323,7 @@
 }
 
 /* wide: left to right */
-@container map (min-width: 48em) {
+@container map (min-width: 50em) {
   .team-flow {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
