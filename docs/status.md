@@ -4,7 +4,7 @@ Last updated: 5 November 2026. Built from the git log, the reports in `.agent-re
 
 ## Current state
 
-The site is live from `main` on GitHub Pages: main site, CV, the AI agent team page (`/agents/`, seven colleagues), privacy page and 404. `main` is protected by a GitHub ruleset (pull requests only, and the `site-build` check must pass). PR #6 (`chore/status-and-checks`) adds this file, Dependabot, a CI check, print fixes for `/agents/` and a team-map fix (role names never break inside a word). The Icelandic version is parked.
+The site is live from `main` on GitHub Pages: main site, CV, the AI agent team page (`/agents/`, seven colleagues), privacy page and 404. `main` is protected by a GitHub ruleset (pull requests only, and the `site-build` check must pass). PR #6 (`chore/status-and-checks`, merged) added this file, Dependabot, the `site-build` CI check, print fixes for `/agents/` and a team-map fix (role names never break inside a word). The Icelandic version is parked.
 
 ## Done
 
@@ -28,7 +28,7 @@ The site is live from `main` on GitHub Pages: main site, CV, the AI agent team p
 - 4-5 November 2026: `.impeccable` exception: Instrument Serif is allowed.
 - 5 November 2026: .impeccable side-tab exception covers src/styles/agents.css; its reason names .agents-role and .team-lane-me, and any other side edge in that file needs the owner's approval.
 - 5 November 2026: eyebrow "Tölur og staðreyndir"; team-map labels in DM Sans; the team map is horizontal from 50em; the Tech Lead card sits outside the list.
-- 5 November 2026: print is best effort. The pages must print readably, but print layout gets no further polish unless the owner asks.
+- 5 November 2026: print is not checked or worked on any more (owner): no print checks in reviews, QA or pull requests, and no print fixes unless the owner asks. Replaces the "best effort" decision of the same day.
 - 5 November 2026: `main` is protected by a GitHub ruleset: no direct pushes, no force pushes, merges only through a pull request, no branch deletion, 0 approvals, and the `site-build` check must pass.
 - 5 November 2026: `deploy.yml` actions stay pinned by tag for now (owner); revisit if a third-party action is added.
 - 5 November 2026: the prose sections ("What I learned", "In 30 seconds") keep the 40rem text width, as in the approved design (owner).
@@ -49,3 +49,4 @@ One line per event: date, what, outcome.
 - 2026-11-05 | PR #6 chore/status-and-checks | merged (5a7a232); Dependabot alerts and security updates on
 - 2026-11-05 | PR #11 vite 6.4.4 to 6.4.5 (npm-security, Dependabot) | merged (cce9604)
 - 2026-11-05 | PR #12 chore/react-19-vite-8 (developer) | opened: react/react-dom 19.3.1, vite 8.3.5, plugin-react 6.2.1 together (replaces Dependabot #7 to #10); build green locally, npm audit 0
+- 2026-11-05 | PR #12 round 2 (developer) | production build checked with `npm run preview` at 375 and 1280 on all five pages (office, Pause/Play, team map, flipbook, no console errors); Current state wording fixed; print decision replaced; browser targets and React size accepted (owner)
