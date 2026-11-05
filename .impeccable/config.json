@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "instrument serif",
+        "createdAt": "2026-11-05T10:38:48.375Z",
+        "reason": "Owner decision 4-5 Nov 2026: keep the site's current fonts; Instrument Serif is the site's display font (src/styles/global.css:18)"
+      }
+    ]
+  }
+}

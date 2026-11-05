@@ -47,5 +47,4 @@ design context.
 
 - Pages: `index.html` (main site), `cv.html`, `agents/index.html` (the AI
   agent team page), `privacy.html`, `404.html`.
-- Planned: an Icelandic version of the site, starting with the agents
-  page. Where it lives is not decided yet.
+- The Icelandic version of the site is parked until the whole site gets one (owner, 5 November 2026).
