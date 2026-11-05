@@ -27,6 +27,7 @@ The site is live from `main` on GitHub Pages: main site, CV, the AI agent team p
 - 4-5 November 2026: `.impeccable` exception: Instrument Serif is allowed.
 - 5 November 2026: .impeccable side-tab exception covers src/styles/agents.css; its reason names .agents-role and .team-lane-me, and any other side edge in that file needs the owner's approval.
 - 5 November 2026: eyebrow "Tölur og staðreyndir"; team-map labels in DM Sans; the team map is horizontal from 50em; the Tech Lead card sits outside the list.
+- 5 November 2026: print is best effort. The pages must print readably, but print layout gets no further polish unless the owner asks.
 - 5 November 2026: `main` is protected by a GitHub ruleset: no direct pushes, no force pushes, merges only through a pull request, 0 approvals.
 
 ## Log
@@ -37,3 +38,4 @@ One line per event: date, what, outcome.
 - 2026-11-05 | PR #5 agents page | merged (seven colleagues, approved copy, DM Sans map labels, em breakpoints)
 - 2026-11-05 | PR #6 chore/status-and-checks (developer) | opened: status file, Dependabot, CI, CLAUDE.md rules, print fixes on /agents/; build green locally
 - 2026-11-05 | PR #6 round 2 (developer) | status.md wording fixed, CI job renamed `build` to `site-build`; build green locally
+- 2026-11-05 | PR #6 round 3 (developer) | team-map role names no longer break inside a word (Developer/Develope-r); wide-layout node side padding 0.9rem to 0.6rem; build green locally

@@ -291,6 +291,7 @@
   font-weight: 700;
   color: var(--ink);
   font-size: 1rem;
+  overflow-wrap: normal; /* a role name is never broken inside the word */
 }
 
 .team-node .team-out {
@@ -331,6 +332,8 @@
   .team-node {
     flex-direction: column;
     align-items: flex-start;
+    /* narrower sides: the longest role name ("Developer") keeps room to spare */
+    padding-inline: 0.6rem;
   }
 
   .team-node .team-out {
