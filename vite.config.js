@@ -10,11 +10,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "index.html"),
-        cv: resolve(__dirname, "cv.html"),
-        agents: resolve(__dirname, "agents/index.html"),
-        privacy: resolve(__dirname, "privacy.html"),
-        notFound: resolve(__dirname, "404.html"),
+        main: resolve(import.meta.dirname, "index.html"),
+        cv: resolve(import.meta.dirname, "cv.html"),
+        agents: resolve(import.meta.dirname, "agents/index.html"),
+        privacy: resolve(import.meta.dirname, "privacy.html"),
+        notFound: resolve(import.meta.dirname, "404.html"),
       },
     },
   },
