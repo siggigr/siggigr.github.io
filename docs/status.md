@@ -47,3 +47,4 @@ One line per event: date, what, outcome.
 - 2026-11-05 | PR #6 round 4 (developer) | reviewer findings 1-4 fixed (status.md and CLAUDE.md only); `deploy.yml` tag-pinning decision recorded; build green locally
 - 2026-11-05 | PR #6 chore/status-and-checks | merged (5a7a232); Dependabot alerts and security updates on
 - 2026-11-05 | PR #11 vite 6.4.4 to 6.4.5 (npm-security, Dependabot) | merged (cce9604)
+- 2026-11-05 | PR #12 chore/react-19-vite-8 (developer) | opened: react/react-dom 19.3.1, vite 8.3.5, plugin-react 6.2.1 together (replaces Dependabot #7 to #10); build green locally, npm audit 0
