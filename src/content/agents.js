@@ -140,7 +140,7 @@ export const moments = {
 
 export const numbers = {
   title: "By the numbers",
-  eyebrow: "Í tölum",
+  eyebrow: "Tölur og staðreyndir",
   items: [
     { figure: "26 + 24", label: "functional and non-functional requirements, each one testable" },
     { figure: "384", label: "automated tests: 262 for the app, 17 for the receipt logic, 105 for the database security rules" },
