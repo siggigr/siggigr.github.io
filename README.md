@@ -60,7 +60,7 @@ page load (this matters for the visitor statistics below).
 | AI agent team page text                      | `src/content/agents.js`                       |
 | "Updated …" date on the agents page          | `src/content/agents.js` (`lastUpdated`)       |
 | Agents teaser card on the main page          | `src/content/agents.js` (`agentsTeaser`)      |
-| "The office" intro text                      | `src/content/agents.js` (`officeIntro`)       |
+| "The office" intro text                      | `src/content/agents.js` (`office.intro`)      |
 | The office animation itself                  | `src/office/agentOffice.js`                   |
 | Icons (rail, "What I do", contact links)     | `src/components/Icon.jsx`                     |
 | Main page look                               | `src/styles/dark.css`                         |

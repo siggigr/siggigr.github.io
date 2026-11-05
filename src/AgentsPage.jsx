@@ -177,14 +177,14 @@ function Team() {
             <p>{r.text}</p>
           </li>
         ))}
-        <li className="pipeline-step is-beside">
-          <div className="pipeline-top">
-            <span className="tag tag-quiet">{team.besideTag}</span>
-          </div>
-          <h3>{team.lead.role}</h3>
-          <p>{team.lead.text}</p>
-        </li>
       </ol>
+      <div className="pipeline-step is-beside">
+        <div className="pipeline-top">
+          <span className="tag tag-quiet">{team.besideTag}</span>
+        </div>
+        <h3>{team.lead.role}</h3>
+        <p>{team.lead.text}</p>
+      </div>
     </AgentsSection>
   );
 }
