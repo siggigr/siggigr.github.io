@@ -22,7 +22,8 @@ design context.
   the owner merges, unless the owner allows an agent to for that task.
   A merge to `main` publishes the site.
 - `main` is protected by a GitHub ruleset: no direct pushes, no force
-  pushes, merges only through a pull request (owner, 5 November 2026).
+  pushes, no branch deletion, merges only through a pull request with 0
+  approvals, and the `site-build` check must pass (owner, 5 November 2026).
 - Run `npm run build` before every push; it must finish without errors.
   For a change that shows on a page, also check it with `npm run dev` at
   phone width and desktop width.
