@@ -736,7 +736,8 @@
   .agents-page {
     max-width: none;
     margin: 0;
-    padding: 0;
+    /* a few px inset: boxes flush with the printed edge lose their right border */
+    padding: 0 0.2rem;
     background: none;
     border: none;
     box-shadow: none;
@@ -750,6 +751,48 @@
   .office-hint,
   .approve-mark {
     display: none;
+  }
+
+  /* Keep a heading and its intro with the content that follows */
+  .agents-section-head,
+  .agents-section-head h2,
+  .agents-section-intro {
+    break-after: avoid;
+  }
+
+  .agents-section-intro,
+  .office-stage {
+    break-inside: avoid;
+  }
+
+  /* The office scene is scaled to the page width instead of scrolling */
+  .office-stage {
+    background: none;
+    border-color: #999;
+  }
+
+  .office-scroll {
+    overflow: visible;
+  }
+
+  .office-canvas {
+    min-width: 0;
+  }
+
+  .office-canvas canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .office-legend li {
+    break-inside: avoid;
+  }
+
+  /* Keep the legend's colour dots; they carry the meaning */
+  .office-dot {
+    border: 1px solid #666;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .team-node::before,

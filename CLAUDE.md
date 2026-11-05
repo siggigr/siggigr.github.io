@@ -21,6 +21,8 @@ design context.
 - Never push to `main`. Every change goes through a pull request, and only
   the owner merges, unless the owner allows an agent to for that task.
   A merge to `main` publishes the site.
+- `main` is protected by a GitHub ruleset: no direct pushes, no force
+  pushes, merges only through a pull request (owner, 5 November 2026).
 - Run `npm run build` before every push; it must finish without errors.
   For a change that shows on a page, also check it with `npm run dev` at
   phone width and desktop width.
@@ -33,6 +35,10 @@ design context.
 
 ## Reporting
 
+- `docs/status.md` is the current state. Read it first in every session.
+  It gets a one-line Log entry (date, what was done, the outcome) each
+  time work is handed on: a pull request opened, each round of fixes,
+  and the merge. The developer commits the lines.
 - Every role ends its report with: what was done, what is still open, and
   any questions for the owner.
 - The pull request description says what changed, which pages it

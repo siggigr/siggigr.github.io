@@ -1,0 +1,25 @@
+version: 2
+updates:
+  # One weekly pull request per ecosystem. Version updates are grouped by update type,
+  # so minor and patch updates arrive together and each major update stays separate,
+  # because a major update can need code changes. Security updates are grouped too.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      npm:
+        patterns: ['*']
+        update-types: [minor, patch]
+      npm-security:
+        applies-to: security-updates
+        patterns: ['*']
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns: ['*']
+        update-types: [minor, patch]
