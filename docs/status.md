@@ -33,6 +33,7 @@ The site is live from `main` on GitHub Pages: main site, CV, the AI agent team p
 - 5 November 2026: `deploy.yml` actions stay pinned by tag for now (owner); revisit if a third-party action is added.
 - 5 November 2026: the prose sections ("What I learned", "In 30 seconds") keep the 40rem text width, as in the approved design (owner).
 - 5 November 2026: "Grouped security updates" stays off in the repository settings; `dependabot.yml` does the grouping.
+- 5 November 2026: Vite 8's default browser targets (Chrome/Edge 111, Firefox 114, Safari 16.4) and the larger shared React 19 chunk (about +23 kB gzip) are accepted; no `build.target` is set (owner).
 
 ## Log
 
