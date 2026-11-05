@@ -16,7 +16,7 @@
           "src/styles/agents.css"
         ],
         "createdAt": "2026-11-05T11:39:41.423Z",
-        "reason": "User confirmed 5 Nov 2026 (answer 6): the 'Me' bar keeps the teal left edge, same treatment as 'My part'"
+        "reason": "Owner decision 5 Nov 2026 (answer 6): .agents-role ('My part') and .team-lane-me (the 'Me' bar) keep the teal left edge. Any other side edge in this file needs the owner's approval."
       }
     ]
   }
