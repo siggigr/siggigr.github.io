@@ -8,6 +8,15 @@
         "value": "instrument serif",
         "createdAt": "2026-11-05T10:38:48.375Z",
         "reason": "Owner decision 4-5 Nov 2026: keep the site's current fonts; Instrument Serif is the site's display font (src/styles/global.css:18)"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/styles/agents.css"
+        ],
+        "createdAt": "2026-11-05T11:39:41.423Z",
+        "reason": "User confirmed 5 Nov 2026 (answer 6): the 'Me' bar keeps the teal left edge, same treatment as 'My part'"
       }
     ]
   }
