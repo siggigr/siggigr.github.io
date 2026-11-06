@@ -18,7 +18,7 @@ export default function ProfileCard() {
       <div className="profile-photo">
         <img
           src={portrait}
-          fetchpriority="high"
+          fetchPriority="high"
           decoding="async"
           alt="" /* the name is right below */
           width="532"
