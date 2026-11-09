@@ -21,8 +21,8 @@ export default function ProfileCard() {
           fetchPriority="high"
           decoding="async"
           alt="" /* the name is right below */
-          width="532"
-          height="1571"
+          width="1509"
+          height="1569"
         />
       </div>
       <div className="profile-info">
