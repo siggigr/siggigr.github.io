@@ -158,17 +158,17 @@ h3 {
   inset: 0;
 }
 
-/* The portrait is a full-length cut-out, so it is scaled up and
-   anchored near the top to frame head and upper body. */
+/* The portrait is a head-and-shoulders cut-out. It fills the card width
+   and its lower edge fades into the dark card behind the name. */
 .profile-photo img {
   position: absolute;
-  top: 5%;
-  left: 50%;
-  width: 112%;
+  top: 7%;
+  left: 0;
+  width: 100%;
   max-width: none;
   height: auto;
-  transform: translateX(-48%);
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
 }
 
 /* Fade the lower part of the card so the name reads cleanly. */
@@ -471,7 +471,6 @@ h3 {
   }
 
   .profile-photo img {
-    width: 78%;
     top: 4%;
   }
 
@@ -497,10 +496,6 @@ h3 {
   .services {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-
-  .profile-photo img {
-    width: 92%;
   }
 }
 
