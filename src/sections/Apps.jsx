@@ -4,16 +4,6 @@ import { apps } from "../content/apps";
 export default function Apps() {
   return (
     <Section id="apps" eyebrow="Smíðar" title="Apps">
-      {apps.length === 0 && (
-        <div className="card card-empty">
-          <h3>In the hangar</h3>
-          <p>
-            The first app is under construction. It will be parked here as
-            soon as it is ready for passengers.
-          </p>
-        </div>
-      )}
-
       <div className="card-grid">
         {apps.map((app) => (
           <article key={app.name} className="card">
