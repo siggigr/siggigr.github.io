@@ -28,8 +28,8 @@ export const experience = [
         period: "2020 – 2026",
         bullets: [
           "Developed new features and maintained existing ones in Java and Oracle SQL analysers on Sabre's Intelligent Exchange (IX) platform",
-          "Part of the team that built a real-time integration between Alaska Airlines and Sift to prevent payment fraud, delivered on schedule although our team joined late",
-          "Found a critical time-zone defect in end-to-end testing with Alaska and Sift, fixed it and shipped a new release overnight, keeping the project on schedule",
+          "Part of the team that built a real-time payment-fraud integration between a major US airline and a fraud-prevention company, delivered on schedule although our team joined late",
+          "Found a critical time-zone defect in end-to-end testing with both companies, fixed it and shipped a new release overnight, keeping the project on schedule",
           "Sole developer of an analyser that re-assigns disability service requests (SSRs) when booking segments change",
           "Planned work from customer requests and PRDs and designed solutions with the team",
           "Supported airline customers with deployments on GCP and IX platform advice; on-call duty, releases and CVT support",
