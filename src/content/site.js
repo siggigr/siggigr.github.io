@@ -21,7 +21,7 @@ export const hero = {
 export const profile = {
   name: "Sigurður G. Hjálmarsson",
   role: "Senior Software Engineer",
-  meta: ["Kópavogur", "20+ years in software", "Open to work"],
+  meta: ["Kópavogur", "20 years in software", "Open to work"],
 };
 
 /**
@@ -32,7 +32,7 @@ export const services = [
   {
     icon: "code",
     title: "Backend development",
-    text: "Java and Oracle SQL services and analysers, most recently on Sabre's Intelligent Exchange platform.",
+    text: "New features and maintenance in Java and Oracle SQL analysers, most recently on Sabre's Intelligent Exchange platform.",
   },
   {
     icon: "check",
@@ -52,18 +52,19 @@ export const services = [
   {
     icon: "layers",
     title: "Learning new stacks",
-    text: "Comfortable picking up new languages and tools quickly. Built Nextpost, an Android app in Kotlin and Jetpack Compose, completely solo from spec to published app. Uses AI-assisted development daily: Claude today, and GitHub Copilot at Sabre before that.",
+    text: "Comfortable picking up new languages and tools quickly. Built Nextpost, an Android app in Kotlin and Jetpack Compose, completely solo, from spec to a working app. Uses AI-assisted development daily: Claude today, and GitHub Copilot at Sabre before that.",
   },
 ];
 
 export const about = [
   "I am Sigurður, Siggi to most people.",
-  "I was born in 1975 and grew up in the Vestmannaeyjar Islands with my parents and three younger siblings. After secondary school, I attended the Icelandic Flight School (Flugskóli Íslands), graduating with a Commercial Pilot License in 1997 and ATPL First Class in 1998. In 2005, I made the leap into tech by studying Computer Science at Reykjavík University, turning a lifelong curiosity about problem-solving into a long-term career.",
+  "I grew up in the Vestmannaeyjar Islands with my parents and three younger siblings. After secondary school, I attended the Icelandic Flight Academy (Flugskóli Íslands) and trained as a commercial pilot. In 2005, I made the leap into tech by studying Computer Science at Reykjavík University, turning a lifelong curiosity about problem-solving into a long-term career.",
 ];
 
 export const professional = [
-  "With over 20 years in the software industry, I've built my career around a blend of hands-on engineering and a deep commitment to quality. My journey spans 14 years in software testing followed by 6 years in backend development—most recently as a Senior Service Delivery Engineer at Sabre, where I developed and supported analysers built on Sabre's Intelligent Exchange platform, in Java and Oracle SQL, for international airline environments. Following the recent closure of Sabre's Iceland office, I'm now actively exploring new opportunities where I can put that experience to work.",
-  "I take pride in taking end-to-end ownership of systems, whether that means engineering backend workflows, automating tests, or troubleshooting complex production setups. Over the years, I've learned that the best software comes from combining a structured quality mindset with modern tooling—including AI-assisted development tools like GitHub Copilot. Beyond code, I bring persistence, reliability, and a collaborative spirit to every team I join.",
+  "I have worked in software for 20 years: 6 years developing Java and Oracle SQL backend solutions for airlines at Sabre, and 14 years before that testing airline software and safety-critical air traffic control systems. As a Senior Service Delivery Engineer at Sabre I built new features and maintained existing ones in analysers on Sabre's Intelligent Exchange platform. Sabre closed its Iceland office in 2026, and I am now looking for my next role, first of all in software development.",
+  "One project I am proud of is a real-time integration between Alaska Airlines and Sift to prevent payment fraud. Our team joined late and still delivered on schedule. During end-to-end testing with both companies I found a critical time-zone defect, fixed it and shipped a new release overnight.",
+  "My testing background gives me a structured, quality-focused way of working. These days I use Claude Code daily and run my own team of AI agents to build an Android app. I am conscientious and reliable, and I do my best work in a team that works well together.",
 ];
 
 /**
@@ -81,8 +82,8 @@ export const interestsIntro = [
  * keep this as the whole section, or add individual cards below it).
  */
 export const familyIntro = [
-  "My spouse, Sigga, and I have been writing our story together since 2018. She swept me off my feet on my 50th birthday in London with a proposal I'll never forget—and, of course, I said yes! While we haven't walked down the aisle just yet, our life together is already filled with so much love, laughter, and beautiful chaos.",
-  "Though we don't have children of our own together, we are endlessly proud of the blended family we've built. Today, we make our home in Kópavogur alongside our two daughters (born in 2004 and 2005). Our family circle also extends to my adult son (born in 1999), who lives with his girlfriend in Hafnarfjörður. Together, we've brought our worlds into one warm, vibrant home with a bright future ahead.",
+  "My spouse, Sigga, and I have been writing our story together since 2018. She swept me off my feet on my birthday in London with a proposal I'll never forget—and, of course, I said yes! While we haven't walked down the aisle just yet, our life together is already filled with so much love, laughter, and beautiful chaos.",
+  "Though we don't have children of our own together, we are endlessly proud of the blended family we've built. Today, we make our home in Kópavogur alongside our two daughters. Our family circle also extends to my adult son, who lives with his girlfriend in Hafnarfjörður. Together, we've brought our worlds into one warm, vibrant home with a bright future ahead.",
 ];
 
 /**
