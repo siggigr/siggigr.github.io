@@ -237,7 +237,7 @@ export const next = {
 export const contactBlock = {
   title: "Get in touch",
   eyebrow: "Hafðu samband",
-  text: "I am open to work, in software development or in building with AI agents like this. If the way I work here would suit your team, I would like to hear from you.",
+  text: "I am open to work. If the way I work here would suit your team, I would like to hear from you.",
   email: "Email me",
   linkedin: "LinkedIn",
   cv: "View my CV",
