@@ -9,7 +9,7 @@ export const hero = {
   headline: "Halló, ég heiti Siggi.",
   headlineLang: "is", // language of the headline text (set to "en" if you change it)
   subline:
-    "Senior software engineer with a background in backend development and quality engineering. These days I also run a team of AI agents that is building a real Android app, plus a lifelong weakness for aviation and good books.",
+    "Senior software engineer with a background in backend development and quality engineering. These days I also run a team of AI agents that is building a real Android app. Away from work, I have a lifelong weakness for aviation and good books.",
   /** The two buttons under the intro text. */
   cvAction: "View my CV",
   contactAction: "Email me",
@@ -47,12 +47,12 @@ export const services = [
   {
     icon: "plane",
     title: "Aviation know-how",
-    text: "A former commercial pilot who has spent his software career building for air traffic control and airlines.",
+    text: "I am a former commercial pilot, and I have spent my software career working on systems for air traffic control and airlines.",
   },
   {
     icon: "layers",
     title: "Learning new stacks",
-    text: "Comfortable picking up new languages and tools quickly. Built Nextpost, an Android app in Kotlin and Jetpack Compose, completely solo, from spec to a working app. Uses AI-assisted development daily: Claude today, and GitHub Copilot at Sabre before that.",
+    text: "I pick up new languages and tools quickly. I built Nextpost, an Android app in Kotlin and Jetpack Compose, completely solo, from spec to a working app. I use AI-assisted development daily: Claude Code today, and GitHub Copilot at Sabre before that.",
   },
 ];
 

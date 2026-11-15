@@ -34,6 +34,7 @@ The site is live from `main` on GitHub Pages: main site, CV, the AI agent team p
 - 5 November 2026: the prose sections ("What I learned", "In 30 seconds") keep the 40rem text width, as in the approved design (owner).
 - 5 November 2026: "Grouped security updates" stays off in the repository settings; `dependabot.yml` does the grouping.
 - 5 November 2026: Vite 8's default browser targets (Chrome/Edge 111, Firefox 114, Safari 16.4) and the larger shared React 19 chunk (about +23 kB gzip) are accepted; no `build.target` is set (owner).
+- 15 November 2026: the Family section on the main page gives the spouse's nickname (owner). This is an agreed exception to the "no real personal data of other people" rule; reviews do not raise it again.
 
 ## Log
 
@@ -62,3 +63,6 @@ One line per event: date, what, outcome.
 - 2026-11-15 | PR #19 round 5 | Apps section: Tillslip is no longer a normal app card; the "In the hangar" card is back (same heading and dashed style), shown after the Nextpost card with new Tillslip text, its text now in src/content/apps.js; build green locally, checked at 375 and 1440
 - 2026-11-15 | PR #19 round 6 | Apps section: the "In the hangar" card for Tillslip gets the tag "in development" and a "See the case study" link to /agents/ (same tab), texts in src/content/apps.js; Nextpost card unchanged; build green locally, checked at 375 and 1440
 - 2026-11-15 | PR #19 round 7 | Apps section: Tillslip is a normal app card again (heading "Tillslip", tag "in development", "See the case study" link to /agents/ in the same tab), the "In the hangar" card is removed; texts in src/content/apps.js; Nextpost card unchanged; build green locally, checked at 375 and 1440
+- 2026-11-15 | PR fix/tillslip-tag-spacing | opened: Apps section, the "in development" tag on the Tillslip card now has a space before it and even padding on both sides (the space was inside the pill before); build green locally, checked at 375 and 1024
+- 2026-11-15 | PR #20 round 2 | CV: the two Personal projects chips use a colon instead of an en dash; /agents/: the office legend says "QA" instead of "QA Engineer"; Decisions: the spouse's nickname in the Family section recorded as an agreed exception; build green locally, checked at 375 and desktop width
+- 2026-11-15 | PR #20 round 3 | main page: hero subline ends with its own sentence ("Away from work, I have a lifelong weakness..."), the Aviation know-how and Learning new stacks cards are in the first person; meta descriptions of the main page and the CV say "senior software engineer"; CV: the Nextpost chip links to its GitHub repository (new tab) and the Tillslip chip to /agents/ (same tab), targets in src/content/cv.js; build green locally, checked at 375 and desktop width

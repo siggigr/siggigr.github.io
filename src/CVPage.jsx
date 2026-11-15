@@ -3,6 +3,7 @@ import { contact } from "./content/site";
 import cvAvatar from "./assets/cv-avatar.webp";
 import Icon from "./components/Icon";
 import Footer from "./components/Footer";
+import { linkProps } from "./components/linkProps";
 import {
   experience,
   education,
@@ -181,11 +182,18 @@ export default function CVPage() {
                 <div key={group.label} className="cv-skill-group">
                   <span className="cv-skill-label">{group.label}</span>
                   <ul className="cv-chip-list">
-                    {group.items.map((skill) => (
-                      <li key={skill} className="cv-chip">
-                        {skill}
-                      </li>
-                    ))}
+                    {group.items.map((item) => {
+                      const text = item.text || item;
+                      return (
+                        <li key={text} className="cv-chip">
+                          {item.url ? (
+                            <a {...linkProps(item.url)}>{text}</a>
+                          ) : (
+                            text
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ))}

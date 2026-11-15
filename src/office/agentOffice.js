@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------------
    Agent office: an animated isometric office where the seven AI agents
-   (Analyst, Architect, Designer, Developer, Reviewer, QA Engineer, Tech Lead) and
+   (Analyst, Architect, Designer, Developer, Reviewer, QA, Tech Lead) and
    the office cat go about their day. Just for fun: it is not connected
    to the agents' real work.
 
@@ -55,7 +55,7 @@ const global = window;
       work: "writing code", bubbles: ["git push", "{ }", "Tests pass ✓", "One more PR"] },
     { id: "reviewer", name: "Reviewer", shirt: "#8a6fd1", hair: "#d8c79c", skin: "#c68c63", hairStyle: "short",
       work: "reviewing a pull request", bubbles: ["LGTM", "nit:", "🔍", "Blocker: B1"] },
-    { id: "qa", name: "QA Engineer", short: "QA", shirt: "#5aa865", hair: "#2a1c14", skin: "#f0c39c", hairStyle: "long",
+    { id: "qa", name: "QA", short: "QA", shirt: "#5aa865", hair: "#2a1c14", skin: "#f0c39c", hairStyle: "long",
       work: "testing on a phone", bubbles: ["🐞 Found one", "Test 262 ✓", "Keyboard OK?", "📱"] },
     { id: "techlead", name: "Tech Lead", shirt: "#b94a34", hair: "#c3c6cc", skin: "#9a6644", hairStyle: "short",
       work: "keeping the overview", bubbles: ["Status ✓", "Check the file", "Who's next?"] },

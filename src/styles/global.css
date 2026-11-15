@@ -259,6 +259,13 @@ img {
   vertical-align: middle;
 }
 
+/* A tag after a card heading: a little more room than the word space,
+   and the pill stays on one line. */
+.card h3 .tag {
+  margin-left: 0.3rem;
+  white-space: nowrap;
+}
+
 /* ------------------------------------------------------------------ */
 /* Footer                                                              */
 /* ------------------------------------------------------------------ */

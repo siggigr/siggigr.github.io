@@ -1,14 +1,6 @@
 import Section from "../components/Section";
 import { apps } from "../content/apps";
-
-// A url that starts with "/" is a page on this site: it gets the site's
-// base path and opens in the same tab. Any other url opens in a new tab.
-function linkProps(url) {
-  if (url.startsWith("/")) {
-    return { href: `${import.meta.env.BASE_URL}${url.slice(1)}` };
-  }
-  return { href: url, target: "_blank", rel: "noopener noreferrer" };
-}
+import { linkProps } from "../components/linkProps";
 
 export default function Apps() {
   return (
@@ -20,7 +12,12 @@ export default function Apps() {
             <article key={app.name} className="card">
               <h3>
                 {app.name}
-                {tag && <span className="tag"> {tag}</span>}
+                {tag && (
+                  <>
+                    {" "}
+                    <span className="tag">{tag}</span>
+                  </>
+                )}
               </h3>
               <p>{app.description}</p>
               {app.url && (
