@@ -233,6 +233,16 @@ export const next = {
   ],
 };
 
+/** Closing block of the page. The links come from `contact` in site.js. */
+export const contactBlock = {
+  title: "Get in touch",
+  eyebrow: "Hafðu samband",
+  text: "I am open to work, in software development or in building with AI agents like this. If the way I work here would suit your team, I would like to hear from you.",
+  email: "Email me",
+  linkedin: "LinkedIn",
+  cv: "View my CV",
+};
+
 /** "The office", the animated scene of the team. */
 export const office = {
   title: "The office",
@@ -241,8 +251,10 @@ export const office = {
     "A playful look at my AI team between tasks: desk work, coffee, stand-ups and the odd game of ping-pong. I drop in to approve their work, and Alan Isaac, the office cat, keeps everyone company. It is just for fun and not connected to the agents' real work.",
 };
 
-/** Teaser card on the main page. */
+/** Feature card on the main page. The role names in it come from `team` above. */
 export const agentsTeaser = {
+  label: "Case study: my AI agent team",
+  flowLabel: "The seven roles",
   title: "One engineer, seven AI colleagues",
   text: "How I run a small team of AI agents that takes a real Android app from requirements to a released build, with me approving every step.",
   link: "See how it works",

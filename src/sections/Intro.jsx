@@ -1,13 +1,14 @@
-import { hero, profile, services } from "../content/site";
+import { contact, hero, profile, services } from "../content/site";
 import Icon from "../components/Icon";
-import { agentsTeaser } from "../content/agents";
+import { agentsTeaser, team } from "../content/agents";
 
 const agentsHref = `${import.meta.env.BASE_URL}agents/`;
+const cvHref = `${import.meta.env.BASE_URL}cv.html`;
 
 /**
  * Opening block of the content panel: big headline, accent meta line,
- * short intro, the "What I do" grid, then the teaser card for the
- * AI agent team page.
+ * short intro with the CV and email buttons, the feature card for the
+ * AI agent team page, then the "What I do" grid.
  */
 export default function Intro() {
   return (
@@ -23,6 +24,37 @@ export default function Intro() {
       </p>
       <p className="intro-lead">{hero.subline}</p>
 
+      <p className="intro-actions">
+        <a className="btn btn-solid" href={cvHref}>
+          {hero.cvAction}
+        </a>
+        {contact.email && (
+          <a className="btn" href={`mailto:${contact.email}`}>
+            {hero.contactAction}
+          </a>
+        )}
+      </p>
+
+      <a className="feature" href={agentsHref} aria-labelledby="feature-title">
+        <span className="feature-label">
+          <Icon name="agents" size={18} />
+          {agentsTeaser.label}
+        </span>
+        <h2 id="feature-title" className="feature-title">
+          {agentsTeaser.title}
+        </h2>
+        <p className="feature-text">{agentsTeaser.text}</p>
+        <ul className="feature-flow" role="list" aria-label={agentsTeaser.flowLabel}>
+          {team.roles.map((r) => (
+            <li key={r.role}>{r.role}</li>
+          ))}
+          <li className="is-beside">{team.lead.role}</li>
+        </ul>
+        <span className="feature-cta">
+          {agentsTeaser.link} <span aria-hidden="true">→</span>
+        </span>
+      </a>
+
       <h2 className="intro-subhead">What I do</h2>
       <ul className="services">
         {services.map((s) => (
@@ -35,19 +67,6 @@ export default function Intro() {
           </li>
         ))}
       </ul>
-
-      <aside className="teaser" aria-labelledby="teaser-title">
-        <span className="teaser-icon">
-          <Icon name="agents" size={26} />
-        </span>
-        <div>
-          <h3 id="teaser-title">{agentsTeaser.title}</h3>
-          <p>{agentsTeaser.text}</p>
-          <a className="app-link" href={agentsHref}>
-            {agentsTeaser.link} <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </aside>
     </header>
   );
 }

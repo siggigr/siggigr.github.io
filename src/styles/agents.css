@@ -44,7 +44,8 @@
   letter-spacing: -0.005em;
   color: #fff;
   margin-bottom: 0.7rem;
-  max-width: 14ch;
+  max-width: 20ch;
+  text-wrap: balance;
 }
 
 .agents-meta {
@@ -610,6 +611,14 @@
   .agents-next {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+/* Closing block: email, LinkedIn, CV */
+.agents-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1.5rem 0 0;
 }
 
 .agents-next .card {
