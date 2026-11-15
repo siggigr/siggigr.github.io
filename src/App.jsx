@@ -23,11 +23,11 @@ export default function App() {
           <main id="main">
             <Intro />
             <About />
-            <Family />
             <Professional />
+            <Apps />
+            <Family />
             <Interests />
             <Pets />
-            <Apps />
           </main>
           <Footer />
         </div>

@@ -6,13 +6,13 @@ const agentsHref = `${import.meta.env.BASE_URL}agents/`;
 
 const LINKS = [
   { id: "about", label: "About", icon: "user" },
-  { id: "family", label: "Family", icon: "home" },
   { id: "professional", label: "Work", icon: "briefcase" },
   { id: "cv", label: "CV", icon: "resume", href: cvHref },
   { id: "agents", label: "AI agent team", icon: "agents", href: agentsHref },
+  { id: "apps", label: "Apps", icon: "grid" },
+  { id: "family", label: "Family", icon: "home" },
   { id: "interests", label: "Interests", icon: "book" },
   { id: "pets", label: "Pets", icon: "paw" },
-  { id: "apps", label: "Apps", icon: "grid" },
 ];
 
 /**
@@ -23,7 +23,7 @@ const LINKS = [
  * links go to separate pages, so they never light up): the last
  * section whose top has passed a line 35% down the screen. At the very
  * bottom of the page the last section lights up, because a short last
- * section (Apps) can never scroll up to that line. A clicked icon
+ * section (Pets) can never scroll up to that line. A clicked icon
  * stays lit while the page scrolls to it.
  * On small screens it becomes a horizontal bar (see dark.css).
  */

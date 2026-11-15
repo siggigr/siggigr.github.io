@@ -52,3 +52,4 @@ One line per event: date, what, outcome.
 - 2026-11-05 | PR #12 round 2 (developer) | production build checked with `npm run preview` at 375 and 1280 on all five pages (office, Pause/Play, team map, flipbook, no console errors); Current state wording fixed; print decision replaced; browser targets and React size accepted (owner)
 - 2026-11-05 | PR #12 round 3 (developer) | print decision reworded as the owner gave it; no print work in progress, existing print styles untouched
 - 2026-11-09 | PR feat/new-portrait-5-1 | opened: new main-page portrait (Siggi-5.1, background removed), card CSS adapted for a head-and-shoulders photo; build green locally, checked at 375 and 1440
+- 2026-11-15 | PR feat/hiring-polish | opened: agent team feature card under the intro, CV and email buttons, work and apps sections first, "Get in touch" block on /agents/; build green locally, checked at 375 and 1440

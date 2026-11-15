@@ -602,6 +602,44 @@ img {
   text-decoration: none;
 }
 
+/* Buttons: outline by default, .btn-solid for the main action */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.5em 1.25em;
+  border: 1px solid #464b52;
+  border-radius: 99px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.btn-solid {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0d1a1c;
+}
+
+.btn-solid:hover {
+  background: #62cbd5;
+  border-color: #62cbd5;
+  color: #0d1a1c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
 @media (max-width: 620px) {
   .cv-grid {
     grid-template-columns: 1fr;

@@ -11,7 +11,9 @@ import {
   hood,
   next,
   office,
+  contactBlock,
 } from "./content/agents";
+import { contact } from "./content/site";
 
 const homeHref = `${import.meta.env.BASE_URL}`;
 const cvHref = `${import.meta.env.BASE_URL}cv.html`;
@@ -290,6 +292,29 @@ function Next() {
   );
 }
 
+function Contact() {
+  return (
+    <AgentsSection id="contact" eyebrow={contactBlock.eyebrow} title={contactBlock.title}>
+      <p className="agents-section-intro">{contactBlock.text}</p>
+      <p className="agents-contact">
+        {contact.email && (
+          <a className="btn btn-solid" href={`mailto:${contact.email}`}>
+            {contactBlock.email}
+          </a>
+        )}
+        {contact.linkedin && (
+          <a className="btn" href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+            {contactBlock.linkedin}
+          </a>
+        )}
+        <a className="btn" href={cvHref}>
+          {contactBlock.cv}
+        </a>
+      </p>
+    </AgentsSection>
+  );
+}
+
 /**
  * "AI software agent team" page: same dark theme, top bar and single
  * panel as the CV page. All text lives in content/agents.js.
@@ -323,6 +348,8 @@ export default function AgentsPage() {
           <p className="agents-section-intro">{office.intro}</p>
           <AgentOffice />
         </AgentsSection>
+
+        <Contact />
       </main>
 
       <Footer />
