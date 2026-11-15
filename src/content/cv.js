@@ -117,8 +117,16 @@ export const technicalSkills = [
   {
     label: "Personal projects",
     items: [
-      "Nextpost: Android app (Kotlin, Jetpack Compose, Firebase)",
-      "Tillslip: app in development, built with my own team of AI agents in Claude Code",
+      // An item with a url is shown as a link. A url that starts with "/"
+      // is a page on this site (same tab); any other url opens in a new tab.
+      {
+        text: "Nextpost: Android app (Kotlin, Jetpack Compose, Firebase)",
+        url: "https://github.com/siggigr/nextpost",
+      },
+      {
+        text: "Tillslip: app in development, built with my own team of AI agents in Claude Code",
+        url: "/agents/",
+      },
     ],
   },
 ];
