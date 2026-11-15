@@ -20,7 +20,12 @@ export default function Apps() {
             <article key={app.name} className="card">
               <h3>
                 {app.name}
-                {tag && <span className="tag"> {tag}</span>}
+                {tag && (
+                  <>
+                    {" "}
+                    <span className="tag">{tag}</span>
+                  </>
+                )}
               </h3>
               <p>{app.description}</p>
               {app.url && (
