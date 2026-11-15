@@ -131,10 +131,16 @@ Photos are cropped to a 4:3 card automatically; any reasonable image works.
 
 ### Editing the CV
 
-`src/content/cv.js` holds `experience`, `education`, `technicalSkills`,
-`coreStrengths`, `languages`, `cvInterests`, and `referencesNote`.
+`src/content/cv.js` holds `cvSummary`, `experience`, `education`,
+`aviation`, `technicalSkills`, `coreStrengths`, `languages`,
+`cvInterests`, and `referencesNote`.
 References intentionally omit direct contact details on this public
 page ("Available upon request").
+
+The link preview images (Open Graph) are `public/og/site.png` (main
+page and CV) and `public/og/agents.png` (`/agents/`), 1200 x 627. They
+are referenced by full address in the `og:image` tags of `index.html`,
+`cv.html` and `agents/index.html`.
 
 The dark screen styles in `cv-dark.css` are wrapped in `@media screen`,
 so they never affect printing. The print layout (`@media print` in

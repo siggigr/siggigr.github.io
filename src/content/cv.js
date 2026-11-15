@@ -13,6 +13,12 @@
  */
 export const cvPhone = "+354 698 7372";
 
+/**
+ * Summary line under the CV header. Same text as on the Word CV.
+ */
+export const cvSummary =
+  "Software developer and test engineer with 20 years in software: 6 years developing Java and Oracle SQL backend solutions for airlines at Sabre, and 14 years testing airline software and safety-critical air traffic control systems.";
+
 export const experience = [
   {
     company: "Sabre Corporation",
@@ -21,19 +27,21 @@ export const experience = [
         title: "Senior Service Delivery Engineer",
         period: "2020 – 2026",
         bullets: [
-          "Development and support of analysers built on Sabre's Intelligent Exchange (IX) platform, in Java and Oracle SQL",
-          "Project planning from customer requests and PRDs, and solution design with the team",
-          "Investigation of customer-reported issues, with fixes and redeployments",
-          "Customer support: deployment guidance for analysers, action plugins and domains on GCP, and IX platform advice",
-          "On-call duty, releases and CVT testing support",
+          "Developed new features and maintained existing ones in Java and Oracle SQL analysers on Sabre's Intelligent Exchange (IX) platform",
+          "Part of the team that built a real-time integration between Alaska Airlines and Sift to prevent payment fraud, delivered on schedule although our team joined late",
+          "Found a critical time-zone defect in end-to-end testing with Alaska and Sift, fixed it and shipped a new release overnight, keeping the project on schedule",
+          "Sole developer of an analyser that re-assigns disability service requests (SSRs) when booking segments change",
+          "Planned work from customer requests and PRDs and designed solutions with the team",
+          "Supported airline customers with deployments on GCP and IX platform advice; on-call duty, releases and CVT support",
         ],
       },
       {
         title: "Senior Software Engineer in Test",
         period: "2016 – 2020",
         bullets: [
-          "Java development of automated tests for the IX platform, using Test Kit, an internal platform supplying bookings (PNRs), flights and test data",
-          "Manual test cases and smoke testing for new and changed functionality",
+          "Wrote automated Java tests for the IX platform with Test Kit, an internal tool supplying bookings (PNRs) and flights",
+          "Wrote and ran manual functional test cases and smoke tests for all new and changed functionality",
+          "Verified customer-reported issues to establish whether they were defects, training gaps or something else",
         ],
       },
     ],
@@ -45,34 +53,10 @@ export const experience = [
         title: "Test Engineer",
         period: "2006 – 2016 (part-time 2006)",
         bullets: [
-          "Manual acceptance testing (FAT/SAT) of safety-critical air traffic control systems",
-          "Responsible for testing, incl. on-site SAT with customers abroad",
+          "Wrote and executed acceptance tests (FAT/SAT) for safety-critical air traffic control systems",
+          "In charge of on-site SAT at customer sites in Iceland and abroad",
+          "Tested the air traffic controller display (GUI), incl. aircraft-separation alerts and graphical presentation of data",
         ],
-      },
-    ],
-  },
-  {
-    company: "Nanoq & Útilíf",
-    roles: [
-      {
-        title: "Sales Associate, Outdoor Department",
-        period: "2001 – 2007",
-        bullets: ["Assistant Store Manager, autumn 2004"],
-      },
-    ],
-  },
-  {
-    company: "Flugfélag Vestmannaeyja / Landsflug",
-    roles: [
-      {
-        title: "Captain, Flugfélag Vestmannaeyja",
-        period: "2001 – 2002",
-        bullets: ["Partenavia P68C"],
-      },
-      {
-        title: "First Officer, Landsflug",
-        period: "2005",
-        bullets: ["Piper Chieftain, air ambulance flights"],
       },
     ],
   },
@@ -84,21 +68,15 @@ export const education = [
     detail: "B.Sc. in Computer Science",
     period: "2005 – 2009",
   },
-  {
-    school: "Icelandic Flight Academy",
-    detail: "ATPL first class",
-    period: "1998",
-  },
-  {
-    school: "Icelandic Flight Academy",
-    detail: "Commercial Pilot License with Instrument Rating",
-    period: "1997",
-  },
-  {
-    school: "Framhaldsskólinn í Vestmannaeyjum",
-    detail: "Secondary School Diploma, natural science program",
-    period: "1991 – 1995",
-  },
+];
+
+/**
+ * Aviation background, shown under Education. One line per entry, no
+ * years, as on the Word CV.
+ */
+export const aviation = [
+  "Captain, Partenavia P68C charter flights (Flugfélag Vestmannaeyja); First Officer, Piper Chieftain air ambulance (Landsflug)",
+  "Completed ATPL first class and Commercial Pilot License with Instrument Rating, Icelandic Flight Academy (licences no longer current)",
 ];
 
 /**
@@ -108,35 +86,49 @@ export const education = [
 export const technicalSkills = [
   {
     label: "Programming",
-    items: ["Java", "SQL"],
+    items: ["Java", "SQL (Oracle)", "Kotlin (personal projects)"],
+  },
+  {
+    label: "Testing",
+    items: [
+      "Test automation in Java",
+      "Manual functional testing",
+      "Acceptance testing (FAT/SAT)",
+      "Smoke testing",
+    ],
   },
   {
     label: "Tools",
     items: [
       "IntelliJ IDEA",
       "Oracle SQL Developer",
+      "Git",
       "GitHub",
-      "GitHub Copilot",
       "Jira",
       "Rally",
+      "GitHub Copilot",
+      "Claude Code",
     ],
   },
   {
     label: "Platforms",
-    items: ["Google Cloud", "ActiveMQ", "Linux & Windows"],
+    items: ["Google Cloud Platform (GCP)", "ActiveMQ", "Linux & Windows"],
   },
   {
-    label: "Personal project",
-    items: ["Nextpost — Android app (Kotlin, Compose, Firebase)"],
+    label: "Personal projects",
+    items: [
+      "Nextpost – Android app (Kotlin, Jetpack Compose, Firebase)",
+      "Tillslip – app in development, built with my own team of AI agents in Claude Code",
+    ],
   },
 ];
 
 export const coreStrengths = [
-  "Strong communication and teamwork skills",
-  "Attention to detail in development and testing",
+  "Conscientious and reliable",
+  "Attention to detail",
   "Persistence in problem-solving",
-  "Reliable and accountable",
-  "Service-minded attitude",
+  "Service-minded",
+  "Strong communication and teamwork",
 ];
 
 export const languages = [
@@ -145,7 +137,7 @@ export const languages = [
 ];
 
 export const cvInterests =
-  "Computing, literature, aviation & aircraft, outdoor activities.";
+  "Computing, literature, aviation and aircraft, outdoor activities.";
 
 /**
  * References are intentionally not listed with direct contact
