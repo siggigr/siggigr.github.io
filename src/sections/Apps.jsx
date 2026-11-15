@@ -1,5 +1,5 @@
 import Section from "../components/Section";
-import { apps } from "../content/apps";
+import { apps, hangar } from "../content/apps";
 
 export default function Apps() {
   return (
@@ -24,6 +24,12 @@ export default function Apps() {
             )}
           </article>
         ))}
+        {hangar.text && (
+          <div className="card card-empty">
+            <h3>{hangar.title}</h3>
+            <p>{hangar.text}</p>
+          </div>
+        )}
       </div>
     </Section>
   );
