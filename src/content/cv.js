@@ -66,6 +66,7 @@ export const education = [
   {
     school: "Reykjavík University",
     detail: "B.Sc. in Computer Science",
+    note: "Final year alongside full-time work at Tern Systems",
     period: "2005 – 2009",
   },
 ];

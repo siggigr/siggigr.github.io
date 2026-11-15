@@ -108,6 +108,7 @@ export default function CVPage() {
                 <div className="cv-edu-item" key={`${item.school}-${item.period}`}>
                   <strong>{item.school}</strong>
                   <div className="cv-edu-degree">{item.detail}</div>
+                  {item.note && <div className="cv-edu-note">{item.note}</div>}
                   <div className="cv-edu-year">{item.period}</div>
                 </div>
               ))}
