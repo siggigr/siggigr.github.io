@@ -53,3 +53,4 @@ One line per event: date, what, outcome.
 - 2026-11-05 | PR #12 round 3 (developer) | print decision reworded as the owner gave it; no print work in progress, existing print styles untouched
 - 2026-11-09 | PR feat/new-portrait-5-1 | opened: new main-page portrait (Siggi-5.1, background removed), card CSS adapted for a head-and-shoulders photo; build green locally, checked at 375 and 1440
 - 2026-11-15 | PR feat/hiring-polish | opened: agent team feature card under the intro, CV and email buttons, work and apps sections first, "Get in touch" block on /agents/; build green locally, checked at 375 and 1440
+- 2026-11-15 | PR feat/portrait-photo-correction | opened: main-page portrait corrected (colour cast, light, eye reflections, cut-out edge, cheek patch, tie band under the collar removed); same file and size, no code change; build green locally, checked at phone and desktop width
