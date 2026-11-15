@@ -63,7 +63,7 @@ export const about = [
 
 export const professional = [
   "I have worked in software for 20 years: 6 years developing Java and Oracle SQL backend solutions for airlines at Sabre, and 14 years before that testing airline software and safety-critical air traffic control systems. As a Senior Service Delivery Engineer at Sabre I built new features and maintained existing ones in analysers on Sabre's Intelligent Exchange platform. Sabre closed its Iceland office in 2026, and I am now looking for my next role, first of all in software development.",
-  "One project I am proud of is a real-time integration between Alaska Airlines and Sift to prevent payment fraud. Our team joined late and still delivered on schedule. During end-to-end testing with both companies I found a critical time-zone defect, fixed it and shipped a new release overnight.",
+  "One project I am proud of is a real-time payment-fraud integration between a major US airline and a fraud-prevention company. Our team joined late and still delivered on schedule. During end-to-end testing with both companies I found a critical time-zone defect, fixed it and shipped a new release overnight.",
   "My testing background gives me a structured, quality-focused way of working. These days I use Claude Code daily and run my own team of AI agents to build an Android app. I am conscientious and reliable, and I do my best work in a team that works well together.",
 ];
 
