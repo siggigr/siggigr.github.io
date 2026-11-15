@@ -1,6 +1,11 @@
 import Section from "../components/Section";
 import { apps, hangar } from "../content/apps";
 
+// hangar.url is a path on this site, such as "/agents/".
+const hangarHref = hangar.url
+  ? `${import.meta.env.BASE_URL}${hangar.url.replace(/^\//, "")}`
+  : "";
+
 export default function Apps() {
   return (
     <Section id="apps" eyebrow="Smíðar" title="Apps">
@@ -26,8 +31,16 @@ export default function Apps() {
         ))}
         {hangar.text && (
           <div className="card card-empty">
-            <h3>{hangar.title}</h3>
+            <h3>
+              {hangar.title}
+              {hangar.tag && <span className="tag"> {hangar.tag}</span>}
+            </h3>
             <p>{hangar.text}</p>
+            {hangarHref && (
+              <a className="app-link" href={hangarHref}>
+                {hangar.linkText} <span aria-hidden="true">→</span>
+              </a>
+            )}
           </div>
         )}
       </div>
