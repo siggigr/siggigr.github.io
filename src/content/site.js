@@ -9,7 +9,7 @@ export const hero = {
   headline: "Halló, ég heiti Siggi.",
   headlineLang: "is", // language of the headline text (set to "en" if you change it)
   subline:
-    "Senior software engineer with a background in backend development and quality engineering. These days I also run a team of AI agents that is building a real Android app—plus a lifelong weakness for aviation and good books.",
+    "Senior software engineer with a background in backend development and quality engineering. These days I also run a team of AI agents that is building a real Android app, plus a lifelong weakness for aviation and good books.",
   /** The two buttons under the intro text. */
   cvAction: "View my CV",
   contactAction: "Email me",
@@ -72,8 +72,8 @@ export const professional = [
  * defined in interests.js.
  */
 export const interestsIntro = [
-  "I get through a lot of audiobooks—mostly science fiction and fantasy. In my free time, I enjoy video games and tinkering with personal programming projects at home. When time allows, I also love to cook.",
-  "Staying consistent at the gym is a continuous work in progress, though my spouse and I recently tackled that by building a home gym. We share our home with four pets, including our Labrador, Krummi. He's been my main companion when I head outdoors, and though he's getting older now and can't go for as long as he used to, we've shared countless walks over the years. Krummi and I also share a love for food—though while I prefer to enjoy good food, he simply enjoys all food.",
+  "I get through a lot of audiobooks, mostly science fiction and fantasy. In my free time, I enjoy video games and tinkering with personal programming projects at home. When time allows, I also love to cook.",
+  "Staying consistent at the gym is a continuous work in progress, though my spouse and I recently tackled that by building a home gym. We share our home with four pets, including our Labrador, Krummi. He's been my main companion when I head outdoors, and though he's getting older now and can't go for as long as he used to, we've shared countless walks over the years. Krummi and I also share a love for food, though while I prefer to enjoy good food, he simply enjoys all food.",
 ];
 
 /**
@@ -82,7 +82,7 @@ export const interestsIntro = [
  * keep this as the whole section, or add individual cards below it).
  */
 export const familyIntro = [
-  "My spouse, Sigga, and I have been writing our story together since 2018. She swept me off my feet on my birthday in London with a proposal I'll never forget—and, of course, I said yes! While we haven't walked down the aisle just yet, our life together is already filled with so much love, laughter, and beautiful chaos.",
+  "My spouse, Sigga, and I have been writing our story together since 2018. She swept me off my feet on my birthday in London with a proposal I'll never forget, and of course I said yes! While we haven't walked down the aisle just yet, our life together is already filled with so much love, laughter, and beautiful chaos.",
   "Though we don't have children of our own together, we are endlessly proud of the blended family we've built. Today, we make our home in Kópavogur alongside our two daughters. Our family circle also extends to my adult son, who lives with his girlfriend in Hafnarfjörður. Together, we've brought our worlds into one warm, vibrant home with a bright future ahead.",
 ];
 
@@ -91,7 +91,7 @@ export const familyIntro = [
  * defined in pets.js.
  */
 export const petsIntro = [
-  "We share our home with one dog and three cats. Krummi (our dog) and Simbi are the senior gentlemen of the house—both born in 2016, just a month apart. Then there are Moli and Merlín, brothers who joined us in 2025. Walks with Krummi are especially fun these days, as all three cats often tag along for the adventure!",
+  "We share our home with one dog and three cats. Krummi (our dog) and Simbi are the senior gentlemen of the house, both born in 2016, just a month apart. Then there are Moli and Merlín, brothers who joined us in 2025. Walks with Krummi are especially fun these days, as all three cats often tag along for the adventure!",
 ];
 
 /**

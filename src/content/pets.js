@@ -14,7 +14,7 @@ export const pets = [
   {
     name: "Krummi",
     description:
-      "Krummi is truly one of the most beautiful souls I've ever met. He is a friend to everyone and easily one of the smartest dogs around. Krummi's world revolves mostly around his people and food—and if you happen to have a treat for him, you'll instantly become his new best friend.",
+      "Krummi is truly one of the most beautiful souls I've ever met. He is a friend to everyone and easily one of the smartest dogs around. Krummi's world revolves mostly around his people and food, and if you happen to have a treat for him, you'll instantly become his new best friend.",
     photo: krummi,
   },
   {
