@@ -117,8 +117,8 @@ export const technicalSkills = [
   {
     label: "Personal projects",
     items: [
-      "Nextpost – Android app (Kotlin, Jetpack Compose, Firebase)",
-      "Tillslip – app in development, built with my own team of AI agents in Claude Code",
+      "Nextpost: Android app (Kotlin, Jetpack Compose, Firebase)",
+      "Tillslip: app in development, built with my own team of AI agents in Claude Code",
     ],
   },
 ];
