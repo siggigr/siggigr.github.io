@@ -451,6 +451,13 @@ img {
   margin-top: 1px;
 }
 
+.cv-edu-note {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
 .cv-edu-year {
   color: var(--muted);
   font-family: var(--font-mono);
@@ -810,6 +817,10 @@ img {
 
   .cv-edu-degree {
     font-size: 8.5pt;
+  }
+
+  .cv-edu-note {
+    font-size: 8pt;
   }
 
   .cv-edu-year {
