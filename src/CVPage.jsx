@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { professional, contact } from "./content/site";
+import { contact } from "./content/site";
 import cvAvatar from "./assets/cv-avatar.webp";
 import Icon from "./components/Icon";
 import Footer from "./components/Footer";
@@ -12,6 +12,8 @@ import {
   cvInterests,
   referencesNote,
   cvPhone,
+  cvSummary,
+  aviation,
 } from "./content/cv";
 
 const homeHref = `${import.meta.env.BASE_URL}`;
@@ -95,7 +97,7 @@ export default function CVPage() {
           </div>
         </header>
 
-        <p className="cv-about">{professional[0]}</p>
+        <p className="cv-about">{cvSummary}</p>
 
         <div className="cv-grid">
           <aside className="cv-col-left">
@@ -108,6 +110,15 @@ export default function CVPage() {
                   <div className="cv-edu-year">{item.period}</div>
                 </div>
               ))}
+            </section>
+
+            <section>
+              <h2 className="cv-label">Aviation Background</h2>
+              <ul className="cv-plain-list">
+                {aviation.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
             </section>
 
             <section>
