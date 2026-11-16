@@ -737,8 +737,8 @@ img {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .cv-avatar {
@@ -777,9 +777,9 @@ img {
 
   .cv-about {
     font-size: 9.5pt;
-    line-height: 1.5;
-    padding-bottom: 1rem;
-    margin-bottom: 1.1rem;
+    line-height: 1.45;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.9rem;
   }
 
   /* Floats paginate far more predictably in print than CSS grid,
@@ -801,7 +801,7 @@ img {
 
   .cv-col-left section,
   .cv-col-right section {
-    margin-bottom: 1.1rem;
+    margin-bottom: 0.8rem;
   }
 
   .cv-label {
@@ -829,14 +829,14 @@ img {
 
   .cv-chip {
     font-size: 8pt;
-    padding: 0.15em 0.5em;
+    padding: 0.1em 0.45em;
     border-color: #999;
     background: none;
   }
 
   .cv-skill-group {
-    gap: 0.25rem 0.5rem;
-    margin-bottom: 0.35rem;
+    gap: 0.2rem 0.4rem;
+    margin-bottom: 0.25rem;
   }
 
   .cv-skill-label {
@@ -855,7 +855,7 @@ img {
   }
 
   .cv-job {
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.7rem;
     break-inside: avoid;
   }
 
@@ -869,12 +869,12 @@ img {
   }
 
   .cv-job ul {
-    margin-top: 0.3rem;
+    margin-top: 0.2rem;
   }
 
   .cv-job li {
     font-size: 9pt;
-    line-height: 1.45;
+    line-height: 1.35;
   }
 
 a {

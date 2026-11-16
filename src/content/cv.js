@@ -102,6 +102,7 @@ export const technicalSkills = [
     label: "Tools",
     items: [
       "IntelliJ IDEA",
+      "Android Studio",
       "Oracle SQL Developer",
       "Git",
       "GitHub",
