@@ -36,7 +36,7 @@ export const inThirty = {
   paragraphs: [
     "An AI agent here is an AI model with one written job description, the way a new colleague gets a role. I wrote seven of them: someone who turns my idea into requirements, an architect, a designer, a developer, a code reviewer, a tester, and a tech lead who keeps the overview.",
     "They work like a small software company, and I run it. Each one hands its work to the next, and nothing moves on until I have read it and said yes. When an agent is unsure, it stops and asks me instead of guessing.",
-    "The result so far is a working Android app with sign-in and shared households, nearly 400 automated tests, and a first released version on my phone. The agents did the writing. The decisions, and the responsibility for the result, are mine.",
+    "The result so far is a working Android app with sign-in and shared households, over 1,200 automated tests, and a first released version on my phone. The agents did the writing. The decisions, and the responsibility for the result, are mine.",
   ],
   /** The "My part" callout. */
   myPart: {
