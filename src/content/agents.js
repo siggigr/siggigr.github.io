@@ -143,7 +143,7 @@ export const numbers = {
   eyebrow: "Tölur og staðreyndir",
   items: [
     { figure: "26 + 24", label: "functional and non-functional requirements, each one testable" },
-    { figure: "1,268", label: "automated tests: 852 for the app, 253 for the receipt logic, 163 for the database security rules" },
+    { figure: "1,267", label: "automated tests: 852 for the app, 253 for the receipt logic, 162 for the database security rules" },
     { figure: "7", label: "review rounds before the first milestone was allowed to merge" },
     { figure: "22", label: "steps in my own phone check of the first milestone" },
     { figure: "0", label: "secrets in the repository" },
