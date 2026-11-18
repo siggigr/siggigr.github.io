@@ -9,7 +9,7 @@
  */
 
 /** Change this when you update the page. Shown at the end of the line under the headline. */
-export const lastUpdated = "5 November 2026";
+export const lastUpdated = "18 November 2026";
 
 const agentsRepo = "https://github.com/siggigr/agents";
 
@@ -19,7 +19,7 @@ export const agentsHero = {
   lead: "I run a small software team made of AI agents built on Claude. Each has one job, and nothing moves on until I have approved it. Together we are building Tillslip, an Android app that reads grocery receipts and tracks what a household spends.",
   /** The three facts: bold part first, then the rest. */
   facts: [
-    { lead: "Version 0.1.0 released.", rest: "Signed and built by the pipeline, installed on my phone" },
+    { lead: "Version 0.4.0 released.", rest: "Receipt scanning delivered, signed by the pipeline and installed on my phone" },
     { lead: "7 review rounds", rest: "before the first milestone was allowed to merge" },
     { lead: "0 kr. a month", rest: "to run, with all household data kept in the EEA" },
   ],
@@ -36,7 +36,7 @@ export const inThirty = {
   paragraphs: [
     "An AI agent here is an AI model with one written job description, the way a new colleague gets a role. I wrote seven of them: someone who turns my idea into requirements, an architect, a designer, a developer, a code reviewer, a tester, and a tech lead who keeps the overview.",
     "They work like a small software company, and I run it. Each one hands its work to the next, and nothing moves on until I have read it and said yes. When an agent is unsure, it stops and asks me instead of guessing.",
-    "The result so far is a working Android app with sign-in and shared households, nearly 400 automated tests, and a first released version on my phone. The agents did the writing. The decisions, and the responsibility for the result, are mine.",
+    "The result so far is a working Android app with sign-in and shared households, over 1,200 automated tests, and a first released version on my phone. The agents did the writing. The decisions, and the responsibility for the result, are mine.",
   ],
   /** The "My part" callout. */
   myPart: {
@@ -102,7 +102,7 @@ export const honest = {
   checks: [
     { label: "I approve every step.", text: "No document is used and no code is merged until I have read it and said yes." },
     { label: "A second pair of eyes.", text: "The reviewer runs on a different AI model from the developer and never edits the code it judges." },
-    { label: "Machines check the routine.", text: "Every change runs formatting, static analysis, Android Lint, security rules tests and about 260 app tests before anyone looks at it." },
+    { label: "Machines check the routine.", text: "Every change runs formatting, static analysis, Android Lint, security rules tests and about 850 app tests before anyone looks at it." },
     { label: "I test on a real phone.", text: "Every milestone passes a written checklist on my own phone and two emulators before it is merged." },
     { label: "Decisions are written down.", text: "Every decision gets a date and a reason in the repository, so the next session starts from facts, not from memory." },
     { label: "No secrets in code.", text: "Keys, passwords and the signing key never enter the repository. The agents are not allowed to handle them." },
@@ -143,7 +143,7 @@ export const numbers = {
   eyebrow: "Tölur og staðreyndir",
   items: [
     { figure: "26 + 24", label: "functional and non-functional requirements, each one testable" },
-    { figure: "384", label: "automated tests: 262 for the app, 17 for the receipt logic, 105 for the database security rules" },
+    { figure: "1,267", label: "automated tests: 852 for the app, 253 for the receipt logic, 162 for the database security rules" },
     { figure: "7", label: "review rounds before the first milestone was allowed to merge" },
     { figure: "22", label: "steps in my own phone check of the first milestone" },
     { figure: "0", label: "secrets in the repository" },
@@ -228,7 +228,7 @@ export const next = {
     },
     {
       title: "Tillslip's next milestone.",
-      text: "Scanning a receipt and saving it on both phones in a household.",
+      text: "Milestone 3: receipts from more grocery chains, and a more careful receipt reader.",
     },
   ],
 };
